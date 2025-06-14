@@ -78,36 +78,36 @@ const projects = [
   //     techStacks.shadcn,
   //   ],
   // },
-  {
-    title: "Portfolio",
-    description:
-      "A personal portfolio website showcasing projects, skills, blogs, and contact section with responsive design and modern UI/UX styling.",
-    image: "/assets/portfolio.webp",
-    link: "https://deepakmodi.vercel.app",
-    github: "https://github.com/decodewithdeepak/portfolio",
-    techStack: [
-      techStacks.next,
-      techStacks.react,
-      techStacks.typescript,
-      techStacks.tailwind,
-      techStacks.framer,
-    ],
-  },
-  {
-    title: "Braineo.",
-    description:
-      "An online AI learning platform with courses, quizzes, and user authentication. Users can track progress and manage their learning journey.",
-    image: "/assets/braineo.webp",
-    link: "https://braineo.vercel.app",
-    github: "https://github.com/decodewithdeepak/braineo",
-    techStack: [
-      techStacks.react,
-      techStacks.typescript,
-      techStacks.tailwind,
-      techStacks.appwrite,
-      techStacks.framer,
-    ],
-  },
+  // {
+  //   title: "Portfolio",
+  //   description:
+  //     "A personal portfolio website showcasing projects, skills, blogs, and contact section with responsive design and modern UI/UX styling.",
+  //   image: "/assets/portfolio.webp",
+  //   link: "https://deepakmodi.vercel.app",
+  //   github: "https://github.com/decodewithdeepak/portfolio",
+  //   techStack: [
+  //     techStacks.next,
+  //     techStacks.react,
+  //     techStacks.typescript,
+  //     techStacks.tailwind,
+  //     techStacks.framer,
+  //   ],
+  // },
+  // {
+  //   title: "Braineo.",
+  //   description:
+  //     "An online AI learning platform with courses, quizzes, and user authentication. Users can track progress and manage their learning journey.",
+  //   image: "/assets/braineo.webp",
+  //   link: "https://braineo.vercel.app",
+  //   github: "https://github.com/decodewithdeepak/braineo",
+  //   techStack: [
+  //     techStacks.react,
+  //     techStacks.typescript,
+  //     techStacks.tailwind,
+  //     techStacks.appwrite,
+  //     techStacks.framer,
+  //   ],
+  // },
   {
     title: "Placify.",
     description:
@@ -173,7 +173,7 @@ export function Projects() {
       <div className="container mx-auto px-8">
         <SectionTitle>Projects</SectionTitle>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-2 lg:mx-20 gap-8 ">
           {projects.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}
