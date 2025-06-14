@@ -1,5 +1,5 @@
 // import React from "react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+// import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
@@ -18,7 +18,7 @@ import { Footer } from "./components/Footer";
 // import { useLoading } from "./hooks/useLoading";
 import { CustomCursor } from "./components/ui/CustomCursor";
 import { ScrollToTop } from "./components/ui/ScrollToTop";
-import { Analytics } from "@vercel/analytics/react";
+// import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   // const isLoading = useLoading();
@@ -35,7 +35,7 @@ function App() {
       <Navbar />
       <Hero />
       <About />
-      <SpeedInsights />
+      {/* <SpeedInsights /> */}
       <Skills />
       <Projects />
       {/* <GitHub /> */}
@@ -48,7 +48,7 @@ function App() {
       <Contact />
       <Footer />
       <ScrollToTop />
-      <Analytics />
+      {/* <Analytics /> */}
       {/* </div> */}
     </>
   );
