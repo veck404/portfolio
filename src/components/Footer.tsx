@@ -29,7 +29,7 @@ export function Footer() {
           </div>
 
           {/* Views Counter */}
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <a
               href="https://hits.sh/deepakmodi.tech/"
               target="_blank"
@@ -41,7 +41,7 @@ export function Footer() {
                 className="rounded-lg"
               />
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
