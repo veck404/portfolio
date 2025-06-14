@@ -94,7 +94,7 @@ const projects = [
     ],
   },
   {
-    title: "Braineo",
+    title: "Braineo.",
     description:
       "An online AI learning platform with courses, quizzes, and user authentication. Users can track progress and manage their learning journey.",
     image: "/assets/braineo.webp",
@@ -109,7 +109,7 @@ const projects = [
     ],
   },
   {
-    title: "Placify",
+    title: "Placify.",
     description:
       "A campus placement platform connecting students with recruiters. Features job listings, company profiles, and application tracking.",
     image: "/assets/placify.webp",
@@ -123,7 +123,7 @@ const projects = [
     ],
   },
   {
-    title: "NeoFolio",
+    title: "NeoFolio.",
     description:
       "A portfolio website template for developers, showcasing projects and skills. Built with modern web technologies for easy customization.",
     image: "/assets/neofolio.webp",
@@ -138,7 +138,7 @@ const projects = [
     ],
   },
   {
-    title: "Finneo",
+    title: "Finneo.",
     description:
       "An AI-powered investment platform that helps beginners understand and plan their investments based on risk, capital, age, and financial goals.",
     image: "/assets/finneo.webp",
@@ -153,7 +153,7 @@ const projects = [
     ],
   },
   {
-    title: "Ajay Sharma",
+    title: "Ajay Sharma.",
     description:
       "A freelance project built for Ajay Sharma, a self-empowerment coach. Designed landing page, pricing section, and integrated payments.",
     image: "/assets/ajaysharma.webp",
