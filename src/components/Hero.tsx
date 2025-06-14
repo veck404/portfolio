@@ -56,24 +56,16 @@ export function Hero() {
 
           {/* Right Column - Profile Image */}
           <div className="relative order-1 md:order-2 flex justify-center">
-            <div className="relative order-1 md:order-2">
-              {/* Floating solid circular elements */}
-              {/* <div className="absolute w-24 h-24 bg-blue-600 top-0 left-0 rounded-full animate-floating" />
-            <div className="absolute w-24 h-24 bg-purple-600 bottom-0 right-0 rounded-full animate-floating delay-150" />
-            <div className="absolute w-20 h-20 bg-green-500 top-4 right-4 rounded-full animate-floating delay-300" />
-            <div className="absolute w-20 h-20 bg-yellow-500 bottom-4 left-4 rounded-full animate-floating delay-450" /> */}
+            <div className="relative w-[70%] md:w-[100%] lg:w-full max-w-lg">
+              {/* Purple tint overlay */}
+              <div className="absolute inset-0 rounded-full mix-blend-multiply pointer-events-none z-10"></div>
 
-              <div className="relative w-full max-w-lg mx-auto">
-                {/* Purple tint overlay */}
-                <div className="absolute inset-0 w-96 h-96 rounded-full mix-blend-multiply pointer-events-none z-10"></div>
-
-                {/* Image */}
-                <img
-                  src="/assets/profile_pic.jpg"
-                  alt="Victor Umaru"
-                  className="relative z-20 w-72 h-72 rounded-full  animate-floating delay-400 shadow-xl/30 transform hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+              {/* Image */}
+              <img
+                src="/assets/profile_pic.jpg"
+                alt="Victor Umaru"
+                className="relative z-20 w-full h-[100%] rounded-full animate-floating delay-400 shadow-xl/30 transform lg:hover:scale-110 hover:scale-105 transition-transform duration-500"
+              />
             </div>
           </div>
         </div>
