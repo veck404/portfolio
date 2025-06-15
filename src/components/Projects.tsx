@@ -127,11 +127,11 @@ const projects = [
   //   ],
   // },
   {
-    title: "Turn Up Hosting",
+    title: "NBE Agro Allied Farms",
     description:
-      "A web hosting platform offering affordable and reliable hosting solutions with a user-friendly interface, domain registration, and customer support.",
-    image: "/assets/turnuphosting.png",
-    link: "https://turnuphosting.com",
+      "A comprehensive farm management system for NBE Agro Allied Farms, enabling efficient management of farm operations, logistics, and data analytics.",
+    image: "/assets/NBE.jpg",
+    link: "https://nbeagrofarms.com",
     // github: "https://github.com/decodewithdeepak/neofolio",
     techStack: [
       techStacks.react,
@@ -157,7 +157,7 @@ const projects = [
     ],
   },
   {
-    title: "Vector404.",
+    title: "Portfolio Webpage",
     description:
       "My personal portfolio webpage showcasing my projects, skills, and contact information. Built with modern web technologies for a responsive and engaging user experience.",
     image: "/assets/portfolio_dark.png",
