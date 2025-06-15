@@ -15,6 +15,7 @@ import {
   SiSocketdotio,
   SiStripe,
   SiAppwrite,
+  SiVite,
 } from "react-icons/si";
 
 // Define reusable tech stack icons & colors
@@ -32,6 +33,7 @@ const techStacks = {
   socket: { icon: SiSocketdotio, name: "Socket.io", color: "#" },
   stripe: { icon: SiStripe, name: "Stripe", color: "#5b4df1" },
   appwrite: { icon: SiAppwrite, name: "Appwrite", color: "#ff3d00" },
+  vite: { icon: SiVite, name: "Vite", color: "#646cff" },
 };
 
 // Define projects data
@@ -49,20 +51,22 @@ const projects = [
   //     techStacks.firebase,
   //   ],
   // },
-  // {
-  //   title: 'NeoCode',
-  //   description: 'A coding platform with curated DSA sheets, roadmaps, CS articles, and a community forum for students to share resources and discuss challenges.',
-  //   image: '/assets/neocode.webp',
-  //   link: 'https://neocoding.vercel.app',
-  //   github: 'https://github.com/decodewithdeepak/neocode',
-  //   techStack: [
-  //     techStacks.react,
-  //     techStacks.tailwind,
-  //     techStacks.typescript,
-  //     techStacks.mongodb,
-  //     techStacks.prisma,
-  //   ],
-  // },
+  {
+    title: "BlackCode",
+    description:
+      "A coding platform with curated DSA sheets, roadmaps, CS articles, and a community forum for students to share resources and discuss challenges.",
+    image: "/assets/blackcode.png",
+    link: "https://bl4ck-code.vercel.app/",
+    // github: "https://github.com/veck404/BlackCode",
+    techStack: [
+      techStacks.react,
+      techStacks.tailwind,
+      techStacks.typescript,
+      techStacks.mongodb,
+      techStacks.prisma,
+      techStacks.vite,
+    ],
+  },
   // {
   //   title: 'NeoCompiler',
   //   description: 'An online compiler supporting multiple languages with auth, themes, and AI-assisted suggestions. Users can write, run, and share code snippets easily.',
@@ -108,27 +112,27 @@ const projects = [
   //     techStacks.framer,
   //   ],
   // },
+  // {
+  //   title: "Placify.",
+  //   description:
+  //     "A campus placement platform connecting students with recruiters. Features job listings, company profiles, and application tracking.",
+  //   image: "/assets/placify.webp",
+  //   // github: "https://github.com/decodewithdeepak/placify",
+  //   techStack: [
+  //     techStacks.next,
+  //     techStacks.typescript,
+  //     techStacks.tailwind,
+  //     techStacks.mongodb,
+  //     techStacks.prisma,
+  //   ],
+  // },
   {
-    title: "Placify.",
+    title: "Turn Up Hosting",
     description:
-      "A campus placement platform connecting students with recruiters. Features job listings, company profiles, and application tracking.",
-    image: "/assets/placify.webp",
-    github: "https://github.com/decodewithdeepak/placify",
-    techStack: [
-      techStacks.next,
-      techStacks.typescript,
-      techStacks.tailwind,
-      techStacks.mongodb,
-      techStacks.prisma,
-    ],
-  },
-  {
-    title: "NeoFolio.",
-    description:
-      "A portfolio website template for developers, showcasing projects and skills. Built with modern web technologies for easy customization.",
-    image: "/assets/neofolio.webp",
-    link: "https://neofolio.vercel.app",
-    github: "https://github.com/decodewithdeepak/neofolio",
+      "A web hosting platform offering affordable and reliable hosting solutions with a user-friendly interface, domain registration, and customer support.",
+    image: "/assets/turnuphosting.png",
+    link: "https://turnuphosting.com",
+    // github: "https://github.com/decodewithdeepak/neofolio",
     techStack: [
       techStacks.react,
       techStacks.typescript,
@@ -138,12 +142,12 @@ const projects = [
     ],
   },
   {
-    title: "Finneo.",
+    title: "GrainPlus Logistics",
     description:
-      "An AI-powered investment platform that helps beginners understand and plan their investments based on risk, capital, age, and financial goals.",
-    image: "/assets/finneo.webp",
-    link: "https://finneo.vercel.app",
-    github: "https://github.com/decodewithdeepak/finneo",
+      "A logistics platform for GrainPlus, providing real-time tracking, order management, and analytics for efficient supply chain operations.",
+    image: "/assets/grainplus.jpg",
+    link: "app.grainplus.org",
+    // github: "https://github.com/decodewithdeepak/finneo",
     techStack: [
       techStacks.react,
       techStacks.typescript,
@@ -153,16 +157,16 @@ const projects = [
     ],
   },
   {
-    title: "Ajay Sharma.",
+    title: "Vector404.",
     description:
-      "A freelance project built for Ajay Sharma, a self-empowerment coach. Designed landing page, pricing section, and integrated payments.",
-    image: "/assets/ajaysharma.webp",
-    link: "https://ajay-sharma.vercel.app",
+      "My personal portfolio webpage showcasing my projects, skills, and contact information. Built with modern web technologies for a responsive and engaging user experience.",
+    image: "/assets/portfolio_dark.png",
+    link: "https://vector404.vercel.app",
     techStack: [
       techStacks.react,
       techStacks.typescript,
       techStacks.tailwind,
-      techStacks.stripe,
+      // techStacks.stripe,
     ],
   },
 ];

@@ -3,9 +3,8 @@ import { Menu, X, ArrowRight } from "lucide-react";
 import { Link } from "./Link";
 import { useTheme } from "../hooks/useTheme";
 import { ThemeToggle } from "./ui/ThemeToggle";
-import { useAnimatedLogo } from "../hooks/useAnimatedLogo";
-import { LoadingScreen } from "./loading/LoadingScreen";
 import { motion } from "framer-motion";
+import Magnet from "./reactbits/Magnet/Magnet";
 
 export function Navbar() {
   // State for mobile menu toggle
@@ -21,7 +20,6 @@ export function Navbar() {
   const { isDark, setIsDark } = useTheme();
 
   // Logo animation hook
-  const { isLogoAnimating, handleLogoClick } = useAnimatedLogo();
 
   // Handle scroll events
   useEffect(() => {
@@ -73,9 +71,6 @@ export function Navbar() {
 
   return (
     <>
-      {/* Show loading screen if logo is animating */}
-      <LoadingScreen isLoading={isLogoAnimating} />
-
       {/* Main Navbar container */}
       <nav
         className={`fixed top-2 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-6xl rounded-2xl
@@ -119,13 +114,15 @@ export function Navbar() {
             <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
 
             {/* Call-to-action link */}
-            <Link
-              href="#contact"
-              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-600 text-white text-sm hover:bg-blue-700 hover:text-white dark:text-white dark:hover:text-white"
-            >
-              Get in touch...
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-            </Link>
+            <Magnet magnetStrength={6}>
+              <Link
+                href="#contact"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-600 text-white text-sm hover:bg-blue-700 hover:text-white dark:text-white dark:hover:text-white"
+              >
+                Get in touch...
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+              </Link>
+            </Magnet>
           </div>
 
           {/* Mobile menu toggle button */}

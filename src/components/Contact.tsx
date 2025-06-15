@@ -2,16 +2,19 @@ import { SectionTitle } from "./ui/SectionTitle";
 import { ContactForm } from "./ui/ContactForm";
 import { Mail, Twitter } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+// import Magnet from "./reactbits/Magnet/Magnet";
 
 export function Contact() {
   return (
     <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
       {/* Background Elements */}
+
       <div className="container mx-auto px-4">
         <SectionTitle>Get In Touch</SectionTitle>
 
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
           {/* Left Column: Contact Info */}
+
           <div className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg">
             <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">
               Let's Connect...
