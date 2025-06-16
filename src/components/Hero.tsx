@@ -10,7 +10,7 @@ export function Hero() {
   const roles = [
     "Web Developer",
     "Computer Analyst",
-    "Machine Learning Enthusiast",
+    "ML Enthusiast",
     "Problem Solver",
     "Tech Evangelist",
     "Lifelong Learner",
@@ -65,7 +65,7 @@ export function Hero() {
                 <img
                   src="/assets/profile_pic.jpg"
                   alt="Victor Umaru"
-                  className="relative z-20 w-full h-[100%] bg-black/ rounded-full animate-floating delay-400 shadow-xl/30 transform lg:hover:scale-110 hover:scale-105 transition-transform duration-500"
+                  className="relative z-20 w-full h-[100%] bg-black/ rounded-full animate-floating animation delay-400 shadow-xl/30 transform lg:hover:scale-110 hover:scale-105 transition-transform duration-500"
                 />
               </div>
             </div>

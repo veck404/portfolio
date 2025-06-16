@@ -114,15 +114,17 @@ export function Navbar() {
             <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
 
             {/* Call-to-action link */}
-            <Magnet magnetStrength={6}>
-              <Link
-                href="#contact"
-                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-600 text-white text-sm hover:bg-blue-700 hover:text-white dark:text-white dark:hover:text-white"
-              >
-                Get in touch...
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-              </Link>
-            </Magnet>
+            <div className="absolute right-0 justify-end">
+              <Magnet magnetStrength={6}>
+                <Link
+                  href="#contact"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-600 text-white text-sm hover:bg-blue-700 hover:text-white dark:text-white dark:hover:text-white"
+                >
+                  Get in touch...
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                </Link>
+              </Magnet>
+            </div>
           </div>
 
           {/* Mobile menu toggle button */}
