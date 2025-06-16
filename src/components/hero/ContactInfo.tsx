@@ -29,7 +29,7 @@ export function ContactInfo() {
     <div className="flex flex-col items-center gap-0">
       <ContactItem
         icon={<Phone className="w-5 h-5 py-4" />}
-        text="☎️ +234 7066733522"
+        text="☎️+234 7066733522"
         href="tel:+2347066733522"
       />
       <ContactItem
@@ -39,7 +39,7 @@ export function ContactInfo() {
       />
       <ContactItem
         icon={<MapPin className="w-5 h-5 py-4" />}
-        text="📍 Nasarwa, Nigeria."
+        text="📍Nasarwa, Nigeria."
         href="https://maps.app.goo.gl/FYAJyyym5LRTwbfF9"
       />
     </div>
