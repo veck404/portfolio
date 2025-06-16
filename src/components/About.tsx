@@ -80,12 +80,12 @@ export function About() {
             transforming ideas into scalable web applications and bringing ideas
             to life. My journey in tech revolves around continuous learning,
             experimenting with new technologies, colaborating with talented
-            individuals and building solutions that make an impact.
+            individuals and building solutions that makes impact.
           </p>
 
           <div className="mt-6 flex justify-center">
             <span className="text-sm sm:text-base inline-block bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-4 py-2 rounded-lg shadow">
-              🚀 I like to build products and solve problems
+              🚀 If you can imagine it, I can code it!
             </span>
           </div>
         </div>

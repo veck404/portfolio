@@ -61,11 +61,13 @@ export function Hero() {
               <div className="absolute inset-0 rounded-full mix-blend-multiply pointer-events-none z-10"></div>
 
               {/* Image */}
-              <img
-                src="/assets/profile_pic.jpg"
-                alt="Victor Umaru"
-                className="relative z-20 w-full h-[100%] rounded-full animate-floating delay-400 shadow-xl/30 transform lg:hover:scale-110 hover:scale-105 transition-transform duration-500"
-              />
+              <div className="pc-card">
+                <img
+                  src="/assets/profile_pic.jpg"
+                  alt="Victor Umaru"
+                  className="relative z-20 w-full h-[100%] bg-black/ rounded-full animate-floating delay-400 shadow-xl/30 transform lg:hover:scale-110 hover:scale-105 transition-transform duration-500"
+                />
+              </div>
             </div>
           </div>
         </div>
