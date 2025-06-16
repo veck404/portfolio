@@ -25,7 +25,7 @@ export function Contact() {
             </p>
             <div className="mt-6 flex justify-center">
               <span className="text-sm sm:text-base inline-block bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-4 py-2 rounded-lg shadow mb-8">
-                🚀 Typically respond to Whatsapp Messages in a flash!
+                ⚡ Typically respond to Whatsapp Messages in a flash!
               </span>
             </div>
 
