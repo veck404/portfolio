@@ -35,11 +35,11 @@ export function ContactInfo() {
       <ContactItem
         icon={<Mail className="w-5 h-5 py-4" />}
         text="📩 veck404@gmail.com"
-        href="mailto:victor7ultimate@gmail.com"
+        href="mailto:veck404@gmail.com"
       />
       <ContactItem
         icon={<MapPin className="w-5 h-5 py-4" />}
-        text="📍 Nasarwa, Nigeria."
+        text="📍 Nasarawa, Nigeria."
         href="https://maps.app.goo.gl/FYAJyyym5LRTwbfF9"
       />
     </div>
