@@ -8,9 +8,9 @@ import { ActionButtons } from "./hero/ActionButtons";
 
 export function Hero() {
   const roles = [
-    "Front-end Developer",
+    "Web Developer",
     "Computer Analyst",
-    "ML Enthusiast",
+    "Machine Learning Enthusiast",
     "Problem Solver",
     "Tech Evangelist",
     "Lifelong Learner",
