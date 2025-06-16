@@ -34,7 +34,7 @@ export function ContactInfo() {
       />
       <ContactItem
         icon={<Mail className="w-5 h-5 py-4" />}
-        text="📩 victor7ultimate@gmail.com"
+        text="📩victor7ultimate@gmail.com"
         href="mailto:victor7ultimate@gmail.com"
       />
       <ContactItem
