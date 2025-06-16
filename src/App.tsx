@@ -13,16 +13,12 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { CustomCursor } from "./components/ui/CustomCursor";
 import { ScrollToTop } from "./components/ui/ScrollToTop";
-import DotGrid from "./components/reactbits/DotGrid";
 // import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* DotGrid wallpaper background */}
-      <div className="absolute inset-0 -z-10">
-        <DotGrid />
-      </div>
+      <div className="absolute inset-0 -z-10"></div>
 
       {/* Custom cursor and UI */}
       <CustomCursor />
