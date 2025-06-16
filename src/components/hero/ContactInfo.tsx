@@ -39,8 +39,8 @@ export function ContactInfo() {
       />
       <ContactItem
         icon={<MapPin className="w-5 h-5 py-4" />}
-        text="Abuja, Nigeria"
-        href="https://www.google.com/maps/place/Abuja,+Nigeria"
+        text="Nasarwa, Nigeria."
+        href="https://maps.app.goo.gl/FYAJyyym5LRTwbfF9"
       />
     </div>
   );
