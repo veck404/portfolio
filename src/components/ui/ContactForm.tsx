@@ -36,6 +36,7 @@ export function ContactForm() {
 
     try {
       // Send form data to Formspree endpoint
+      //https://formspree.io/f/mvggvyar",
       const response = await fetch("https://formspree.io/f/mvggvyar", {
         // Replace with your actual Formspree endpoint
         method: "POST",
@@ -56,7 +57,9 @@ export function ContactForm() {
         setStatus("error");
       }
     } catch (error) {
-      setErrorMessage("An unexpected error occurred. Please try again.");
+      setErrorMessage(
+        "An unexpected error occurred. Please reach out via WhatsApp instead."
+      );
       setStatus("error");
     }
   };
@@ -70,7 +73,7 @@ export function ContactForm() {
           Name
         </label>
         <div className="relative">
-          <div className="absolute inset-y-0 left-3 flex items-center text-gray-400">
+          <div className="absolute inset-y-0 left-3 flex items-center text-gray-500">
             {/* User icon */}
             <User className="w-5 h-5" />
           </div>
@@ -94,7 +97,7 @@ export function ContactForm() {
           Email
         </label>
         <div className="relative">
-          <div className="absolute inset-y-0 left-3 flex items-center text-gray-400">
+          <div className="absolute inset-y-0 left-3 flex items-center text-gray-500">
             {/* Mail icon */}
             <Mail className="w-5 h-5" />
           </div>
@@ -118,7 +121,7 @@ export function ContactForm() {
           Message
         </label>
         <div className="relative">
-          <div className="absolute top-3 left-3 text-gray-400">
+          <div className="absolute top-3 left-3 text-gray-600">
             {/* Comment icon */}
             <FaRegCommentDots className="w-5 h-5" />
           </div>
