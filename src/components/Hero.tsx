@@ -5,6 +5,7 @@ import { TypeWriter } from "./ui/TypeWriter";
 import { SocialLinks } from "./hero/SocialLinks";
 import { ContactInfo } from "./hero/ContactInfo";
 import { ActionButtons } from "./hero/ActionButtons";
+// import { Meteors } from "./meteors";
 
 export function Hero() {
   const roles = [
@@ -21,6 +22,7 @@ export function Hero() {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
+      {/* <Meteors number={15} /> */}
       {/* Animated background with particles */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
         {/* <div className="absolute inset-0 bg-grid-pattern opacity-[0.08]" /> */}
