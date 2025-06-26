@@ -12,7 +12,7 @@ function ContactItem({ icon, text, href }: ContactItemProps) {
   return (
     <Component
       href={href}
-      className={`flex items-center gap-2 px-4 py-1 ${
+      className={`flex items-start gap-2 py-1 ${
         href ? "hover:scale-105" : ""
       } transition-transform duration-200`}
     >
@@ -26,7 +26,7 @@ function ContactItem({ icon, text, href }: ContactItemProps) {
 
 export function ContactInfo() {
   return (
-    <div className="flex flex-col items-center gap-0">
+    <div className="flex flex-col items-start gap-0">
       <ContactItem
         icon={<Phone className="w-5 h-5 py-4" />}
         text="☎️ +234 7066733522"

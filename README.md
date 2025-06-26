@@ -18,7 +18,8 @@ This is my personal developer portfolio built using **React**, **Vite**, and **T
 
 ## 📸 Preview
 
-![Portfolio Preview](./preview.png) <!-- Replace with actual screenshot path if available -->
+![Portfolio Preview | Desktop](./preview.png)
+![Portfolio Preview | Responsive](./preview2.png)
 
 ---
 
@@ -36,3 +37,4 @@ npm install
 
 # Start development server
 npm run dev
+```
