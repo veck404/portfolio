@@ -73,7 +73,7 @@ export function Navbar() {
     <>
       {/* Main Navbar container */}
       <nav
-        className={`fixed top-2 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-6xl rounded-2xl
+        className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-6xl rounded-2xl
           ${
             isScrolled
               ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md"
