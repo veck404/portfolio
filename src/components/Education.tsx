@@ -15,12 +15,12 @@ const education = [
     period: "2006 - 2012",
     honor: "O'Level Certified",
   },
-  {
-    degree: "Primary School Certification",
-    institution: "St. Kizito Nursary & Primary School, Nasarawa.",
-    period: "1997 - 2006",
-    honor: "Primary School Certificate",
-  },
+  // {
+  //   degree: "Primary School Certification",
+  //   institution: "St. Kizito Nursary & Primary School, Nasarawa.",
+  //   period: "1997 - 2006",
+  //   honor: "Primary School Certificate",
+  // },
 ];
 
 export function Education() {
