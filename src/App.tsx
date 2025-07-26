@@ -13,26 +13,30 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { CustomCursor } from "./components/ui/CustomCursor";
 import { ScrollToTop } from "./components/ui/ScrollToTop";
+import { FollowerPointerCard } from "./components/reactbits/following-pointer/following-pointer";
 // import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      <div className="absolute inset-0 -z-10"></div>
+    <FollowerPointerCard>
+      <div className="relative min-h-screen overflow-hidden">
+        <div className="absolute inset-0 -z-10"></div>
 
-      {/* Custom cursor and UI */}
-      <CustomCursor />
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Education />
-      <Contact />
-      <Footer />
-      <ScrollToTop />
-    </div>
+        <CustomCursor />
+        <Navbar />
+        {/* <SplashCursor /> */}
+        {/* <FollowerPointerCard /> */}
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Education />
+        <Contact />
+        <Footer />
+        <ScrollToTop />
+      </div>
+    </FollowerPointerCard>
   );
 }
 
