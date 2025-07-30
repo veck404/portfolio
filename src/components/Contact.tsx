@@ -2,8 +2,8 @@ import { SectionTitle } from "./ui/SectionTitle";
 import { ContactForm } from "./ui/ContactForm";
 import { Mail, Twitter } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+// import { useRef, useEffect, useState } from "react";
 
 // import Magnet from "./reactbits/Magnet/Magnet";
 
