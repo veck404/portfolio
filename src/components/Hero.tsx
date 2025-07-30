@@ -5,6 +5,7 @@ import { TypeWriter } from "./ui/TypeWriter";
 import { SocialLinks } from "./hero/SocialLinks";
 import { ContactInfo } from "./hero/ContactInfo";
 import { ActionButtons } from "./hero/ActionButtons";
+import { motion } from "framer-motion";
 // import { Meteors } from "./meteors";
 
 export function Hero() {
@@ -34,7 +35,12 @@ export function Hero() {
       <div className="container mx-auto px-10 py-16 relative z-10">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left Column - Content */}
-          <div className="flex flex-col items-center justify-center text-center space-y-4 order-2 md:order-1">
+          <motion.div
+            initial={{ x: "-50%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="flex flex-col items-center justify-center text-center space-y-4 order-2 md:order-1"
+          >
             <div className="space-y-2">
               <div className="inline-block bg-blue-100 dark:bg-blue-900/50 backdrop-blur-sm text-blue-600 dark:text-blue-300 text-sm font-medium px-4 py-2 rounded-full">
                 Hello!{" "}
@@ -54,7 +60,7 @@ export function Hero() {
             <ContactInfo />
             <ActionButtons />
             <SocialLinks />
-          </div>
+          </motion.div>
 
           {/* Right Column - Profile Image */}
           <div className="relative order-1 md:order-2 flex justify-center">
