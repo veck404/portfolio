@@ -177,7 +177,7 @@ export function Projects() {
       <div className="container mx-auto px-8">
         <SectionTitle>Projects</SectionTitle>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-2 lg:mx-20 gap-8 ">
+        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-2 gap-8">
           {projects.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}

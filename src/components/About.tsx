@@ -1,6 +1,8 @@
 import { User2, Code2, Lightbulb } from "lucide-react";
 import { GoGoal } from "react-icons/go";
 import { SectionTitle } from "./ui/SectionTitle";
+import { motion } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 
 const aboutSections = [
   {
@@ -60,7 +62,31 @@ const aboutSections = [
   },
 ];
 
+function useScrollDirection() {
+  const [direction, setDirection] = useState<"up" | "down">("down");
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY.current) {
+        setDirection("down");
+      } else if (currentScrollY < lastScrollY.current) {
+        setDirection("up");
+      }
+      lastScrollY.current = currentScrollY;
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  return direction;
+}
+
 export function About() {
+  const scrollDirection = useScrollDirection();
+  const yMain = scrollDirection === "down" ? -40 : 40;
+  const yGrid = scrollDirection === "down" ? -20 : 20;
+
   return (
     <section id="about" className="py-20 relative overflow-hidden">
       {/* Background Elements */}
@@ -68,7 +94,13 @@ export function About() {
         {/* <div className="absolute inset-0 bg-grid-pattern opacity-[0.06]" /> */}
       </div>
 
-      <div className="container mx-auto px-6 relative">
+      <motion.div
+        initial={{ opacity: 0, y: yMain }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.0 }}
+        className="container mx-auto px-6 relative"
+      >
         <SectionTitle>About Me</SectionTitle>
 
         {/* Introduction */}
@@ -79,47 +111,60 @@ export function About() {
             Front-end Developer and a BSc. Computer Science holder. I love
             transforming ideas into scalable web applications and bringing ideas
             to life. My journey in tech revolves around continuous learning,
-            experimenting with new technologies, colaborating with talented
+            experimenting with new technologies, collaborating with talented
             individuals and building solutions that make an impact.
           </p>
-
-          <div className="mt-6 flex justify-center">
+          <div className="mt-8 flex justify-center">
             <span className="text-sm sm:text-base inline-block bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-4 py-2 rounded-lg shadow">
               🚀 If you can imagine it, I can bring it to life!
             </span>
           </div>
         </div>
+      </motion.div>
 
-        {/* About Section Cards */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-          {aboutSections.map(({ icon: Icon, title, description, color }) => (
-            <div key={title} className="relative group">
-              {/* Background Effect */}
-              <div
-                className={`absolute inset-0 ${color} rounded-xl blur-xl opacity-20 group-hover:opacity-60 transition-opacity duration-300 pointer-events-none`}
-              />
+      {/* About Section Cards */}
+      <motion.div
+        initial={{ opacity: 0, y: yGrid }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.0 }}
+        className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto"
+      >
+        {aboutSections.map(({ icon: Icon, title, description, color }, idx) => (
+          <motion.div
+            key={title}
+            initial={{ opacity: 0, y: yGrid }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.45,
+              delay: idx * 0.04,
+              ease: "easeOut",
+            }}
+            viewport={{ once: false, amount: 0.0 }}
+            className="relative group"
+          >
+            <div
+              className={`absolute inset-0 ${color} rounded-xl blur-xl opacity-20 group-hover:opacity-60 transition-opacity duration-300 pointer-events-none`}
+            />
 
-              {/* Card Content */}
-              <div className="relative bg-white dark:bg-gray-900 p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md hover:shadow-lg transition-transform duration-300 transform hover:-translate-y-1">
-                <div className="flex items-center mb-4 space-x-4">
-                  {/* Icon */}
-                  <div className={`p-3 ${color} rounded-lg`}>
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
-                    {title}
-                  </h3>
+            <div className="relative bg-white dark:bg-gray-900 p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md hover:shadow-lg transition-transform duration-300 transform hover:-translate-y-1">
+              <div className="flex items-center mb-4 space-x-4">
+                <div className={`p-3 ${color} rounded-lg`}>
+                  <Icon className="w-6 h-6 text-white" />
                 </div>
-                <ul className="text-sm sm:text-base list-disc pl-6 text-gray-600 dark:text-gray-300 space-y-1">
-                  {description.map((point, index) => (
-                    <li key={index}>{point}</li>
-                  ))}
-                </ul>
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
+                  {title}
+                </h3>
               </div>
+              <ul className="text-sm sm:text-base list-disc pl-6 text-gray-600 dark:text-gray-300 space-y-1">
+                {description.map((point, index) => (
+                  <li key={index}>{point}</li>
+                ))}
+              </ul>
             </div>
-          ))}
-        </div>
-      </div>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   );
 }

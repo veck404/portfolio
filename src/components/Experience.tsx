@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 import { SectionTitle } from "./ui/SectionTitle";
 import { ExperienceCard } from "./ui/ExperienceCard";
 
@@ -71,18 +73,66 @@ const experiences = [
   },
 ];
 
+function useScrollDirection() {
+  const [direction, setDirection] = useState<"up" | "down">("down");
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY.current) {
+        setDirection("down");
+      } else if (currentScrollY < lastScrollY.current) {
+        setDirection("up");
+      }
+      lastScrollY.current = currentScrollY;
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  return direction;
+}
+
 export function Experience() {
+  const scrollDirection = useScrollDirection();
+  const yMain = scrollDirection === "down" ? -40 : 40;
+  const yGrid = scrollDirection === "down" ? -20 : 20;
+
   return (
     <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-800">
       {/* Background Elements */}
-      <div className="container mx-auto px-8">
+      <motion.div
+        initial={{ opacity: 0, y: yMain }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.0 }}
+        className="container mx-auto px-8"
+      >
         <SectionTitle>Experience</SectionTitle>
-        <div className="relative border-l-2 border-blue-600 dark:border-blue-500 max-w-5xl mx-auto space-y-10">
+        <motion.div
+          initial={{ opacity: 0, y: yGrid }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.0 }}
+          className="relative border-l-2 border-blue-600 dark:border-blue-500 max-w-5xl mx-auto space-y-10"
+        >
           {experiences.map((exp, index) => (
-            <ExperienceCard key={index} {...exp} />
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: yGrid }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.45,
+                delay: index * 0.04,
+                ease: "easeOut",
+              }}
+              viewport={{ once: false, amount: 0.0 }}
+            >
+              <ExperienceCard {...exp} />
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

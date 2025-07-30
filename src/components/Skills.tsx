@@ -25,6 +25,8 @@ import {
 import { FaNodeJs, FaPython } from "react-icons/fa";
 import { VscVscode } from "react-icons/vsc";
 import { IoLogoFirebase } from "react-icons/io5";
+import { motion } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 
 const skills = [
   {
@@ -94,26 +96,68 @@ const skills = [
   { name: "Vercel", icon: SiVercel, color: "#", url: "https://vercel.com/" },
 ];
 
+function useScrollDirection() {
+  const [direction, setDirection] = useState<"up" | "down">("down");
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY.current) {
+        setDirection("down");
+      } else if (currentScrollY < lastScrollY.current) {
+        setDirection("up");
+      }
+      lastScrollY.current = currentScrollY;
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  return direction;
+}
+
 export function Skills() {
+  const scrollDirection = useScrollDirection();
+  const yMain = scrollDirection === "down" ? -40 : 40;
+  const yGrid = scrollDirection === "down" ? -20 : 20;
+
   return (
     <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800">
       {/* Background Elements */}
 
-      <div className="container mx-auto px-6">
+      <motion.div
+        initial={{ opacity: 0, y: yMain }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.0 }}
+        className="container mx-auto px-6"
+      >
         <SectionTitle>Skills</SectionTitle>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-3 md:grid-cols-6 lg:grid-cols-5 gap-4 sm:gap-6 mt-8">
-          {skills.map((tech) => (
-            <SkillCard
+        <motion.div
+          initial={{ opacity: 0, y: yGrid }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.0 }}
+          className="max-w-6xl mx-auto grid grid-cols-3 md:grid-cols-6 lg:grid-cols-5 gap-4 sm:gap-6 mt-8"
+        >
+          {skills.map((tech, index) => (
+            <motion.div
               key={tech.name}
-              name={tech.name}
-              icon={tech.icon}
-              color={tech.color}
-              url={tech.url}
-            />
+              initial={{ opacity: 0, y: yGrid }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.45,
+                delay: index * 0.04,
+                ease: "easeOut",
+              }}
+              viewport={{ once: false, amount: 0.0 }}
+            >
+              <SkillCard {...tech} />
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

@@ -81,7 +81,6 @@ export const FollowerPointerCard: React.FC<FollowerPointerCardProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={cn("relative", className)}
-      style={{ cursor: "none" }}
     >
       {children}
       <AnimatePresence>

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { User, Mail } from "lucide-react";
 import { LuMessageSquareShare } from "react-icons/lu";
 import { FaRegCommentDots } from "react-icons/fa";
@@ -159,14 +160,48 @@ export function ContactForm() {
 
       {/* Status Messages */}
       {status === "success" && (
-        <p className="text-green-600 text-center mt-4">
-          {/* Success message */}
+        <motion.p
+          initial={{ scale: 0.7, rotate: -10, opacity: 0, y: 30 }}
+          animate={{
+            scale: [1.2, 0.95, 1.05, 1],
+            rotate: [0, 8, -8, 0],
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 12,
+            duration: 0.9,
+          }}
+          className="text-green-600 text-center mt-4 font-bold text-lg drop-shadow-lg"
+        >
+          <span className="inline-block animate-bounce mr-2">🎉</span>
           Message sent successfully!
-        </p>
+          <span className="inline-block animate-bounce ml-2">🚀</span>
+        </motion.p>
       )}
       {status === "error" && (
-        // Error message
-        <p className="text-red-600 text-center mt-4">{errorMessage}</p>
+        <motion.p
+          initial={{ scale: 0.7, rotate: 10, opacity: 0, y: 30 }}
+          animate={{
+            scale: [1.2, 0.95, 1.05, 1],
+            rotate: [0, -8, 8, 0],
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 12,
+            duration: 0.9,
+          }}
+          className="text-red-600 text-center mt-4 font-bold text-lg drop-shadow-lg"
+        >
+          <span className="inline-block animate-bounce mr-2">❌</span>
+          {errorMessage}
+          <span className="inline-block animate-bounce ml-2">😢</span>
+        </motion.p>
       )}
     </form>
   );
