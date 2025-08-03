@@ -12,12 +12,12 @@ import { useTheme } from "../hooks/useTheme";
 export function Hero() {
   const { isDark } = useTheme();
   const roles = [
-    "Web Developer.",
-    "Computer Analyst.",
-    "ML Enthusiast.",
-    "Problem Solver.",
-    "Tech Evangelist.",
-    "Lifelong Learner.",
+    "Web Developer",
+    "Computer Analyst",
+    "ML Enthusiast",
+    "Problem Solver",
+    "Tech Evangelist",
+    "Lifelong Learner",
   ];
 
   return (
