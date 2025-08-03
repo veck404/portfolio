@@ -6,9 +6,11 @@ import { SocialLinks } from "./hero/SocialLinks";
 import { ContactInfo } from "./hero/ContactInfo";
 import { ActionButtons } from "./hero/ActionButtons";
 import { motion } from "framer-motion";
+import { useTheme } from "../hooks/useTheme";
 // import { Meteors } from "./meteors";
 
 export function Hero() {
+  const { isDark } = useTheme();
   const roles = [
     "Web Developer",
     "Computer Analyst",
@@ -71,9 +73,11 @@ export function Hero() {
               {/* Image */}
               <div className="pc-card relative group animate-floating animation delay-400">
                 <img
-                  src="/assets/profile_pic.jpg"
+                  src={
+                    isDark ? "/assets/prof-pic-drk.png" : "/assets/prof-pic.png"
+                  }
                   alt="Victor Umaru"
-                  className="relative z-20 w-full h-[100%] bg-black/ rounded-full shadow-xl/30 transform lg:hover:scale-110 hover:scale-105 transition-transform duration-500"
+                  className="relative z-20 w-full h-[80%] bg-black/ rounded-full shadow-xl/30 transform lg:hover:scale-110 hover:scale-105 transition-transform duration-500"
                 />
                 {/* Dark tint overlay only in dark mode, scales with image on hover */}
                 <div className="absolute inset-0 rounded-full bg-black/20 dark:block hidden z-30 pointer-events-none transform transition-transform duration-500 group-hover:scale-105 lg:group-hover:scale-110"></div>
