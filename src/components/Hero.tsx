@@ -74,7 +74,9 @@ export function Hero() {
               <div className="pc-card relative group animate-floating animation delay-400">
                 <img
                   src={
-                    isDark ? "/assets/prof-pic-drk.png" : "/assets/prof-pic.png"
+                    isDark
+                      ? "/assets/prof-pic-drk.webp"
+                      : "/assets/prof-pic.webp"
                   }
                   alt="Victor Umaru"
                   className="relative z-20 w-full h-[100%] bg-black/ rounded-full shadow-xl/30 transform lg:hover:scale-110 hover:scale-105 transition-transform duration-500"
