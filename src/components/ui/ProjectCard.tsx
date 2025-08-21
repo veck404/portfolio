@@ -2,6 +2,7 @@
 import { SiGithub } from "react-icons/si";
 import { FaGlobe } from "react-icons/fa";
 import { IconType } from "react-icons";
+import React from "react";
 
 interface TechStackItem {
   icon: IconType;
@@ -18,7 +19,7 @@ interface ProjectCardProps {
   techStack: TechStackItem[];
 }
 
-export function ProjectCard({
+export const ProjectCard = React.memo(function ProjectCard({
   title,
   description,
   image,
@@ -32,11 +33,32 @@ export function ProjectCard({
         {/* Image */}
         <div className="relative overflow-hidden p-4 pb-0">
           <a href={link} target="_blank" rel="noopener noreferrer">
-            <img
-              src={image}
-              alt={`Screenshot of ${title}`}
-              className="w-full h-full object-cover rounded-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"
-            />
+            {(() => {
+              const base = image.replace(/(\.[a-zA-Z]+)$/, "");
+              return (
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcSet={`${base}-800.avif 800w, ${base}-400.avif 400w`}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <source
+                    type="image/webp"
+                    srcSet={`${base}-800.webp 800w, ${base}-400.webp 400w`}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <img
+                    src={image}
+                    alt={`Screenshot of ${title}`}
+                    loading="lazy"
+                    decoding="async"
+                    width={800}
+                    height={450}
+                    className="w-full h-auto object-cover rounded-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                  />
+                </picture>
+              );
+            })()}
           </a>
         </div>
 
@@ -100,7 +122,7 @@ export function ProjectCard({
       </div>
     </div>
   );
-}
+});
 
 export function ProjectsGrid({ projects }: { projects: ProjectCardProps[] }) {
   return (

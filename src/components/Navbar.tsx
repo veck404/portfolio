@@ -87,7 +87,26 @@ export function Navbar() {
             className="cursor-pointer"
             onClick={() => (window.location.href = "/#home")}
           >
-            <img src="/assets/favicon.png" alt="Logo" className="h-8 w-auto" />
+            <picture>
+              <source
+                type="image/avif"
+                srcSet="/assets/favicon-800.avif 800w, /assets/favicon-400.avif 400w"
+                sizes="48px"
+              />
+              <source
+                type="image/webp"
+                srcSet="/assets/favicon-800.webp 800w, /assets/favicon-400.webp 400w"
+                sizes="48px"
+              />
+              <img
+                src="/assets/favicon.png"
+                alt="Logo"
+                width={32}
+                height={32}
+                loading="lazy"
+                className="h-8 w-auto"
+              />
+            </picture>
           </div>
 
           {/* Desktop nav links - hidden on smaller screens */}

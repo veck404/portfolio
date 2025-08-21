@@ -9,7 +9,12 @@ interface SkillCardProps {
   url?: string;
 }
 
-export function SkillCard({ name, icon: Icon, color, url }: SkillCardProps) {
+export const SkillCard = React.memo(function SkillCard({
+  name,
+  icon: Icon,
+  color,
+  url,
+}: SkillCardProps) {
   return (
     <a
       href={url}
@@ -33,4 +38,4 @@ export function SkillCard({ name, icon: Icon, color, url }: SkillCardProps) {
       </span>
     </a>
   );
-}
+});

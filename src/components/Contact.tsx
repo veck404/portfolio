@@ -1,5 +1,8 @@
 import { SectionTitle } from "./ui/SectionTitle";
-import { ContactForm } from "./ui/ContactForm";
+import React, { Suspense } from "react";
+const ContactForm = React.lazy(() =>
+  import("./ui/ContactForm").then((m) => ({ default: m.ContactForm }))
+);
 import { Mail, Twitter } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -189,7 +192,15 @@ export function Contact() {
             }}
             className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg"
           >
-            <ContactForm />
+            <Suspense
+              fallback={
+                <div className="h-64 flex items-center justify-center">
+                  Loading form…
+                </div>
+              }
+            >
+              <ContactForm />
+            </Suspense>
           </motion.div>
         </motion.div>
       </motion.div>

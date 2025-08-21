@@ -72,15 +72,40 @@ export function Hero() {
 
               {/* Image */}
               <div className="pc-card relative group animate-floating animation delay-400">
-                <img
-                  src={
-                    isDark
-                      ? "/assets/prof-pic-drk.webp"
-                      : "/assets/prof-pic.webp"
-                  }
-                  alt="Victor Umaru"
-                  className="relative z-20 w-full h-[100%] bg-black/ rounded-full shadow-xl/30 transform lg:hover:scale-110 hover:scale-105 transition-transform duration-500"
-                />
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcSet={
+                      isDark
+                        ? "/assets/prof-pic-drk-800.avif 800w, /assets/prof-pic-drk-400.avif 400w"
+                        : "/assets/prof-pic-800.avif 800w, /assets/prof-pic-400.avif 400w"
+                    }
+                    sizes="(max-width: 768px) 80vw, 400px"
+                  />
+                  <source
+                    type="image/webp"
+                    srcSet={
+                      isDark
+                        ? "/assets/prof-pic-drk-800.webp 800w, /assets/prof-pic-drk-400.webp 400w"
+                        : "/assets/prof-pic-800.webp 800w, /assets/prof-pic-400.webp 400w"
+                    }
+                    sizes="(max-width: 768px) 80vw, 400px"
+                  />
+                  <img
+                    src={
+                      isDark
+                        ? "/assets/prof-pic-drk.webp"
+                        : "/assets/prof-pic.webp"
+                    }
+                    alt="Victor Umaru"
+                    width={400}
+                    height={400}
+                    loading="lazy"
+                    decoding="async"
+                    className="relative z-20 w-full h-auto rounded-full shadow-xl transform lg:hover:scale-110 hover:scale-105 transition-transform duration-500"
+                  />
+                </picture>
+
                 {/* Dark tint overlay only in dark mode, scales with image on hover */}
                 <div className="absolute inset-0 rounded-full bg-black/20 dark:block hidden z-30 pointer-events-none transform transition-transform duration-500 group-hover:scale-105 lg:group-hover:scale-110"></div>
               </div>

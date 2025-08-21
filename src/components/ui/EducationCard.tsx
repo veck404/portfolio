@@ -1,3 +1,4 @@
+import React from "react";
 import { GraduationCap, Calendar, Award } from "lucide-react";
 
 interface EducationCardProps {
@@ -8,7 +9,7 @@ interface EducationCardProps {
   isLast: boolean;
 }
 
-export function EducationCard({
+export const EducationCard = React.memo(function EducationCard({
   degree,
   institution,
   period,
@@ -57,4 +58,4 @@ export function EducationCard({
       )}
     </div>
   );
-}
+});
