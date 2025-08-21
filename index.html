@@ -26,7 +26,31 @@
     /> -->
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <!-- Preconnect to font provider and preload the stylesheet for faster FCP -->
+    <link rel="preconnect" href="https://rsms.me" crossorigin />
+    <link
+      rel="preload"
+      href="https://rsms.me/inter/inter.css"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+    <noscript
+      ><link rel="stylesheet" href="https://rsms.me/inter/inter.css"
+    /></noscript>
+
+    <!-- Preload hero/profile image variants (match prefers-color-scheme) to improve LCP -->
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/prof-pic-800.avif"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/prof-pic-drk-800.avif"
+      media="(prefers-color-scheme: dark)"
+    />
   </head>
   <body>
     <div id="root"></div>
