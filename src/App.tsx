@@ -11,7 +11,7 @@ import { Experience } from "./components/Experience";
 import { Education } from "./components/Education";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
-// import { CustomCursor } from "./components/ui/CustomCursor";
+import { CustomCursor } from "./components/ui/CustomCursor";
 import { ScrollToTop } from "./components/ui/ScrollToTop";
 import { FollowerPointerCard } from "./components/reactbits/following-pointer/following-pointer";
 // import { Analytics } from "@vercel/analytics/react";
@@ -22,7 +22,7 @@ function App() {
       <div className="relative min-h-screen overflow-hidden">
         <div className="absolute inset-0 -z-10"></div>
 
-        {/* <CustomCursor /> */}
+        <CustomCursor />
         <Navbar />
         {/* <SplashCursor /> */}
         {/* <FollowerPointerCard /> */}
@@ -34,7 +34,7 @@ function App() {
         <Education />
         <Contact />
         <Footer />
-        {/* <ScrollToTop /> */}
+        <ScrollToTop />
       </div>
     </FollowerPointerCard>
   );
