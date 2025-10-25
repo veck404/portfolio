@@ -29,7 +29,7 @@ function ProfileImage() {
   // You may add a PNG/JPG fallback here if WebP/AVIF unsupported by user’s browser
 
   return (
-    <div className="relative w-[70%] md:w-full max-w-lg mx-auto">
+    <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-lg mx-auto">
       <div className="absolute inset-0 rounded-full mix-blend-multiply pointer-events-none z-10" />
       <div className="pc-card relative group animate-floating animation delay-400">
         <picture>

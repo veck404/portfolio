@@ -1,6 +1,6 @@
-import { useTheme } from "../../hooks/useTheme";
+import { useTheme } from "../hooks/useTheme";
 
-export function HeroProfileImage() {
+export function ProfileImage() {
   const { isDark } = useTheme();
   const dark = isDark;
   const avifSrcSet = dark
@@ -14,7 +14,7 @@ export function HeroProfileImage() {
     : "/assets/prof-pic.webp";
 
   return (
-    <div className="relative w-[70%] md:w-full max-w-lg mx-auto">
+    <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-lg mx-auto">
       <div className="absolute inset-0 rounded-full mix-blend-multiply pointer-events-none z-10" />
       <div className="pc-card relative group animate-floating animation delay-400">
         <picture>
@@ -27,7 +27,7 @@ export function HeroProfileImage() {
             height={400}
             loading="lazy"
             decoding="async"
-            className="relative z-20 w-full h-auto rounded-full shadow-xl transform lg:hover:scale-110 hover:scale-105 transition-transform duration-500"
+            className="relative z-20 w-full max-w-[400px] h-auto rounded-full shadow-xl transform lg:hover:scale-110 hover:scale-105 transition-transform duration-500"
           />
         </picture>
         <div className="absolute inset-0 rounded-full bg-black/20 dark:block hidden z-30 pointer-events-none transform transition-transform duration-500 group-hover:scale-105 lg:group-hover:scale-110"></div>
