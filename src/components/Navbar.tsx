@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { Link } from "./Link";
 import { useTheme } from "../hooks/useTheme";
