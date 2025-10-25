@@ -1,4 +1,4 @@
-import React from "react";
+
 import { TypeWriter } from "../ui/TypeWriter";
 
 interface HeroHeadingProps {
