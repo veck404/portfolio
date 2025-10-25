@@ -6,7 +6,7 @@ import {
   SiCss3,
   SiJavascript,
   SiFlutter,
-  SiMongodb,
+  SiNextdotjs,
   SiGit,
   SiGithub,
   SiReact,
@@ -67,10 +67,10 @@ const skills = [
     url: "https://nodejs.org/",
   },
   {
-    name: "MongoDB",
-    icon: SiMongodb,
+    name: "Next.js",
+    icon: SiNextdotjs,
     color: "#47a248",
-    url: "https://www.mongodb.com/",
+    url: "https://www.nextjs.org/",
   },
   {
     name: "Firebase",
