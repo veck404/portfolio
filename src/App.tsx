@@ -34,7 +34,7 @@ function App() {
         <Education />
         <Contact />
         <Footer />
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
       </div>
     </FollowerPointerCard>
   );
