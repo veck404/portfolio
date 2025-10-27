@@ -128,7 +128,7 @@ export function About() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.0 }}
-        className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto"
+        className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto px-6"
       >
         {aboutSections.map(({ icon: Icon, title, description, color }, idx) => (
           <motion.div
