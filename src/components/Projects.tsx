@@ -38,19 +38,19 @@ const techStacks = {
 
 // Define projects data
 const projects = [
-  // {
-  //   title: 'NotesNeo',
-  //   description: 'A notes sharing platform for university students with subject-wise notes, authentication, and personalised user dashboard to manage uploaded content.',
-  //   image: '/assets/notesneo.webp',
-  //   link: 'https://notesneo.vercel.app',
-  //   github: 'https://github.com/decodewithdeepak/notesneo',
-  //   techStack: [
-  //     techStacks.react,
-  //     techStacks.tailwind,
-  //     techStacks.typescript,
-  //     techStacks.firebase,
-  //   ],
-  // },
+  {
+    title: 'NotesNeo',
+    description: 'A notes sharing platform for university students with subject-wise notes, authentication, and personalised user dashboard to manage uploaded content.',
+    image: '/assets/notesneo.webp',
+    link: 'https://noorvalestudio.com',
+    // github: 'https://github.com/xxx,
+    techStack: [
+      techStacks.react,
+      techStacks.tailwind,
+      techStacks.typescript,
+      techStacks.firebase,
+    ],
+  },
   {
     title: "BlackCode",
     description:
@@ -67,72 +67,14 @@ const projects = [
       techStacks.vite,
     ],
   },
-  // {
-  //   title: 'NeoCompiler',
-  //   description: 'An online compiler supporting multiple languages with auth, themes, and AI-assisted suggestions. Users can write, run, and share code snippets easily.',
-  //   image: '/assets/neocompiler.webp',
-  //   link: 'https://neocompiler.vercel.app',
-  //   github: 'https://github.com/decodewithdeepak/neo-compiler',
-  //   techStack: [
-  //     techStacks.next,
-  //     techStacks.typescript,
-  //     techStacks.tailwind,
-  //     techStacks.mongodb,
-  //     techStacks.prisma,
-  //     techStacks.shadcn,
-  //   ],
-  // },
-  // {
-  //   title: "Portfolio",
-  //   description:
-  //     "A personal portfolio website showcasing projects, skills, blogs, and contact section with responsive design and modern UI/UX styling.",
-  //   image: "/assets/portfolio.webp",
-  //   link: "https://deepakmodi.vercel.app",
-  //   github: "https://github.com/decodewithdeepak/portfolio",
-  //   techStack: [
-  //     techStacks.next,
-  //     techStacks.react,
-  //     techStacks.typescript,
-  //     techStacks.tailwind,
-  //     techStacks.framer,
-  //   ],
-  // },
-  // {
-  //   title: "Braineo.",
-  //   description:
-  //     "An online AI learning platform with courses, quizzes, and user authentication. Users can track progress and manage their learning journey.",
-  //   image: "/assets/braineo.webp",
-  //   link: "https://braineo.vercel.app",
-  //   github: "https://github.com/decodewithdeepak/braineo",
-  //   techStack: [
-  //     techStacks.react,
-  //     techStacks.typescript,
-  //     techStacks.tailwind,
-  //     techStacks.appwrite,
-  //     techStacks.framer,
-  //   ],
-  // },
-  // {
-  //   title: "Placify.",
-  //   description:
-  //     "A campus placement platform connecting students with recruiters. Features job listings, company profiles, and application tracking.",
-  //   image: "/assets/placify.webp",
-  //   // github: "https://github.com/decodewithdeepak/placify",
-  //   techStack: [
-  //     techStacks.next,
-  //     techStacks.typescript,
-  //     techStacks.tailwind,
-  //     techStacks.mongodb,
-  //     techStacks.prisma,
-  //   ],
-  // },
+  
   {
     title: "NBE Agro Allied Farms",
     description:
       "A comprehensive farm management system for NBE Agro Allied Farms, enabling efficient management of farm operations, logistics, and data analytics.",
     image: "/assets/NBE.jpg",
     link: "https://nbeagrofarms.com",
-    // github: "https://github.com/decodewithdeepak/neofolio",
+    // github: "https://github.com/",
     techStack: [
       techStacks.react,
       techStacks.typescript,
@@ -147,7 +89,7 @@ const projects = [
       "A logistics platform for GrainPlus, providing real-time tracking, order management, and analytics for efficient supply chain operations.",
     image: "/assets/grainplus.jpg",
     link: "app.grainplus.org",
-    // github: "https://github.com/decodewithdeepak/finneo",
+    // github: "https://github.com/",
     techStack: [
       techStacks.react,
       techStacks.typescript,
