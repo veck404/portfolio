@@ -39,9 +39,9 @@ const techStacks = {
 // Define projects data
 const projects = [
   {
-    title: 'NotesNeo',
-    description: 'A notes sharing platform for university students with subject-wise notes, authentication, and personalised user dashboard to manage uploaded content.',
-    image: '/assets/notesneo.webp',
+    title: 'Noorvale Studio',
+    description: 'Noorvale studio is a',
+    image: '/assets/noorvalestudio.png',
     link: 'https://noorvalestudio.com',
     // github: 'https://github.com/xxx,
     techStack: [
