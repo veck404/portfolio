@@ -15,12 +15,12 @@ function ProfileImage() {
   const { isDark } = useTheme();
   const dark = isDark;
 
-  // These paths must exist in /public/assets/
+  // Use only images that exist in /public/assets
   const avifSrcSet = dark
-    ? "/assets/prof-pic-drk-800.avif 800w, /assets/prof-pic-drk-400.avif 400w"
-    : "/assets/prof-pic-800.avif 800w, /assets/prof-pic-400.avif 400w";
+    ? "/assets/prof-pic-drk-400.avif 400w"
+    : "/assets/prof-pic-400.avif 400w";
   const webpSrcSet = dark
-    ? "/assets/prof-pic-drk-800.webp 800w, /assets/prof-pic-drk-400.webp 400w"
+    ? "/assets/prof-pic-drk-800.webp 800w"
     : "/assets/prof-pic-800.webp 800w, /assets/prof-pic-400.webp 400w";
   const fallback = dark
     ? "/assets/prof-pic-drk.webp"
@@ -131,50 +131,6 @@ export function Hero() {
 
           {/* ---- Right: Profile Image ---- */}
           <div className="relative order-1 md:order-2 flex justify-center">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <ProfileImage />
           </div>
         </div>
@@ -194,3 +150,4 @@ export function Hero() {
     </section>
   );
 }
+

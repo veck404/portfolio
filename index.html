@@ -38,17 +38,18 @@
       ><link rel="stylesheet" href="https://rsms.me/inter/inter.css"
     /></noscript>
 
-    <!-- Preload hero/profile image variants (match prefers-color-scheme) to improve LCP -->
+    <!-- Preload hero/profile image variants (match prefers-color-scheme) to improve LCP) -->
+    <!-- Use existing files to avoid 404s -->
     <link
       rel="preload"
       as="image"
-      href="/assets/prof-pic-800.avif"
+      href="/assets/prof-pic-800.webp"
       media="(prefers-color-scheme: light)"
     />
     <link
       rel="preload"
       as="image"
-      href="/assets/prof-pic-drk-800.avif"
+      href="/assets/prof-pic-drk-800.webp"
       media="(prefers-color-scheme: dark)"
     />
   </head>
