@@ -5,7 +5,7 @@ import { TypeWriter } from "./ui/TypeWriter";
 import { SocialLinks } from "./hero/SocialLinks";
 import { ContactInfo } from "./hero/ContactInfo";
 import { ActionButtons } from "./hero/ActionButtons";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useTheme } from "../hooks/useTheme";
 // import { Meteors } from "./meteors";
 
@@ -70,40 +70,45 @@ export function Hero() {
     "Tech Evangelist",
     "Lifelong Learner",
   ];
+  const prefersReducedMotion = useReducedMotion();
+  const animationProps = prefersReducedMotion
+    ? {}
+    : {
+        initial: { x: "-50%", opacity: 0 },
+        animate: { x: 0, opacity: 1 },
+        transition: { duration: 1, ease: "easeOut" },
+      };
 
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"
     >
 
 
       {/* Optional: <Meteors number={15} /> */}
 
       {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
+      <div className="absolute inset-0 opacity-80">
 
 
         {/* Example: Add grid or animated patterns here */}
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-400/30 dark:bg-blue-600/30 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-400/30 dark:bg-purple-600/30 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/4 left-1/4 h-64 w-64 rounded-full bg-primary/20 blur-3xl motion-safe:animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 h-64 w-64 rounded-full bg-accent/20 blur-3xl motion-safe:animate-pulse delay-1000" />
       </div>
 
 
 
 
-      <div className="container mx-auto px-6 py-16 relative z-10">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="container relative z-10 mx-auto px-6 py-20">
+        <div className="grid max-w-6xl mx-auto grid-cols-1 items-center gap-12 md:grid-cols-2">
           {/* ---- Left Content ---- */}
           <motion.div
-            initial={{ x: "-50%", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-
-            className="flex flex-col items-center md:items-start justify-center text-center md:text-left space-y-4 order-2 md:order-1"
+            {...animationProps}
+            className="order-2 flex flex-col items-center justify-center space-y-6 text-center font-body md:order-1 md:items-start md:text-left"
           >
-            <div className="space-y-2">
-              <div className="inline-block bg-blue-100 dark:bg-blue-900/50 backdrop-blur-sm text-blue-600 dark:text-blue-300 text-sm font-medium px-4 py-2 rounded-full">
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-primary/80 backdrop-blur-md dark:bg-primary/20 dark:text-primary-200">
                 Hello!{" "}
 
                 <span
@@ -115,10 +120,10 @@ export function Hero() {
                 </span>{" "}
                 I'm
               </div>
-              <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-gradient">
+              <h1 className="text-balance font-heading text-4xl font-semibold leading-[1.05] tracking-[-0.015em] text-slate-900 animate-gradient bg-gradient-to-r from-primary-500 via-purple-500 to-primary-500 bg-clip-text text-transparent dark:text-white md:text-5xl lg:text-[3.75rem]">
                 Victor Umaru
               </h1>
-              <div className="text-xl md:text-2xl text-gray-600 dark:text-gray-300">
+              <div className="text-balance text-lg text-slate-600 dark:text-slate-300 md:text-xl">
                 I'm a <TypeWriter words={roles} delay={100} />
               </div>
             </div>
@@ -130,7 +135,7 @@ export function Hero() {
 
 
           {/* ---- Right: Profile Image ---- */}
-          <div className="relative order-1 md:order-2 flex justify-center">
+          <div className="relative order-1 flex justify-center md:order-2">
             <ProfileImage />
           </div>
         </div>
@@ -150,4 +155,3 @@ export function Hero() {
     </section>
   );
 }
-

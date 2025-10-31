@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,7 +16,7 @@
   }
 
   body {
-    @apply antialiased;
+    @apply antialiased font-body bg-background text-slate-900 dark:bg-background-dark dark:text-slate-100;
     text-rendering: optimizeLegibility;
   }
 
