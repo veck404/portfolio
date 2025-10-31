@@ -1,13 +1,9 @@
-// import React from 'react';
-import { SiGithub } from "react-icons/si";
-import { FaGlobe } from "react-icons/fa";
-import { IconType } from "react-icons";
 import React from "react";
+import { Github, Globe } from "lucide-react";
 
 interface TechStackItem {
-  icon: IconType;
-  name: string;
-  color?: string;
+  label: string;
+  tone?: "primary" | "accent" | "muted";
 }
 
 interface ProjectCardProps {
@@ -28,15 +24,15 @@ export const ProjectCard = React.memo(function ProjectCard({
   techStack,
 }: ProjectCardProps) {
   return (
-    <div className="group relative">
-      <div className="relative bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 rounded-2xl shadow-lg overflow-hidden transition duration-300 hover:shadow-blue-500/10">
+    <div className="group relative h-full">
+      <div className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/70 shadow-none backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-brand-glow dark:border-slate-800/60 dark:bg-slate-900/70">
         {/* Image */}
-        <div className="relative overflow-hidden p-4 pb-0">
+        <div className="relative overflow-hidden p-5 pb-0">
           <a href={link} target="_blank" rel="noopener noreferrer">
             {(() => {
               const base = image.replace(/(\.[a-zA-Z]+)$/, "");
               return (
-                <picture>
+                <picture className="block">
                   <source
                     type="image/avif"
                     srcSet={`${base}-800.avif 800w, ${base}-400.avif 400w`}
@@ -54,7 +50,8 @@ export const ProjectCard = React.memo(function ProjectCard({
                     decoding="async"
                     width={800}
                     height={450}
-                    className="w-full h-auto object-cover rounded-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                    fetchpriority="low"
+                    className="aspect-[16/10] w-full rounded-2xl border border-white/10 object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] dark:border-slate-800/80"
                   />
                 </picture>
               );
@@ -63,21 +60,27 @@ export const ProjectCard = React.memo(function ProjectCard({
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="flex flex-1 flex-col gap-6 p-6">
           {/* Title + Icons */}
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
-              {title}
-            </h3>
-            <div className="flex gap-3">
+          <div className="flex items-start justify-between gap-4">
+            <div className="space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-primary/70">
+                Featured Build
+              </p>
+              <h3 className="font-heading text-2xl font-semibold tracking-[-0.01em] text-slate-900 dark:text-slate-100">
+                {title}
+              </h3>
+            </div>
+            <div className="flex shrink-0 gap-2">
               {github && (
                 <a
                   href={github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:text-white transition-colors duration-300"
+                  aria-label={`${title} source code`}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/80 text-slate-500 transition-colors duration-300 hover:border-primary/40 hover:bg-primary/10 hover:text-primary-500 dark:border-slate-700 dark:text-slate-300 dark:hover:border-primary/40 dark:hover:text-primary-300"
                 >
-                  <SiGithub className="w-6 h-6" />
+                  <Github className="h-5 w-5" />
                 </a>
               )}
               {link && (
@@ -85,36 +88,36 @@ export const ProjectCard = React.memo(function ProjectCard({
                   href={link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:text-white transition-colors duration-300"
+                  aria-label={`${title} live preview`}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/80 text-slate-500 transition-colors duration-300 hover:border-primary/40 hover:bg-primary/10 hover:text-primary-500 dark:border-slate-700 dark:text-slate-300 dark:hover:border-primary/40 dark:hover:text-primary-300"
                 >
-                  <FaGlobe className="w-6 h-6" />
+                  <Globe className="h-5 w-5" />
                 </a>
               )}
             </div>
           </div>
 
           {/* Description */}
-          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-4">
+          <p className="text-base leading-relaxed text-slate-600 dark:text-slate-300">
             {description}
           </p>
 
-          {/* Tech Stack Icons with Tooltip */}
-          <div className="flex flex-wrap gap-3 mt-4">
-            {techStack.map((item, index) => {
-              const Icon = item.icon;
+          {/* Tech Stack Pills */}
+          <div className="mt-auto flex flex-wrap gap-2">
+            {techStack.map(({ label, tone = "muted" }, index) => {
+              const toneClass =
+                tone === "primary"
+                  ? "border-primary/30 bg-primary/10 text-primary-500 dark:border-primary/30 dark:text-primary-200"
+                  : tone === "accent"
+                  ? "border-accent/30 bg-accent/10 text-sky-500 dark:border-accent/30 dark:text-sky-300"
+                  : "border-slate-200/80 bg-white/70 text-slate-500 dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-300";
               return (
-                <div key={index} className="relative">
-                  <div className="peer p-2 rounded-lg bg-gray-200 dark:bg-gray-800">
-                    <Icon className="w-6 h-6" color={item.color} />
-                  </div>
-                  {/* Tooltip */}
-                  <div
-                    className="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-700 text-white text-xs rounded px-2 py-1 
-                        opacity-0 peer-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10"
-                  >
-                    {item.name}
-                  </div>
-                </div>
+                <span
+                  key={`${label}-${index}`}
+                  className={`inline-flex items-center rounded-full px-3 py-1 text-[0.7rem] font-semibold tracking-[0.18em] uppercase transition-colors ${toneClass}`}
+                >
+                  {label}
+                </span>
               );
             })}
           </div>
