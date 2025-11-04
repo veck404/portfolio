@@ -57,7 +57,7 @@ export const ProjectCard = React.memo(function ProjectCard({
                     decoding="async"
                     width={800}
                     height={450}
-                    fetchpriority="low"
+                    fetchPriority="low"
                     className="aspect-[16/10] w-full rounded-2xl border border-white/10 object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] dark:border-slate-800/80"
                   />
                 </picture>
