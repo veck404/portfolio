@@ -28,6 +28,10 @@ const projects = [
     image: "/assets/noorvalestudio.png",
     link: "https://noorvalestudio.com",
     // github: 'https://github.com/xxx,
+    impact: [
+      { label: "Conversion lift", value: "+38%" },
+      { label: "Avg. session time", value: "3m 42s" },
+    ],
     techStack: [
       techStacks.react,
       techStacks.tailwind,
@@ -42,6 +46,10 @@ const projects = [
     image: "/assets/blackcode.png",
     link: "https://bl4ck-code.vercel.app/",
     // github: "https://github.com/veck404/BlackCode",
+    impact: [
+      { label: "Beta waitlist", value: "2.3k" },
+      { label: "Avg. retention", value: "68%" },
+    ],
     techStack: [
       techStacks.react,
       techStacks.tailwind,
@@ -59,6 +67,10 @@ const projects = [
     image: "/assets/NBE.jpg",
     link: "https://nbeagrofarms.com",
     // github: "https://github.com/",
+    impact: [
+      { label: "Ops hours saved", value: "12/wk" },
+      { label: "Logistics accuracy", value: "99.2%" },
+    ],
     techStack: [
       techStacks.react,
       techStacks.typescript,
@@ -74,6 +86,10 @@ const projects = [
     image: "/assets/grainplus.jpg",
     link: "https://app.grainplus.org",
     // github: "https://github.com/",
+    impact: [
+      { label: "Tracking coverage", value: "23 hubs" },
+      { label: "Dispatch speed", value: "-18%" },
+    ],
     techStack: [
       techStacks.react,
       techStacks.typescript,
@@ -88,6 +104,10 @@ const projects = [
       "My personal portfolio webpage showcasing my projects, skills, and contact information. Built with modern web technologies for a responsive and engaging user experience.",
     image: "/assets/portfolio_dark.png",
     link: "https://vector404.vercel.app",
+    impact: [
+      { label: "PageSpeed score", value: "97" },
+      { label: "Bounce rate", value: "-24%" },
+    ],
     techStack: [
       techStacks.react,
       techStacks.typescript,

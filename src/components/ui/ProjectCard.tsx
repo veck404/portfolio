@@ -13,6 +13,7 @@ interface ProjectCardProps {
   link?: string;
   github?: string;
   techStack: TechStackItem[];
+  impact?: { label: string; value: string }[];
 }
 
 export const ProjectCard = React.memo(function ProjectCard({
@@ -22,13 +23,19 @@ export const ProjectCard = React.memo(function ProjectCard({
   link,
   github,
   techStack,
+  impact,
 }: ProjectCardProps) {
   return (
     <div className="group relative h-full">
       <div className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/70 shadow-none backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-brand-glow dark:border-slate-800/60 dark:bg-slate-900/70">
         {/* Image */}
         <div className="relative overflow-hidden p-5 pb-0">
-          <a href={link} target="_blank" rel="noopener noreferrer">
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative block"
+          >
             {(() => {
               const base = image.replace(/(\.[a-zA-Z]+)$/, "");
               return (
@@ -56,6 +63,27 @@ export const ProjectCard = React.memo(function ProjectCard({
                 </picture>
               );
             })()}
+            {impact?.length ? (
+              <div className="pointer-events-none absolute inset-0 flex items-end justify-center p-5">
+                <div className="flex w-full translate-y-3 flex-col gap-3 rounded-2xl border border-white/20 bg-slate-900/85 px-5 py-4 opacity-0 backdrop-blur-sm transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-300">
+                    Impact Snapshot
+                  </p>
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    {impact.map(({ label, value }, index) => (
+                      <div key={`${label}-${index}`} className="space-y-1">
+                        <p className="text-[0.7rem] uppercase tracking-[0.3em] text-slate-400">
+                          {label}
+                        </p>
+                        <p className="text-xl font-semibold tracking-tight text-white">
+                          {value}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : null}
           </a>
         </div>
 
