@@ -65,7 +65,7 @@ export function Hero() {
   const roles = [
     "Web Developer",
     "Computer Analyst",
-    "ML Enthusiast",
+    "Code Preacher",
     "Problem Solver",
     "Tech Evangelist",
     "Lifelong Learner",
