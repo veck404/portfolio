@@ -1,7 +1,7 @@
 import { SectionTitle } from "./ui/SectionTitle";
 import { ProjectCard } from "./ui/ProjectCard";
 
-// Define reusable tech stack icons & colors
+// Centralize tech stack badges so tone/labels stay consistent across cards
 const techStacks = {
   react: { label: "React", tone: "primary" as const },
   node: { label: "Node.js", tone: "muted" as const },
@@ -19,7 +19,7 @@ const techStacks = {
   vite: { label: "Vite", tone: "primary" as const },
 };
 
-// Define projects data
+// Project catalog powering the grid; each item can surface headline impact stats
 const projects = [
   {
     title: "Noorvale Studio",
@@ -45,7 +45,7 @@ const projects = [
       "A coding platform with curated DSA sheets, roadmaps, CS articles, and a community forum for students to share resources and discuss challenges.",
     image: "/assets/blackcode.png",
     link: "https://bl4ck-code.vercel.app/",
-    // github: "https://github.com/veck404/BlackCode",
+    github: "https://github.com/veck404/BlackCode",
     impact: [
       { label: "Beta waitlist", value: "2.3k" },
       { label: "Avg. retention", value: "68%" },
@@ -118,6 +118,7 @@ const projects = [
 ];
 
 export function Projects() {
+  // Section wrapper feeds the grid with curated items and supporting copy
   return (
     <section
       id="projects"

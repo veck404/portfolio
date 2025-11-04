@@ -1,6 +1,7 @@
 import React from "react";
 import { Github, Globe } from "lucide-react";
 
+// Tone-aware tech stack badge descriptor used throughout the grid
 interface TechStackItem {
   label: string;
   tone?: "primary" | "accent" | "muted";
@@ -37,6 +38,7 @@ export const ProjectCard = React.memo(function ProjectCard({
             className="relative block"
           >
             {(() => {
+              // Derive variant-friendly base path so AVIF/WEBP fallbacks stay in sync
               const base = image.replace(/(\.[a-zA-Z]+)$/, "");
               return (
                 <picture className="block">
@@ -64,6 +66,7 @@ export const ProjectCard = React.memo(function ProjectCard({
               );
             })()}
             {impact?.length ? (
+              // Hover overlay highlights measurable outcomes without leaving the page
               <div className="pointer-events-none absolute inset-0 flex items-end justify-center p-5">
                 <div className="flex w-full translate-y-3 flex-col gap-3 rounded-2xl border border-white/20 bg-slate-900/85 px-5 py-4 opacity-0 backdrop-blur-sm transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
                   <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-300">
