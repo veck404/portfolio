@@ -37,34 +37,16 @@ export const ProjectCard = React.memo(function ProjectCard({
             rel="noopener noreferrer"
             className="relative block"
           >
-            {(() => {
-              // Derive variant-friendly base path so AVIF/WEBP fallbacks stay in sync
-              const base = image.replace(/(\.[a-zA-Z]+)$/, "");
-              return (
-                <picture className="block">
-                  <source
-                    type="image/avif"
-                    srcSet={`${base}-800.avif 800w, ${base}-400.avif 400w`}
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <source
-                    type="image/webp"
-                    srcSet={`${base}-800.webp 800w, ${base}-400.webp 400w`}
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <img
-                    src={image}
-                    alt={`Screenshot of ${title}`}
-                    loading="lazy"
-                    decoding="async"
-                    width={800}
-                    height={450}
-                    fetchPriority="low"
-                    className="aspect-[16/10] w-full rounded-2xl border border-white/10 object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] dark:border-slate-800/80"
-                  />
-                </picture>
-              );
-            })()}
+            <img
+              src={image}
+              alt={`Screenshot of ${title}`}
+              loading="lazy"
+              decoding="async"
+              width={800}
+              height={450}
+              fetchPriority="low"
+              className="aspect-[16/10] w-full rounded-2xl border border-white/10 object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] dark:border-slate-800/80"
+            />
             {impact?.length ? (
               // Hover overlay highlights measurable outcomes without leaving the page
               <div className="pointer-events-none absolute inset-0 flex items-end justify-center p-5">
