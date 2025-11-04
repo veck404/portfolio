@@ -30,7 +30,7 @@ const projects = [
     github: "https://github.com/veck404/DigiQuiz",
     impact: [
       { label: "Interactive templates", value: "25+" },
-      { label: "Lead lift", value: "+42%" },
+      { label: "Completion Rate:", value: "+42%" },
     ],
     techStack: [
       techStacks.next,
