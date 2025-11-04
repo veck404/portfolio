@@ -22,6 +22,24 @@ const techStacks = {
 // Project catalog powering the grid; each item can surface headline impact stats
 const projects = [
   {
+    title: "DigiQuiz",
+    description:
+      "A zero-party data quiz platform where marketers launch branded funnels, collect analytics, and sync leads without touching code.",
+    image: "/assets/digiquiz.png",
+    link: "https://digi-quiz-pi.vercel.app/",
+    github: "https://github.com/veck404/DigiQuiz",
+    impact: [
+      { label: "Interactive templates", value: "25+" },
+      { label: "Lead lift", value: "+42%" },
+    ],
+    techStack: [
+      techStacks.next,
+      techStacks.typescript,
+      techStacks.tailwind,
+      techStacks.firebase,
+    ],
+  },
+  {
     title: "Noorvale Studio",
     description:
       "A boutique creative studio site with immersive art direction, interactive case studies, and optimized messaging funnels for lead capture.",

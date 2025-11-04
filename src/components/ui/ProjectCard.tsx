@@ -26,6 +26,12 @@ export const ProjectCard = React.memo(function ProjectCard({
   techStack,
   impact,
 }: ProjectCardProps) {
+  // Local override allows swapping in curated screenshots without touching each data entry
+  const imageOverrideMap: Record<string, string> = {
+    BlackCode: "/assets/blackcode.png",
+  };
+  const displayImage = imageOverrideMap[title] ?? image;
+
   return (
     <div className="group relative h-full">
       <div className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/70 shadow-none backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-brand-glow dark:border-slate-800/60 dark:bg-slate-900/70">
@@ -38,7 +44,7 @@ export const ProjectCard = React.memo(function ProjectCard({
             className="relative block"
           >
             <img
-              src={image}
+              src={displayImage}
               alt={`Screenshot of ${title}`}
               loading="lazy"
               decoding="async"
