@@ -36,14 +36,20 @@ export function ContactForm() {
     setErrorMessage("");
 
     try {
-      // Send form data to Formspree endpoint
-      //https://formspree.io/f/mvggvyar",
-      const response = await fetch("https://formspree.io/f/mvggvyar", {
-        // Replace with your actual Formspree endpoint
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://formsubmit.co/ajax/veck404@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            ...formData,
+            _subject: `Portfolio contact from ${formData.name || "Website"}`,
+          }),
+        }
+      );
 
       if (response.ok) {
         setStatus("success");

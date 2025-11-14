@@ -144,14 +144,14 @@ export function Contact() {
             </motion.div>
             <div className="space-y-4">
               <motion.a
-                href="mailto:veck4046@gmail.com"
+                href="mailto:veck404@gmail.com"
                 className="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                 variants={iconVariants}
                 whileHover={{ scale: 1.12, rotate: 4 }}
                 whileTap={{ scale: 0.95, rotate: 0 }}
               >
                 <Mail className="w-6 h-6" />
-                <span>vector404@gmail.com</span>
+                <span>veck404@gmail.com</span>
               </motion.a>
               <motion.a
                 href="https://x.com/veck404"

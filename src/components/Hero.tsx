@@ -100,7 +100,7 @@ export function Hero() {
 
 
 
-      <div className="container relative z-10 mx-auto px-6 py-20">
+      <div className="container relative z-10 mx-auto px-6 py-20 md:max-w-[90%]">
         <div className="grid max-w-6xl mx-auto grid-cols-1 items-center gap-12 md:grid-cols-2">
           {/* ---- Left Content ---- */}
           <motion.div

@@ -117,6 +117,23 @@ const projects = [
     ],
   },
   {
+    title: "GFarmNext",
+    description:
+      "A modern agriculture marketplace experience where growers manage produce requests, share farm insights, and connect with buyers in real-time.",
+    image: "/assets/gfarmnext.png",
+    link: "https://gfarmnext.vercel.app/",
+    impact: [
+      { label: "Supply requests", value: "5k/mo" },
+      { label: "Load times", value: "<1.2s" },
+    ],
+    techStack: [
+      techStacks.next,
+      techStacks.typescript,
+      techStacks.tailwind,
+      techStacks.framer,
+    ],
+  },
+  {
     title: "Portfolio Webpage",
     description:
       "My personal portfolio webpage showcasing my projects, skills, and contact information. Built with modern web technologies for a responsive and engaging user experience.",
