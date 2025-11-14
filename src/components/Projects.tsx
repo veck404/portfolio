@@ -123,7 +123,7 @@ const projects = [
     image: "/assets/gfarmnext.png",
     link: "https://gfarmnext.vercel.app/",
     impact: [
-      { label: "Supply requests", value: "5k/mo" },
+      { label: "Customer reach", value: "Naton-wide" },
       { label: "Load times", value: "<1.2s" },
     ],
     techStack: [
