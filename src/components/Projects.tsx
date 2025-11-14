@@ -169,7 +169,7 @@ export function Projects() {
           </p>
           <SectionTitle>Projects</SectionTitle>
           <p className="mx-auto max-w-2xl text-balance text-sm text-slate-500 dark:text-slate-400 md:text-base">
-            A curated mix of client ngagements and personal experiments focused
+            A curated mix of client engagements and personal experiments focused
             on performance, delightful interactions, and resilient engineering.
           </p>
         </div>
