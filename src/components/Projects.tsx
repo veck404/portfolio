@@ -124,7 +124,7 @@ const projects = [
     link: "https://gfarmnext.vercel.app/",
     impact: [
       { label: "Customer reach", value: "Nation-wide" },
-      { label: "Load times", value: "<1.2s" },
+      { label: "Load times", value: "<2.2s" },
     ],
     techStack: [
       techStacks.next,
