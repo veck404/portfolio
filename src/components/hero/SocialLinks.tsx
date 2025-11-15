@@ -1,4 +1,4 @@
-import { Instagram, Facebook } from "lucide-react";
+import { Instagram, Facebook, Linkedin } from "lucide-react";
 // import { BsTelegram } from "react-icons/bs";
 import { FaTelegram, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -10,9 +10,14 @@ const links = [
   //   label: 'GitHub',
   // },
   {
-    href: "https://fb.com/veck404",
-    icon: <Facebook className="w-6 h-6 text-[#0077B5]" />,
+    href: "https://www.linkedin.com/in/veck404/",
+    icon: <Linkedin className="w-6 h-6 text-[#0077B5]" />,
     label: "LinkedIn",
+  },
+  {
+    href: "https://fb.com/veck404",
+    icon: <Facebook className="w-6 h-6 text-[#1877F2]" />,
+    label: "Facebook",
   },
   {
     href: "https://instagram.com/veck404",

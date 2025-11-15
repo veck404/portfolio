@@ -117,20 +117,20 @@ const projects = [
     ],
   },
   {
-    title: "GFarmNext",
+    title: "Graferd Farms",
     description:
-      "A modern agriculture marketplace experience where growers manage produce requests, share farm insights, and connect with buyers in real-time.",
-    image: "/assets/gfarmnext.png",
-    link: "https://gfarmnext.vercel.app/",
+      "Corporate site and customer portal for an agro-allied cooperative, highlighting produce lines, training programs, and franchising opportunities.",
+    image: "/assets/graferd.png",
+    link: "https://www.graferdfarms.com.ng/",
     impact: [
-      { label: "Customer reach", value: "Nation-wide" },
-      { label: "Load times", value: "<2.2s" },
+      { label: "Farmer onboardings", value: "1.1k+" },
+      { label: "Lead volume", value: "+54%" },
     ],
     techStack: [
-      techStacks.next,
-      techStacks.typescript,
+      techStacks.react,
       techStacks.tailwind,
       techStacks.framer,
+      techStacks.firebase,
     ],
   },
   {

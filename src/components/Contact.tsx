@@ -3,7 +3,7 @@ import React, { Suspense } from "react";
 const ContactForm = React.lazy(() =>
   import("./ui/ContactForm").then((m) => ({ default: m.ContactForm }))
 );
-import { Mail, Twitter } from "lucide-react";
+import { Mail, Twitter, Linkedin } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
 // import { useRef, useEffect, useState } from "react";
@@ -152,6 +152,18 @@ export function Contact() {
               >
                 <Mail className="w-6 h-6" />
                 <span>veck404@gmail.com</span>
+              </motion.a>
+              <motion.a
+                href="https://www.linkedin.com/in/veck404/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                variants={iconVariants}
+                whileHover={{ scale: 1.12, rotate: 4 }}
+                whileTap={{ scale: 0.95, rotate: 0 }}
+              >
+                <Linkedin className="w-6 h-6" />
+                <span>linkedin.com/in/veck404</span>
               </motion.a>
               <motion.a
                 href="https://x.com/veck404"
