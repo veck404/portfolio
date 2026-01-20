@@ -19,11 +19,11 @@ import {
   // SiPrisma,
   // SiCplusplus,
   // SiPostman,
+  SiSupabase,
   SiVite,
   SiVercel,
 } from "react-icons/si";
 import { FaNodeJs, FaPython } from "react-icons/fa";
-import { VscVscode } from "react-icons/vsc";
 import { IoLogoFirebase } from "react-icons/io5";
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
@@ -85,10 +85,10 @@ const skills = [
     url: "https://www.python.org/",
   },
   {
-    name: "VS Code",
-    icon: VscVscode,
-    color: "#007acc",
-    url: "https://code.visualstudio.com/",
+    name: "Supabase",
+    icon: SiSupabase,
+    color: "#3ecf8e",
+    url: "https://supabase.com/",
   },
   { name: "Git", icon: SiGit, color: "#f34f29", url: "https://git-scm.com/" },
   { name: "GitHub", icon: SiGithub, color: "# ", url: "https://github.com/" },

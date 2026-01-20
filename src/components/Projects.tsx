@@ -22,6 +22,23 @@ const techStacks = {
 // Project catalog powering the grid; each item can surface headline impact stats
 const projects = [
   {
+    title: "BRI Capital",
+    description:
+      "Corporate site for an investment firm showcasing service lines, performance highlights, and an optimized lead-intake flow for prospective clients.",
+    image: "/assets/BRIcapital.png",
+    link: "https://bricapital.net",
+    impact: [
+      { label: "Lead form completion", value: "+62%" },
+      { label: "Time on page", value: "2m 18s" },
+    ],
+    techStack: [
+      techStacks.next,
+      techStacks.typescript,
+      techStacks.tailwind,
+      techStacks.framer,
+    ],
+  },
+  {
     title: "DigiQuiz",
     description:
       "A zero-party data quiz platform where marketers launch branded funnels, collect analytics, and sync leads without touching code.",
@@ -77,7 +94,7 @@ const projects = [
       techStacks.vite,
     ],
   },
-  
+
   {
     title: "NBE Agro Allied Farms",
     description:
@@ -123,7 +140,7 @@ const projects = [
     image: "/assets/graferd.png",
     link: "https://www.graferdfarms.com.ng/",
     impact: [
-      { label: "Farmer onboardings", value: "1.1k+" },
+      { label: "Engagements/month", value: "1.1k+" },
       { label: "Lead volume", value: "+54%" },
     ],
     techStack: [

@@ -5,10 +5,41 @@ import { ExperienceCard } from "./ui/ExperienceCard";
 
 const experiences = [
   {
-    title: "Computer Analyst",
+    title: "System Administrator Officer",
+    company: "BRIcapital",
+    period: "Jan 2026 - Present",
+    description: `Managed and maintained critical IT infrastructure across multi-user systems, servers, and network devices to ensure performance and security.
+Implemented and monitored cybersecurity measures plus data backup and recovery strategies to protect sensitive information.
+Provided technical support and training to internal staff on essential IT systems and applications.
+Built and deployed automation scripts to streamline repetitive office routines.`,
+    skills: [
+      "Infrastructure Management",
+      "Cybersecurity",
+      "Backup & Recovery",
+      "Technical Support",
+      "Automation Scripting",
+    ],
+  },
+  {
+    title: "Front-End Developer",
+    company: "Noorvale Studio",
+    period: "Aug 2025 - Present",
+    description: `Translate creative visions and product requirements into high-quality, scalable, and user-friendly web applications.
+Collaborate closely with designers and stakeholders to align on product goals and deliverables.
+Iterate on features through continuous learning, experimentation, and feedback to ship impactful digital solutions.`,
+    skills: [
+      "Front-End Development",
+      "UI Implementation",
+      "Stakeholder Collaboration",
+      "Feature Iteration",
+      "Scalable Web Apps",
+    ],
+  },
+  {
+    title: "System Analyst",
     company: "Phoenix University, Agwada.",
-    period: "Jan 2024 - Present",
-    description: `As a Computer Analyst at Phoenix University, my responsibilities encompass a broad range of technical and strategic functions aimed at enhancing the university's IT infrastructure and supporting academic operations.
+    period: "Mar 2024 - Jan 2026",
+    description: `As a System Analyst at Phoenix University, my responsibilities encompass a broad range of technical and strategic functions aimed at enhancing the university's IT infrastructure and supporting academic operations.
     User Support & Training: Provided technical support and training to staff and students on software systems, cybersecurity best practices, and university portals.
     Infrastructure Support: Collaborated with the IT department to maintain servers, ensure network integrity, and manage software deployments.
     Data Management: Assisted in managing student and faculty databases, ensuring data integrity and security.

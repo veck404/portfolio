@@ -64,7 +64,7 @@ function ProfileImage() {
 export function Hero() {
   const roles = [
     "Web Developer",
-    "Computer Analyst",
+    "System Analyst",
     "Code Preacher",
     "Problem Solver",
     "Tech Evangelist",
