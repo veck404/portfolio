@@ -19,7 +19,7 @@ import { FollowerPointerCard } from "./components/reactbits/following-pointer/fo
 function App() {
   return (
     <FollowerPointerCard>
-      <div className="relative min-h-screen overflow-hidden">
+      <div className="relative w-full">
         <div className="absolute inset-0 -z-10"></div>
 
         <CustomCursor />
