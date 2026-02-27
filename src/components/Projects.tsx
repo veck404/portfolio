@@ -61,7 +61,7 @@ const projects = [
     description:
       "A boutique creative studio site with immersive art direction, interactive case studies, and optimized messaging funnels for lead capture.",
     image: "/assets/noorvalestudio.png",
-    link: "https://noorvalestudio.com",
+    link: "https://noorvale.com/",
     // github: 'https://github.com/xxx,
     impact: [
       { label: "Conversion lift", value: "+38%" },
