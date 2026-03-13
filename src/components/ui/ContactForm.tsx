@@ -5,6 +5,8 @@ import { User, Mail } from "lucide-react";
 import { LuMessageSquareShare } from "react-icons/lu";
 import { FaRegCommentDots } from "react-icons/fa";
 
+const WHATSAPP_NUMBER = "2347066733522";
+
 export function ContactForm() {
   // State to manage form data (name, email, message)
   const [formData, setFormData] = useState({
@@ -20,7 +22,7 @@ export function ContactForm() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     // Handle input changes and update form data state
   ) => {
     setFormData({
@@ -29,43 +31,41 @@ export function ContactForm() {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault(); // Prevent default form submission
     // Set status to submitting and clear any previous error message
     setStatus("submitting");
     setErrorMessage("");
 
     try {
-      const response = await fetch(
-        "https://formsubmit.co/ajax/veck404@gmail.com",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            ...formData,
-            _subject: `Portfolio contact from ${formData.name || "Website"}`,
-          }),
-        }
+      const message = [
+        "Hello Victor, I am reaching you from your portfolio contact form.",
+        "",
+        `Name: ${formData.name.trim()}`,
+        `Email: ${formData.email.trim()}`,
+        "Message:",
+        formData.message.trim(),
+      ].join("\n");
+
+      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+        message,
+      )}`;
+
+      const whatsappWindow = window.open(
+        whatsappUrl,
+        "_blank",
+        "noopener,noreferrer",
       );
 
-      if (response.ok) {
-        setStatus("success");
-        // Reset form data on successful submission
-        setFormData({ name: "", email: "", message: "" }); // Reset the form
-      } else {
-        const errorData = await response.json();
-        setErrorMessage(
-          errorData.error || "Something went wrong. Please try again."
-          // Set error message based on response or a default
-        );
-        setStatus("error");
+      if (!whatsappWindow) {
+        window.location.href = whatsappUrl;
       }
+
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" }); // Reset the form
     } catch (error) {
       setErrorMessage(
-        "An unexpected error occurred. Please reach out via WhatsApp instead."
+        "Could not open WhatsApp. Please try again or use the direct WhatsApp link.",
       );
       setStatus("error");
     }
@@ -158,7 +158,7 @@ export function ContactForm() {
         }`}
         // Button styling based on submission status
       >
-        {status === "submitting" ? "Sending..." : "Send Message"}
+        {status === "submitting" ? "Opening WhatsApp..." : "Send via WhatsApp"}
         {status !== "submitting" && (
           <LuMessageSquareShare className="w-5 h-5" />
         )}
@@ -183,7 +183,7 @@ export function ContactForm() {
           className="text-green-600 text-center mt-4 font-bold text-lg drop-shadow-lg"
         >
           <span className="inline-block animate-bounce mr-2">🎉</span>
-          Message sent successfully!
+          WhatsApp opened with your message draft!
           <span className="inline-block animate-bounce ml-2">🚀</span>
         </motion.p>
       )}
