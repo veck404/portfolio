@@ -6,6 +6,7 @@
 
 :root {
   color-scheme: dark;
+  --nav-offset: 7rem;
 }
 
 /* Optimize animations and transitions */
@@ -18,6 +19,10 @@
   body {
     @apply antialiased font-body bg-background text-slate-900 dark:bg-background-dark dark:text-slate-100;
     text-rendering: optimizeLegibility;
+  }
+
+  section[id] {
+    scroll-margin-top: var(--nav-offset);
   }
 
   /* Reduce motion if user prefers it */

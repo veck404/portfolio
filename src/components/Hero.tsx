@@ -9,7 +9,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useTheme } from "../hooks/useTheme";
 // import { Meteors } from "./meteors";
 
-
 // ---- ProfileImage Subcomponent for clarity ----
 function ProfileImage() {
   const { isDark } = useTheme();
@@ -84,21 +83,14 @@ export function Hero() {
       id="home"
       className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"
     >
-
-
       {/* Optional: <Meteors number={15} /> */}
 
       {/* Animated background */}
       <div className="absolute inset-0 opacity-80">
-
-
         {/* Example: Add grid or animated patterns here */}
         <div className="absolute top-1/4 left-1/4 h-64 w-64 rounded-full bg-primary/20 blur-3xl motion-safe:animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 h-64 w-64 rounded-full bg-accent/20 blur-3xl motion-safe:animate-pulse delay-1000" />
       </div>
-
-
-
 
       <div className="container relative z-10 mx-auto px-6 py-20 md:max-w-[90%] lg:max-w-[75%]">
         <div className="grid max-w-6xl mx-auto grid-cols-1 items-center gap-12 md:grid-cols-2">
@@ -110,7 +102,6 @@ export function Hero() {
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-primary/80 backdrop-blur-md dark:bg-primary/20 dark:text-primary-200">
                 Hello!{" "}
-
                 <span
                   className="inline-block origin-[70%_70%] animate-wave"
                   role="img"
@@ -133,13 +124,11 @@ export function Hero() {
             <SocialLinks />
           </motion.div>
 
-
           {/* ---- Right: Profile Image ---- */}
           <div className="relative order-1 flex justify-center md:order-2">
             <ProfileImage />
           </div>
         </div>
-
 
         {/* ---- Scroll Down Indicator ---- */}
         <div className="absolute bottom-[-1rem] left-1/2 -translate-x-1/2 animate-bounce">
