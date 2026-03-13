@@ -16,7 +16,10 @@ const NAV_LINKS = [
   { href: "#education", label: "Education" },
 ] as const;
 
-const SECTION_ORDER = [...NAV_LINKS.map((link) => link.href.slice(1)), "contact"];
+const SECTION_ORDER = [
+  ...NAV_LINKS.map((link) => link.href.slice(1)),
+  "contact",
+];
 const MOBILE_MENU_ID = "mobile-navigation";
 const NAV_OFFSET_CSS_VAR = "--nav-offset";
 const DEFAULT_NAV_OFFSET = 112;
@@ -42,8 +45,8 @@ function getFallbackActiveSection(offset: number) {
 function getFocusableElements(container: HTMLElement) {
   return Array.from(
     container.querySelectorAll<HTMLElement>(
-      'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
-    )
+      'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    ),
   );
 }
 
@@ -99,7 +102,7 @@ export function Navbar() {
       setNavOffset((prev) => (prev !== stableOffset ? stableOffset : prev));
       document.documentElement.style.setProperty(
         NAV_OFFSET_CSS_VAR,
-        `${stableOffset}px`
+        `${stableOffset}px`,
       );
     };
 
@@ -136,9 +139,11 @@ export function Navbar() {
       const nextIsScrolled = window.scrollY > 12;
       const fallbackSection = getFallbackActiveSection(navOffset);
 
-      setIsScrolled((prev) => (prev !== nextIsScrolled ? nextIsScrolled : prev));
+      setIsScrolled((prev) =>
+        prev !== nextIsScrolled ? nextIsScrolled : prev,
+      );
       setActiveSection((prev) =>
-        prev !== fallbackSection ? fallbackSection : prev
+        prev !== fallbackSection ? fallbackSection : prev,
       );
     };
 
@@ -166,7 +171,7 @@ export function Navbar() {
 
   useEffect(() => {
     const sections = SECTION_ORDER.map((sectionId) =>
-      document.getElementById(sectionId)
+      document.getElementById(sectionId),
     ).filter((section): section is HTMLElement => section !== null);
 
     if (sections.length === 0) {
@@ -205,20 +210,20 @@ export function Navbar() {
 
         if (bestSection) {
           setActiveSection((prev) =>
-            prev !== bestSection.id ? bestSection.id : prev
+            prev !== bestSection.id ? bestSection.id : prev,
           );
           return;
         }
 
         const fallbackSection = getFallbackActiveSection(navOffset);
         setActiveSection((prev) =>
-          prev !== fallbackSection ? fallbackSection : prev
+          prev !== fallbackSection ? fallbackSection : prev,
         );
       },
       {
         threshold: thresholds,
         rootMargin: `-${Math.max(navOffset + 12, 1)}px 0px -55% 0px`,
-      }
+      },
     );
 
     for (const section of sections) {
@@ -375,7 +380,7 @@ export function Navbar() {
 
           <div className="hidden items-center justify-end gap-3 lg:flex">
             <ThemeToggle isDark={isDark} onToggle={handleThemeToggle} />
-            <Magnet magnetStrength={2}>
+            <Magnet magnetStrength={12}>
               <Link
                 href="#contact"
                 offset={navOffset}
@@ -394,11 +399,17 @@ export function Navbar() {
               type="button"
               onClick={() => setIsOpen((open) => !open)}
               className="inline-flex h-11 w-11 items-center justify-center rounded-[15px] border border-slate-200/80 bg-white/70 text-slate-900 transition-colors hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-slate-700/80 dark:bg-slate-900/80 dark:text-slate-100 dark:hover:bg-slate-900 dark:focus-visible:ring-offset-slate-950"
-              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-label={
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+              }
               aria-expanded={isOpen}
               aria-controls={MOBILE_MENU_ID}
             >
-              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </button>
           </div>
         </div>
@@ -411,7 +422,11 @@ export function Navbar() {
               role="dialog"
               aria-modal="true"
               aria-label="Mobile navigation menu"
-              initial={prefersReducedMotion ? false : { opacity: 0, y: -10, scale: 0.98 }}
+              initial={
+                prefersReducedMotion
+                  ? false
+                  : { opacity: 0, y: -10, scale: 0.98 }
+              }
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={
                 prefersReducedMotion
