@@ -9,7 +9,7 @@ const aboutSections = [
     icon: User2,
     title: "Who I Am",
     description: [
-      "A front-end developer committed to delivering high-quality product.",
+      "A Software Engineer committed to delivering high-quality product.",
       "Always learning new technologies to improve my skills.",
       "Love collaborating with designers and developers.",
       "Committed to lifelong learning and professional development.",
