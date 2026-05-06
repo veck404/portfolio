@@ -108,11 +108,11 @@ export function About() {
           <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             Hello! 👋 I'm{" "}
             <span className="text-blue-600 font-semibold">Victor Umaru</span>, a
-            Software Engineer and a BSc. Computer Science holder. I love
-            transforming ideas into scalable web applications and bringing ideas
-            to life. My journey in tech revolves around continuous learning,
-            experimenting with new technologies, collaborating with talented
-            individuals and building solutions that make an impact.
+            Software Engineer and a BSc. Computer Science holder. I specialise
+            in transforming ideas into scalable web applications and bringing
+            ideas to life. My journey in tech revolves around continuous
+            learning, experimenting with new technologies, collaborating with
+            talented teams and building solutions that make an impact.
           </p>
           <div className="mt-8 flex justify-center">
             <span className="text-sm sm:text-base inline-block bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-4 py-2 rounded-lg shadow">
