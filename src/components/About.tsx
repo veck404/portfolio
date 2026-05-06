@@ -9,7 +9,7 @@ const aboutSections = [
     icon: User2,
     title: "Who I Am",
     description: [
-      "A front-end developer committed to delivering high-quality product.",
+      "A Software Engineer committed to delivering high-quality product.",
       "Always learning new technologies to improve my skills.",
       "Love collaborating with designers and developers.",
       "Committed to lifelong learning and professional development.",
@@ -108,7 +108,7 @@ export function About() {
           <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             Hello! 👋 I'm{" "}
             <span className="text-blue-600 font-semibold">Victor Umaru</span>, a
-            Front-end Developer and a BSc. Computer Science holder. I love
+            Software Engineer and a BSc. Computer Science holder. I love
             transforming ideas into scalable web applications and bringing ideas
             to life. My journey in tech revolves around continuous learning,
             experimenting with new technologies, collaborating with talented

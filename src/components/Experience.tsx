@@ -21,7 +21,7 @@ Built and deployed automation scripts to streamline repetitive office routines.`
     ],
   },
   {
-    title: "Front-End Developer",
+    title: "Software Engineer",
     company: "Noorvale Studio",
     period: "Aug 2025 - Present",
     description: `Translate creative visions and product requirements into high-quality, scalable, and user-friendly web applications.
