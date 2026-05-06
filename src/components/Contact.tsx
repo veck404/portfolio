@@ -10,27 +10,47 @@ import { motion } from "framer-motion";
 
 // import Magnet from "./reactbits/Magnet/Magnet";
 
-const containerVariants = {
-  hidden: { opacity: 0, y: 60 },
+const sectionVariants = {
+  hidden: { opacity: 0, y: 32 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.7,
+      duration: 0.5,
       ease: "easeOut",
-      when: "beforeChildren",
-      staggerChildren: 0.18,
     },
   },
 };
 
-const columnVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.96 },
+const gridVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 0.05,
+      staggerChildren: 0.16,
+    },
+  },
+};
+
+const leftColumnVariants = {
+  hidden: { opacity: 0, x: -36, y: 24, scale: 0.98 },
   visible: {
     opacity: 1,
+    x: 0,
     y: 0,
     scale: 1,
-    transition: { duration: 0.7, type: "spring", bounce: 0.25 },
+    transition: { duration: 0.55, type: "spring", bounce: 0.18 },
+  },
+};
+
+const rightColumnVariants = {
+  hidden: { opacity: 0, x: 36, y: 24, scale: 0.98 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.55, type: "spring", bounce: 0.18 },
   },
 };
 
@@ -80,7 +100,7 @@ export function Contact() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
-        variants={containerVariants}
+        variants={sectionVariants}
         className="container mx-auto px-4 relative z-10"
       >
         <motion.div
@@ -101,11 +121,11 @@ export function Contact() {
         </motion.div>
         <motion.div
           className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12"
-          variants={containerVariants}
+          variants={gridVariants}
         >
           {/* Left Column: Contact Info */}
           <motion.div
-            variants={columnVariants}
+            variants={leftColumnVariants}
             className={`bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg relative overflow-hidden ${gradientBorder}`}
           >
             <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">
@@ -193,15 +213,7 @@ export function Contact() {
           </motion.div>
           {/* Right Column: Contact Form */}
           <motion.div
-            variants={columnVariants}
-            initial={{ opacity: 0, x: 60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: 0.8,
-              type: "spring",
-              bounce: 0.2,
-              delay: 0.2,
-            }}
+            variants={rightColumnVariants}
             className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg"
           >
             <Suspense
