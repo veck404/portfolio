@@ -13,19 +13,29 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { CustomCursor } from "./components/ui/CustomCursor";
 import { ScrollToTop } from "./components/ui/ScrollToTop";
-import { FollowerPointerCard } from "./components/reactbits/following-pointer/following-pointer";
+import ClickSpark from "./components/reactbits/ClickSpark/ClickSpark";
+import { useReducedMotion } from "framer-motion";
 // import { Analytics } from "@vercel/analytics/react";
 
 function App() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
-    <FollowerPointerCard>
+    <ClickSpark
+      sparkColor="#60a5fa"
+      sparkSize={11}
+      sparkRadius={20}
+      sparkCount={8}
+      duration={420}
+      extraScale={1.1}
+      disabled={prefersReducedMotion}
+    >
       <div className="relative w-full">
         <div className="absolute inset-0 -z-10"></div>
 
         <CustomCursor />
         <Navbar />
         {/* <SplashCursor /> */}
-        {/* <FollowerPointerCard /> */}
         <Hero />
         <About />
         <Skills />
@@ -36,7 +46,7 @@ function App() {
         <Footer />
         <ScrollToTop />
       </div>
-    </FollowerPointerCard>
+    </ClickSpark>
   );
 }
 

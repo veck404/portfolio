@@ -60,24 +60,17 @@ function Logo({ offset }: LogoProps) {
       href="#home"
       offset={offset}
       aria-label="Go to home section"
-      className="group inline-flex items-center gap-3 rounded-[15px] px-2 py-1.5 transition-transform duration-300 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950"
+      className="group relative inline-flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl border border-slate-200/80 bg-white/80 shadow-sm shadow-slate-950/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md hover:shadow-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/10 dark:bg-slate-950/70 dark:shadow-black/20 dark:hover:border-primary/40 dark:focus-visible:ring-offset-slate-950"
     >
+      <span className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/15 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <img
         src={favicon}
         alt="Victor Umaru logo"
-        width={36}
-        height={36}
+        width={30}
+        height={30}
         loading="lazy"
-        className="h-9 w-9 rounded-[15px] ring-1 ring-slate-200/80 shadow-sm dark:ring-slate-700/80"
+        className="relative h-[30px] w-[30px] rounded-lg ring-1 ring-slate-200/70 transition-transform duration-300 group-hover:scale-105 dark:ring-white/10"
       />
-      <div className="hidden min-w-0 sm:block">
-        <div className="text-sm font-semibold text-slate-900 dark:text-slate-50">
-          Victor Umaru
-        </div>
-        <div className="text-[11px] uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">
-          Frontend Engineer
-        </div>
-      </div>
     </Link>
   );
 }
@@ -330,52 +323,66 @@ export function Navbar() {
       </AnimatePresence>
 
       <nav
-        className={`fixed left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 rounded-[15px] border backdrop-blur-xl transition-all duration-300 ${
+        className={`fixed left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-5xl -translate-x-1/2 rounded-2xl backdrop-blur-2xl transition-all duration-300 ${
           isScrolled
-            ? "border-white/70 bg-white/78 shadow-[0_22px_60px_-30px_rgba(15,23,42,0.35)] dark:border-slate-800/80 dark:bg-slate-950/82 dark:shadow-[0_22px_60px_-30px_rgba(0,0,0,0.65)]"
-            : "border-white/60 bg-white/68 shadow-[0_18px_45px_-30px_rgba(15,23,42,0.28)] dark:border-slate-800/70 dark:bg-slate-950/72 dark:shadow-[0_18px_45px_-30px_rgba(0,0,0,0.55)]"
+            ? "bg-white/82 shadow-[0_22px_70px_-40px_rgba(15,23,42,0.45)] dark:bg-slate-950/84 dark:shadow-[0_22px_70px_-40px_rgba(0,0,0,0.8)]"
+            : "bg-white/64 shadow-[0_18px_55px_-42px_rgba(15,23,42,0.35)] dark:bg-slate-950/62 dark:shadow-[0_18px_55px_-42px_rgba(0,0,0,0.7)]"
         }`}
         style={{ top: "calc(1rem + env(safe-area-inset-top))" }}
       >
+        <div className="pointer-events-none absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/80 to-transparent dark:via-white/20" />
         <div
           ref={navRowRef}
-          className="grid min-h-16 grid-cols-[auto_1fr_auto] items-center gap-3 px-3 sm:px-5"
+          className="grid min-h-16 grid-cols-[auto_1fr_auto] items-center gap-3 px-3 sm:px-4"
         >
           <div className="flex items-center">
             <Logo offset={navOffset} />
           </div>
 
-          <div className="hidden items-center justify-center gap-1 lg:flex xl:gap-2">
-            {NAV_LINKS.map((link) => {
-              const isActive = activeSection === link.href.slice(1);
+          <div className="hidden items-center justify-center lg:flex">
+            <div className="inline-flex items-center gap-1 rounded-xl border border-slate-200/70 bg-slate-950/[0.025] p-1 shadow-inner shadow-white/60 dark:border-white/10 dark:bg-white/[0.04] dark:shadow-black/20">
+              {NAV_LINKS.map((link) => {
+                const isActive = activeSection === link.href.slice(1);
 
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  offset={navOffset}
-                  aria-current={isActive ? "location" : undefined}
-                  className={`relative inline-flex h-11 items-center rounded-[15px] px-4 text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
-                    isActive
-                      ? "text-slate-900 dark:text-white"
-                      : "text-slate-600 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white"
-                  }`}
-                >
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-pill"
-                      className="absolute inset-0 -z-10 rounded-[15px] border border-white/70 bg-slate-900/[0.055] dark:border-white/10 dark:bg-white/10"
-                      transition={
-                        prefersReducedMotion
-                          ? { duration: 0 }
-                          : { type: "spring", stiffness: 450, damping: 34 }
-                      }
-                    />
-                  )}
-                  {link.label}
-                </Link>
-              );
-            })}
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    offset={navOffset}
+                    aria-current={isActive ? "location" : undefined}
+                    className={`relative inline-flex h-9 items-center rounded-lg px-3 text-[13px] font-medium transition-all duration-200 hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 xl:px-3.5 ${
+                      isActive
+                        ? "text-slate-950 dark:text-white"
+                        : "text-slate-500 hover:bg-white/70 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-white/8 dark:hover:text-white"
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-pill"
+                        className="absolute inset-0 -z-10 rounded-lg border border-slate-200/80 bg-white shadow-sm shadow-slate-950/5 dark:border-white/10 dark:bg-white/10 dark:shadow-black/10"
+                        transition={
+                          prefersReducedMotion
+                            ? { duration: 0 }
+                            : { type: "spring", stiffness: 450, damping: 34 }
+                        }
+                      />
+                    )}
+                    <span className="relative">{link.label}</span>
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-active-dot"
+                        className="absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-primary-500 dark:bg-primary-300"
+                        transition={
+                          prefersReducedMotion
+                            ? { duration: 0 }
+                            : { type: "spring", stiffness: 420, damping: 32 }
+                        }
+                      />
+                    )}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
 
           <div className="hidden items-center justify-end gap-3 lg:flex">
@@ -384,10 +391,10 @@ export function Navbar() {
               <Link
                 href="#contact"
                 offset={navOffset}
-                className="inline-flex h-11 items-center gap-2 rounded-[15px] bg-blue-600 px-5 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-700 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950"
+                className="group inline-flex h-10 items-center gap-2 rounded-xl border border-primary-500/20 bg-slate-950 px-4 text-[13px] font-semibold text-white shadow-lg shadow-slate-950/15 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-400/40 hover:bg-primary-600 hover:text-white hover:shadow-primary-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:bg-white dark:text-slate-950 dark:shadow-black/20 dark:hover:bg-primary-300 dark:hover:text-slate-950 dark:focus-visible:ring-offset-slate-950"
               >
                 Let&apos;s Talk
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
               </Link>
             </Magnet>
           </div>
@@ -398,18 +405,28 @@ export function Navbar() {
               ref={menuButtonRef}
               type="button"
               onClick={() => setIsOpen((open) => !open)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-[15px] border border-slate-200/80 bg-white/70 text-slate-900 transition-colors hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-slate-700/80 dark:bg-slate-900/80 dark:text-slate-100 dark:hover:bg-slate-900 dark:focus-visible:ring-offset-slate-950"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200/80 bg-white/75 text-slate-900 shadow-sm shadow-slate-950/5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-white hover:shadow-md hover:shadow-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-100 dark:shadow-black/20 dark:hover:border-primary/40 dark:hover:bg-slate-900 dark:focus-visible:ring-offset-slate-950"
               aria-label={
                 isOpen ? "Close navigation menu" : "Open navigation menu"
               }
               aria-expanded={isOpen}
               aria-controls={MOBILE_MENU_ID}
             >
-              {isOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={isOpen ? "close" : "menu"}
+                  initial={prefersReducedMotion ? false : { opacity: 0, rotate: -12, scale: 0.9 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, rotate: 12, scale: 0.9 }}
+                  transition={sharedTransition}
+                >
+                  {isOpen ? (
+                    <X className="h-5 w-5" />
+                  ) : (
+                    <Menu className="h-5 w-5" />
+                  )}
+                </motion.span>
+              </AnimatePresence>
             </button>
           </div>
         </div>
@@ -434,9 +451,9 @@ export function Navbar() {
                   : { opacity: 0, y: -10, scale: 0.98 }
               }
               transition={menuTransition}
-              className="border-t border-slate-200/80 px-3 pb-3 pt-2 dark:border-slate-800/80 lg:hidden"
+              className="border-t border-slate-200/70 px-3 pb-3 pt-2 dark:border-white/10 lg:hidden"
             >
-              <div className="space-y-1 rounded-[15px] bg-white/70 p-2 dark:bg-slate-900/70">
+              <div className="space-y-1 rounded-xl border border-slate-200/70 bg-white/78 p-2 shadow-inner shadow-white/80 dark:border-white/10 dark:bg-white/[0.04] dark:shadow-black/20">
                 {NAV_LINKS.map((link) => {
                   const isActive = activeSection === link.href.slice(1);
 
@@ -447,15 +464,15 @@ export function Navbar() {
                       offset={navOffset}
                       aria-current={isActive ? "location" : undefined}
                       onClick={() => setIsOpen(false)}
-                      className={`flex min-h-11 items-center justify-between rounded-[15px] px-4 py-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
+                      className={`group flex min-h-11 items-center justify-between rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
                         isActive
-                          ? "bg-slate-900/[0.055] text-slate-900 dark:bg-white/10 dark:text-white"
-                          : "text-slate-600 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+                          ? "bg-slate-950 text-white shadow-sm shadow-slate-950/10 dark:bg-white dark:text-slate-950"
+                          : "text-slate-600 hover:translate-x-0.5 hover:bg-slate-100/80 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/8 dark:hover:text-white"
                       }`}
                     >
                       <span>{link.label}</span>
                       {isActive && (
-                        <span className="h-2.5 w-2.5 rounded-full bg-blue-600 dark:bg-blue-400" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-primary-300 dark:bg-primary-500" />
                       )}
                     </Link>
                   );
@@ -465,10 +482,10 @@ export function Navbar() {
                   href="#contact"
                   offset={navOffset}
                   onClick={() => setIsOpen(false)}
-                  className="mt-2 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-[15px] bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-200 hover:bg-blue-700 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950"
+                  className="group mt-2 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-slate-950 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-950/15 transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-600 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:bg-white dark:text-slate-950 dark:hover:bg-primary-300 dark:hover:text-slate-950 dark:focus-visible:ring-offset-slate-950"
                 >
                   Let&apos;s Talk
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
                 </Link>
               </div>
             </motion.div>
