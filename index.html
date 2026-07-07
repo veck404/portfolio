@@ -30,19 +30,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Preload hero/profile image variants (match prefers-color-scheme) to improve LCP) -->
-    <!-- Use existing files to avoid 404s -->
+    <!-- Preload the hero/profile image used by the rendered img srcset. -->
     <link
       rel="preload"
       as="image"
       href="/assets/prof-pic-800.webp"
-      media="(prefers-color-scheme: light)"
-    />
-    <link
-      rel="preload"
-      as="image"
-      href="/assets/prof-pic-drk-800.webp"
-      media="(prefers-color-scheme: dark)"
+      imagesrcset="/assets/prof-pic-400.webp 400w, /assets/prof-pic-800.webp 800w"
+      imagesizes="(max-width: 768px) 80vw, 400px"
     />
   </head>
   <body>
