@@ -2,7 +2,7 @@ import { SectionTitle } from "./ui/SectionTitle";
 import { SectionShell } from "./ui/SectionShell";
 import React, { Suspense } from "react";
 const ContactForm = React.lazy(() =>
-  import("./ui/ContactForm").then((m) => ({ default: m.ContactForm }))
+  import("./ui/ContactForm").then((m) => ({ default: m.ContactForm })),
 );
 import { Mail, Twitter, Linkedin } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
@@ -80,7 +80,7 @@ export function Contact() {
           transition={{ duration: 0.7, type: "spring", bounce: 0.3 }}
         >
           <SectionTitle
-            eyebrow="Contact"
+            // eyebrow="Contact"
             description="Have a product idea, website, or workflow that needs sharper execution? Send a message and I'll respond through WhatsApp."
           >
             <motion.span

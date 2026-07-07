@@ -131,7 +131,7 @@ export function Skills() {
         viewport={{ once: false, amount: 0.0 }}
       >
         <SectionTitle
-          eyebrow="Capabilities"
+          // eyebrow="Capabilities"
           description="A focused stack for building responsive interfaces, product workflows, and reliable web applications."
         >
           Skills
@@ -142,7 +142,7 @@ export function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.0 }}
-          className="grid grid-cols-[repeat(auto-fit,minmax(7.25rem,1fr))] gap-3 sm:gap-4 lg:gap-5"
+          className="mx-auto grid max-w-4xl grid-cols-3 gap-3 sm:gap-4 lg:gap-5"
         >
           {skills.map((tech, index) => (
             <motion.div

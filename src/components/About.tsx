@@ -97,7 +97,7 @@ export function About() {
         viewport={{ once: false, amount: 0.0 }}
       >
         <SectionTitle
-          eyebrow="Profile"
+          // eyebrow="Profile"
           description={
             <>
               I'm{" "}

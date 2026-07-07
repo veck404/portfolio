@@ -139,7 +139,7 @@ export function Experience() {
         viewport={{ once: false, amount: 0.0 }}
       >
         <SectionTitle
-          eyebrow="Work History"
+          // eyebrow="Work History"
           description="A practical mix of software engineering, systems work, product ownership, and data-heavy operational support."
         >
           Experience

@@ -35,7 +35,7 @@ export function Education() {
         viewport={{ once: true, amount: 0.2 }}
       >
         <SectionTitle
-          eyebrow="Credentials"
+          // eyebrow="Credentials"
           description="Formal foundations that support the practical engineering and product work."
         >
           Education
