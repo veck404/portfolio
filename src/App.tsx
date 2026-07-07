@@ -33,7 +33,7 @@ function App() {
       <div className="relative w-full">
         <div className="absolute inset-0 -z-10"></div>
 
-        <CustomCursor />
+        {/* <CustomCursor /> */}
         <Navbar />
         {/* <SplashCursor /> */}
         <Hero />
