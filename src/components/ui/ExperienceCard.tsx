@@ -16,42 +16,45 @@ export const ExperienceCard = React.memo(function ExperienceCard({
   description,
   skills,
 }: ExperienceCardProps) {
+  const descriptionLines = description
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+
   return (
-    <div className="relative group pl-6 sm:pl-10">
+    <div className="group relative">
       {/* Timeline Dot */}
-      <div className="absolute left-[-16px] top-4 w-8 h-8 bg-blue-600 dark:bg-blue-500 rounded-full border-4 border-white dark:border-gray-900"></div>
+      <div className="absolute left-[-33px] top-5 h-4 w-4 rounded-full border-4 border-white bg-primary-500 shadow-md shadow-primary/20 dark:border-slate-950 dark:bg-primary-300 sm:left-[-41px]"></div>
 
       {/* Experience Card */}
-      <div className="relative bg-gray-200 dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-lg border border-gray-300 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-xl">
+      <div className="relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white/80 p-5 shadow-sm shadow-slate-950/5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-xl hover:shadow-primary/10 dark:border-white/10 dark:bg-slate-950/60 dark:shadow-black/20 sm:p-6">
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
 
         <div className="relative z-10">
           {/* Header */}
-          <div className="flex items-center gap-4">
-            <div className="p-3 sm:p-4 bg-blue-100 dark:bg-blue-900 rounded-lg">
-              <Briefcase className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+          <div className="flex items-start gap-4">
+            <div className="rounded-xl bg-primary/10 p-3 dark:bg-primary/20 sm:p-4">
+              <Briefcase className="h-5 w-5 text-primary-600 dark:text-primary-300 sm:h-6 sm:w-6" />
             </div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+            <div className="min-w-0">
+              <h3 className="text-lg font-semibold tracking-[-0.01em] text-slate-950 dark:text-white">
                 {title}
               </h3>
-              <p className="text-base text-blue-600 dark:text-blue-400">
+              <p className="text-sm font-medium text-primary-600 dark:text-primary-300 sm:text-base">
                 {company}
               </p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
+              <p className="text-sm text-slate-500 dark:text-slate-400">
                 {period}
               </p>
             </div>
           </div>
 
           {/* Description (Custom Blue Bullets) */}
-          <ul className="mt-3 space-y-2 text-gray-700 dark:text-gray-300">
-            {description.split("\n").map((line, index) => (
+          <ul className="mt-5 space-y-2 text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-[0.95rem]">
+            {descriptionLines.map((line, index) => (
               <li key={index} className="flex items-start gap-2">
-                <span className="text-blue-600 dark:text-blue-400 font-bold">
-                  •
-                </span>
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
                 <span>{line}</span>
               </li>
             ))}
@@ -62,7 +65,7 @@ export const ExperienceCard = React.memo(function ExperienceCard({
             {skills.map((skill, index) => (
               <span
                 key={index}
-                className="px-3 py-1 text-sm font-medium bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-300 rounded-full"
+                className="rounded-full border border-slate-200/80 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-300"
               >
                 {skill}
               </span>

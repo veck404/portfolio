@@ -5,10 +5,10 @@ import Magnet from "../reactbits/Magnet/Magnet";
 
 export function ActionButtons() {
   return (
-    <div className="flex flex-wrap gap-4 justify-center py-4">
+    <div className="flex w-full flex-col gap-3 py-2 min-[420px]:w-auto min-[420px]:flex-row min-[420px]:flex-wrap min-[420px]:justify-center md:justify-start">
       <a
         href="/assets/Resume.pdf"
-        className="flex items-center gap-2 px-3 py-2 rounded-md text-sm sm:text-base bg-blue-600 text-white hover:bg-blue-700 transition-transform duration-300 transform hover:scale-105"
+        className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-slate-950/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-600 dark:bg-white dark:text-slate-950 dark:hover:bg-primary-300"
       >
         <FileText className="w-5 h-5" />
         <span>View Resume</span>
@@ -16,7 +16,7 @@ export function ActionButtons() {
       <Magnet magnetStrength={6}>
         <Link
           href="#contact"
-          className="flex items-center gap-2 px-3 py-2 rounded-md text-sm sm:text-base text-blue-600 dark:text-blue-400 border-2 border-blue-600 transition-transform duration-300 transform hover:scale-105"
+          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-primary/30 bg-white/70 px-4 py-2.5 text-sm font-semibold text-primary-600 shadow-sm shadow-slate-950/5 transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary/10 dark:bg-slate-900/70 dark:text-primary-300"
         >
           <Mail className="w-5 h-5" />
           <span>Contact Me</span>

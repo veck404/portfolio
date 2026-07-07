@@ -1,19 +1,19 @@
 export function ProfileImage() {
   return (
-    <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-lg mx-auto">
-      <div className="pc-card relative group mx-auto max-w-[400px] animate-floating animation delay-400">
+    <div className="relative mx-auto w-full max-w-[min(72vw,17rem)] sm:max-w-xs md:max-w-sm lg:max-w-[400px]">
+      <div className="pc-card relative group mx-auto aspect-[400/493] w-full animate-floating overflow-visible">
         <img
           src="/assets/prof-pic-800.webp"
           srcSet="/assets/prof-pic-400.webp 400w, /assets/prof-pic-800.webp 800w"
-          sizes="(max-width: 768px) 80vw, 400px"
+          sizes="(max-width: 640px) 72vw, (max-width: 1024px) 320px, 400px"
           alt="Victor Umaru"
           width={400}
           height={493}
           loading="eager"
           decoding="async"
-          className="relative z-20 w-full h-auto rounded-full shadow-xl transform lg:hover:scale-110 hover:scale-105 transition-transform duration-500"
+          className="relative z-20 h-full w-full rounded-full object-cover shadow-2xl shadow-slate-950/10 transition-transform duration-500 hover:scale-[1.035] lg:hover:scale-[1.055] dark:shadow-black/30"
         />
-        <div className="absolute inset-0 hidden rounded-full bg-black/20 pointer-events-none z-30 transition-transform duration-500 dark:block group-hover:scale-105 lg:group-hover:scale-110" />
+        <div className="absolute inset-0 z-30 hidden rounded-full bg-black/20 transition-transform duration-500 group-hover:scale-[1.035] pointer-events-none dark:block lg:group-hover:scale-[1.055]" />
       </div>
     </div>
   );

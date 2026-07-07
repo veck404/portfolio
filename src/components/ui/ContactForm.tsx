@@ -72,15 +72,15 @@ export function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-5">
       {/* Form element with onSubmit handler */}
       {/* Name */}
       <div>
-        <label htmlFor="name" className="block text-sm font-medium mb-2">
+        <label htmlFor="name" className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200">
           Name
         </label>
         <div className="relative">
-          <div className="absolute inset-y-0 left-3 flex items-center text-gray-500">
+          <div className="absolute inset-y-0 left-3 flex items-center text-slate-400">
             {/* User icon */}
             <User className="w-5 h-5" />
           </div>
@@ -92,7 +92,7 @@ export function ContactForm() {
             onChange={handleChange}
             required
             placeholder="Enter your name"
-            className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            className="min-h-12 w-full rounded-xl border border-slate-200/80 bg-slate-50/80 py-3 pl-10 pr-4 text-sm text-slate-900 outline-none transition-colors placeholder:text-slate-400 focus:border-primary/50 focus:bg-white focus:ring-4 focus:ring-primary/10 dark:border-white/10 dark:bg-white/[0.04] dark:text-white dark:placeholder:text-slate-500 dark:focus:bg-white/[0.06]"
             // Input field for name with styling and icon padding
           />
         </div>
@@ -100,11 +100,11 @@ export function ContactForm() {
 
       {/* Email */}
       <div>
-        <label htmlFor="email" className="block text-sm font-medium mb-2">
+        <label htmlFor="email" className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200">
           Email
         </label>
         <div className="relative">
-          <div className="absolute inset-y-0 left-3 flex items-center text-gray-500">
+          <div className="absolute inset-y-0 left-3 flex items-center text-slate-400">
             {/* Mail icon */}
             <Mail className="w-5 h-5" />
           </div>
@@ -116,7 +116,7 @@ export function ContactForm() {
             onChange={handleChange}
             required
             placeholder="Enter your email"
-            className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            className="min-h-12 w-full rounded-xl border border-slate-200/80 bg-slate-50/80 py-3 pl-10 pr-4 text-sm text-slate-900 outline-none transition-colors placeholder:text-slate-400 focus:border-primary/50 focus:bg-white focus:ring-4 focus:ring-primary/10 dark:border-white/10 dark:bg-white/[0.04] dark:text-white dark:placeholder:text-slate-500 dark:focus:bg-white/[0.06]"
             // Input field for email with styling and icon padding
           />
         </div>
@@ -124,11 +124,11 @@ export function ContactForm() {
 
       {/* Message */}
       <div>
-        <label htmlFor="message" className="block text-sm font-medium mb-2">
+        <label htmlFor="message" className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200">
           Message
         </label>
         <div className="relative">
-          <div className="absolute top-3 left-3 text-gray-600">
+          <div className="absolute left-3 top-3.5 text-slate-400">
             {/* Comment icon */}
             <FaRegCommentDots className="w-5 h-5" />
           </div>
@@ -139,8 +139,8 @@ export function ContactForm() {
             onChange={handleChange}
             required
             placeholder="Enter your message"
-            rows={4}
-            className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none"
+            rows={5}
+            className="w-full resize-none rounded-xl border border-slate-200/80 bg-slate-50/80 py-3 pl-10 pr-4 text-sm text-slate-900 outline-none transition-colors placeholder:text-slate-400 focus:border-primary/50 focus:bg-white focus:ring-4 focus:ring-primary/10 dark:border-white/10 dark:bg-white/[0.04] dark:text-white dark:placeholder:text-slate-500 dark:focus:bg-white/[0.06]"
             // Textarea for message with styling and icon padding
           />
         </div>
@@ -151,10 +151,10 @@ export function ContactForm() {
         type="submit"
         disabled={status === "submitting"}
         // Disable button while submitting
-        className={`w-full py-3 px-6 rounded-lg flex items-center justify-center gap-2 ${
+        className={`flex min-h-12 w-full items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold shadow-lg transition-all duration-200 ${
           status === "submitting"
-            ? "bg-blue-400"
-            : "bg-blue-600 hover:bg-blue-700 text-white"
+            ? "bg-primary-400 text-white shadow-primary/10"
+            : "bg-slate-950 text-white shadow-slate-950/20 hover:-translate-y-0.5 hover:bg-primary-600 dark:bg-white dark:text-slate-950 dark:hover:bg-primary-300"
         }`}
         // Button styling based on submission status
       >
@@ -180,11 +180,9 @@ export function ContactForm() {
             damping: 12,
             duration: 0.9,
           }}
-          className="text-green-600 text-center mt-4 font-bold text-lg drop-shadow-lg"
+          className="mt-4 rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-center text-sm font-semibold text-emerald-700 dark:text-emerald-300"
         >
-          <span className="inline-block animate-bounce mr-2">🎉</span>
           WhatsApp opened with your message draft!
-          <span className="inline-block animate-bounce ml-2">🚀</span>
         </motion.p>
       )}
       {status === "error" && (
@@ -202,11 +200,9 @@ export function ContactForm() {
             damping: 12,
             duration: 0.9,
           }}
-          className="text-red-600 text-center mt-4 font-bold text-lg drop-shadow-lg"
+          className="mt-4 rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-center text-sm font-semibold text-red-700 dark:text-red-300"
         >
-          <span className="inline-block animate-bounce mr-2">❌</span>
           {errorMessage}
-          <span className="inline-block animate-bounce ml-2">😢</span>
         </motion.p>
       )}
     </form>

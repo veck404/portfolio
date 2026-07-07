@@ -51,9 +51,9 @@ export function SocialLinks() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={label}
-          className="group relative p-3 bg-gray-200 dark:bg-gray-800 rounded-lg hover:scale-110 transform transition-transform duration-300"
+          className="group relative inline-flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl border border-slate-200/70 bg-white/70 shadow-sm shadow-slate-950/5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-white dark:border-white/10 dark:bg-slate-900/70 dark:shadow-black/20 dark:hover:bg-slate-900"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
           <div>{icon}</div>
         </a>
       ))}

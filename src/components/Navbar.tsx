@@ -62,7 +62,7 @@ function Logo({ offset }: LogoProps) {
       aria-label="Go to home section"
       className="group relative inline-flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl border border-slate-200/80 bg-white/80 shadow-sm shadow-slate-950/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md hover:shadow-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/10 dark:bg-slate-950/70 dark:shadow-black/20 dark:hover:border-primary/40 dark:focus-visible:ring-offset-slate-950"
     >
-      <span className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/15 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <span className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <img
         src={favicon}
         alt="Victor Umaru logo"
@@ -325,8 +325,8 @@ export function Navbar() {
       <nav
         className={`fixed left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-5xl -translate-x-1/2 rounded-2xl backdrop-blur-2xl transition-all duration-300 ${
           isScrolled
-            ? "bg-white/82 shadow-[0_22px_70px_-40px_rgba(15,23,42,0.45)] dark:bg-slate-950/84 dark:shadow-[0_22px_70px_-40px_rgba(0,0,0,0.8)]"
-            : "bg-white/64 shadow-[0_18px_55px_-42px_rgba(15,23,42,0.35)] dark:bg-slate-950/62 dark:shadow-[0_18px_55px_-42px_rgba(0,0,0,0.7)]"
+            ? "bg-white/80 shadow-[0_22px_70px_-40px_rgba(15,23,42,0.45)] dark:bg-slate-950/80 dark:shadow-[0_22px_70px_-40px_rgba(0,0,0,0.8)]"
+            : "bg-white/60 shadow-[0_18px_55px_-42px_rgba(15,23,42,0.35)] dark:bg-slate-950/60 dark:shadow-[0_18px_55px_-42px_rgba(0,0,0,0.7)]"
         }`}
         style={{ top: "calc(1rem + env(safe-area-inset-top))" }}
       >
@@ -353,7 +353,7 @@ export function Navbar() {
                     className={`relative inline-flex h-9 items-center rounded-lg px-3 text-[13px] font-medium transition-all duration-200 hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 xl:px-3.5 ${
                       isActive
                         ? "text-slate-950 dark:text-white"
-                        : "text-slate-500 hover:bg-white/70 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-white/8 dark:hover:text-white"
+                        : "text-slate-500 hover:bg-white/70 hover:text-slate-950 dark:text-slate-400 dark:hover:bg-white/10 dark:hover:text-white"
                     }`}
                   >
                     {isActive && (
@@ -391,7 +391,7 @@ export function Navbar() {
               <Link
                 href="#contact"
                 offset={navOffset}
-                className="group inline-flex h-10 items-center gap-2 rounded-xl border border-primary-500/20 bg-slate-950 px-4 text-[13px] font-semibold text-white shadow-lg shadow-slate-950/15 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-400/40 hover:bg-primary-600 hover:text-white hover:shadow-primary-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:bg-white dark:text-slate-950 dark:shadow-black/20 dark:hover:bg-primary-300 dark:hover:text-slate-950 dark:focus-visible:ring-offset-slate-950"
+                className="group inline-flex h-10 items-center gap-2 rounded-xl border border-primary-500/20 bg-slate-950 px-4 text-[13px] font-semibold text-white shadow-lg shadow-slate-950/20 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-400/40 hover:bg-primary-600 hover:text-white hover:shadow-primary-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:bg-white dark:text-slate-950 dark:shadow-black/20 dark:hover:bg-primary-300 dark:hover:text-slate-950 dark:focus-visible:ring-offset-slate-950"
               >
                 Let&apos;s Talk
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -453,7 +453,7 @@ export function Navbar() {
               transition={menuTransition}
               className="border-t border-slate-200/70 px-3 pb-3 pt-2 dark:border-white/10 lg:hidden"
             >
-              <div className="space-y-1 rounded-xl border border-slate-200/70 bg-white/78 p-2 shadow-inner shadow-white/80 dark:border-white/10 dark:bg-white/[0.04] dark:shadow-black/20">
+              <div className="space-y-1 rounded-xl border border-slate-200/70 bg-white/80 p-2 shadow-inner shadow-white/80 dark:border-white/10 dark:bg-white/[0.04] dark:shadow-black/20">
                 {NAV_LINKS.map((link) => {
                   const isActive = activeSection === link.href.slice(1);
 
@@ -467,7 +467,7 @@ export function Navbar() {
                       className={`group flex min-h-11 items-center justify-between rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
                         isActive
                           ? "bg-slate-950 text-white shadow-sm shadow-slate-950/10 dark:bg-white dark:text-slate-950"
-                          : "text-slate-600 hover:translate-x-0.5 hover:bg-slate-100/80 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/8 dark:hover:text-white"
+                          : "text-slate-600 hover:translate-x-0.5 hover:bg-slate-100/80 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
                       }`}
                     >
                       <span>{link.label}</span>
@@ -482,7 +482,7 @@ export function Navbar() {
                   href="#contact"
                   offset={navOffset}
                   onClick={() => setIsOpen(false)}
-                  className="group mt-2 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-slate-950 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-950/15 transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-600 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:bg-white dark:text-slate-950 dark:hover:bg-primary-300 dark:hover:text-slate-950 dark:focus-visible:ring-offset-slate-950"
+                  className="group mt-2 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-slate-950 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-950/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-600 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:bg-white dark:text-slate-950 dark:hover:bg-primary-300 dark:hover:text-slate-950 dark:focus-visible:ring-offset-slate-950"
                 >
                   Let&apos;s Talk
                   <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />

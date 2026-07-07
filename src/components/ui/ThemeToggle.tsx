@@ -14,7 +14,7 @@ export function ThemeToggle({ isDark, onToggle }: ThemeToggleProps) {
       aria-label="Toggle theme"
       type="button"
     >
-      <span className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/15 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <span className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <div className="relative h-5 w-5">
         <span
           className={`absolute inset-0 transform transition-transform duration-500 ${

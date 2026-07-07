@@ -1,6 +1,7 @@
 import { User2, Code2, Lightbulb } from "lucide-react";
 import { GoGoal } from "react-icons/go";
 import { SectionTitle } from "./ui/SectionTitle";
+import { SectionShell } from "./ui/SectionShell";
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
@@ -88,37 +89,35 @@ export function About() {
   const yGrid = scrollDirection === "down" ? -20 : 20;
 
   return (
-    <section id="about" className="py-20 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
-        {/* <div className="absolute inset-0 bg-grid-pattern opacity-[0.06]" /> */}
-      </div>
-
+    <SectionShell id="about" tone="muted">
       <motion.div
         initial={{ opacity: 0, y: yMain }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.0 }}
-        className="container mx-auto px-6 relative"
       >
-        <SectionTitle>About Me</SectionTitle>
+        <SectionTitle
+          eyebrow="Profile"
+          description={
+            <>
+              I'm{" "}
+              <span className="font-semibold text-primary-600 dark:text-primary-300">
+                Victor Umaru
+              </span>
+              , a Software Engineer and BSc. Computer Science holder. I
+              specialise in transforming ideas into scalable web applications
+              and bringing product concepts to life through continuous learning,
+              experimentation, and close collaboration.
+            </>
+          }
+        >
+          About Me
+        </SectionTitle>
 
-        {/* Introduction */}
-        <div className="max-w-5xl mx-auto mb-16 text-center">
-          <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-            Hello! 👋 I'm{" "}
-            <span className="text-blue-600 font-semibold">Victor Umaru</span>, a
-            Software Engineer and a BSc. Computer Science holder. I specialise
-            in transforming ideas into scalable web applications and bringing
-            ideas to life. My journey in tech revolves around continuous
-            learning, experimenting with new technologies, collaborating with
-            talented teams and building solutions that make an impact.
-          </p>
-          <div className="mt-8 flex justify-center">
-            <span className="text-sm sm:text-base inline-block bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-4 py-2 rounded-lg shadow">
-              🚀 If you can imagine it, I can bring it to life!
-            </span>
-          </div>
+        <div className="mx-auto mb-12 flex max-w-3xl justify-center sm:mb-14">
+          <span className="inline-flex rounded-xl border border-primary/20 bg-primary/10 px-4 py-2 text-center text-sm font-medium text-primary-700 shadow-sm shadow-primary/5 dark:border-primary/25 dark:bg-primary/20 dark:text-primary-200 sm:text-base">
+            If you can imagine it, I can bring it to life.
+          </span>
         </div>
       </motion.div>
 
@@ -128,7 +127,7 @@ export function About() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.0 }}
-        className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto px-6"
+        className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,18rem),1fr))] gap-5 sm:gap-6"
       >
         {aboutSections.map(({ icon: Icon, title, description, color }, idx) => (
           <motion.div
@@ -141,30 +140,31 @@ export function About() {
               ease: "easeOut",
             }}
             viewport={{ once: false, amount: 0.0 }}
-            className="relative group"
+            className="group relative h-full"
           >
-            <div
-              className={`absolute inset-0 ${color} rounded-xl blur-xl opacity-20 group-hover:opacity-60 transition-opacity duration-300 pointer-events-none`}
-            />
-
-            <div className="relative bg-white dark:bg-gray-900 p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md hover:shadow-lg transition-transform duration-300 transform hover:-translate-y-1">
-              <div className="flex items-center mb-4 space-x-4">
-                <div className={`p-3 ${color} rounded-lg`}>
-                  <Icon className="w-6 h-6 text-white" />
+            <div className="relative flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white/80 p-5 shadow-sm shadow-slate-950/5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-xl hover:shadow-primary/10 dark:border-white/10 dark:bg-slate-950/60 dark:shadow-black/20 sm:p-6">
+              <div className="mb-4 flex items-center gap-4">
+                <div
+                  className={`rounded-xl p-3 ${color} shadow-lg shadow-slate-950/10`}
+                >
+                  <Icon className="h-5 w-5 text-white sm:h-6 sm:w-6" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
+                <h3 className="text-lg font-semibold tracking-[-0.01em] text-slate-950 dark:text-white sm:text-xl">
                   {title}
                 </h3>
               </div>
-              <ul className="text-sm sm:text-base list-disc pl-6 text-gray-600 dark:text-gray-300 space-y-1">
+              <ul className="space-y-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
                 {description.map((point, index) => (
-                  <li key={index}>{point}</li>
+                  <li key={index} className="flex gap-2">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
+                    <span>{point}</span>
+                  </li>
                 ))}
               </ul>
             </div>
           </motion.div>
         ))}
       </motion.div>
-    </section>
+    </SectionShell>
   );
 }

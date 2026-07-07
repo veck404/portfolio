@@ -1,4 +1,5 @@
 import { SectionTitle } from "./ui/SectionTitle";
+import { SectionShell } from "./ui/SectionShell";
 import React, { Suspense } from "react";
 const ContactForm = React.lazy(() =>
   import("./ui/ContactForm").then((m) => ({ default: m.ContactForm }))
@@ -64,51 +65,24 @@ const iconVariants = {
   },
 };
 
-const orbVariants = {
-  initial: { opacity: 0, scale: 0.7, y: 0 },
-  animate: {
-    opacity: 0.18,
-    scale: 1,
-    y: [0, 30, 0, -30, 0],
-    transition: {
-      duration: 12,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  },
-};
-
-const gradientBorder =
-  "before:content-[''] before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-br before:from-blue-400/40 before:via-purple-400/30 before:to-blue-400/40 before:blur before:z-[-1] before:opacity-60";
-
 export function Contact() {
   return (
-    <section
-      id="contact"
-      className="py-20 bg-gray-50 dark:bg-gray-800 relative"
-    >
-      {/* Animated Floating Orb - now in a dedicated container that does not affect layout */}
-      <div className="pointer-events-none absolute inset-0 w-full h-full -z-10 overflow-visible">
-        <motion.div
-          variants={orbVariants}
-          initial="initial"
-          animate="animate"
-          className="hidden md:block absolute -top-32 -left-32 w-[32rem] h-[32rem] bg-blue-400/30 dark:bg-blue-700/30 rounded-full blur-3xl"
-        />
-      </div>
+    <SectionShell id="contact" tone="default">
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
         variants={sectionVariants}
-        className="container mx-auto px-4 relative z-10"
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, type: "spring", bounce: 0.3 }}
         >
-          <SectionTitle>
+          <SectionTitle
+            eyebrow="Contact"
+            description="Have a product idea, website, or workflow that needs sharper execution? Send a message and I'll respond through WhatsApp."
+          >
             <motion.span
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -120,15 +94,15 @@ export function Contact() {
           </SectionTitle>
         </motion.div>
         <motion.div
-          className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12"
+          className="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-8"
           variants={gridVariants}
         >
           {/* Left Column: Contact Info */}
           <motion.div
             variants={leftColumnVariants}
-            className={`bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg relative overflow-hidden ${gradientBorder}`}
+            className="relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white/80 p-5 shadow-sm shadow-slate-950/5 dark:border-white/10 dark:bg-slate-950/60 dark:shadow-black/20 sm:p-6 lg:p-8"
           >
-            <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">
+            <h3 className="mb-4 font-heading text-2xl font-semibold tracking-[-0.01em] text-slate-950 dark:text-white">
               <motion.span
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -142,10 +116,10 @@ export function Contact() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.7, type: "spring" }}
-              className="text-gray-600 dark:text-gray-300 mb-8"
+              className="mb-6 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base"
             >
-              Bring those your wonderful ideads and lets bring it to life. I am
-              quick, reliable. Lets build the future together!
+              Bring your product idea, website, or workflow challenge and let's
+              shape it into something reliable, polished, and useful.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -156,65 +130,65 @@ export function Contact() {
                 type: "spring",
                 bounce: 0.3,
               }}
-              className="mt-6 flex justify-center"
+              className="mb-6 flex"
             >
-              <span className="text-sm sm:text-base inline-block bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-4 py-2 rounded-lg shadow mb-8">
-                ⚡ Typically respond to Whatsapp Messages in a flash!
+              <span className="inline-flex rounded-xl border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary-700 shadow-sm shadow-primary/5 dark:border-primary/25 dark:bg-primary/20 dark:text-primary-200">
+                Typically responds quickly on WhatsApp.
               </span>
             </motion.div>
-            <div className="space-y-4">
+            <div className="space-y-3">
               <motion.a
                 href="mailto:veck404@gmail.com"
-                className="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                className="flex min-w-0 items-center gap-3 rounded-xl border border-slate-200/70 bg-slate-50/80 px-4 py-3 text-sm text-slate-600 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:text-primary-600 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:text-primary-300"
                 variants={iconVariants}
                 whileHover={{ scale: 1.12, rotate: 4 }}
                 whileTap={{ scale: 0.95, rotate: 0 }}
               >
-                <Mail className="w-6 h-6" />
-                <span>veck404@gmail.com</span>
+                <Mail className="h-5 w-5 shrink-0" />
+                <span className="truncate">veck404@gmail.com</span>
               </motion.a>
               <motion.a
                 href="https://www.linkedin.com/in/veck404/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                className="flex min-w-0 items-center gap-3 rounded-xl border border-slate-200/70 bg-slate-50/80 px-4 py-3 text-sm text-slate-600 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:text-primary-600 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:text-primary-300"
                 variants={iconVariants}
                 whileHover={{ scale: 1.12, rotate: 4 }}
                 whileTap={{ scale: 0.95, rotate: 0 }}
               >
-                <Linkedin className="w-6 h-6" />
-                <span>linkedin.com/in/veck404</span>
+                <Linkedin className="h-5 w-5 shrink-0" />
+                <span className="truncate">linkedin.com/in/veck404</span>
               </motion.a>
               <motion.a
                 href="https://x.com/veck404"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                className="flex min-w-0 items-center gap-3 rounded-xl border border-slate-200/70 bg-slate-50/80 px-4 py-3 text-sm text-slate-600 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:text-primary-600 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:text-primary-300"
                 variants={iconVariants}
                 whileHover={{ scale: 1.12, rotate: 4 }}
                 whileTap={{ scale: 0.95, rotate: 0 }}
               >
-                <Twitter className="w-6 h-6" />
-                <span>x.com/veck404</span>
+                <Twitter className="h-5 w-5 shrink-0" />
+                <span className="truncate">x.com/veck404</span>
               </motion.a>
               <motion.a
                 href="https://wa.me/2347066733522"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                className="flex min-w-0 items-center gap-3 rounded-xl border border-slate-200/70 bg-slate-50/80 px-4 py-3 text-sm text-slate-600 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:text-primary-600 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:text-primary-300"
                 variants={iconVariants}
                 whileHover={{ scale: 1.12, rotate: 4 }}
                 whileTap={{ scale: 0.95, rotate: 0 }}
               >
-                <FaWhatsapp className="w-6 h-6" />
-                <span>+2347066733522</span>
+                <FaWhatsapp className="h-5 w-5 shrink-0" />
+                <span className="truncate">+2347066733522</span>
               </motion.a>
             </div>
           </motion.div>
           {/* Right Column: Contact Form */}
           <motion.div
             variants={rightColumnVariants}
-            className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg"
+            className="rounded-2xl border border-slate-200/80 bg-white/80 p-5 shadow-sm shadow-slate-950/5 dark:border-white/10 dark:bg-slate-950/60 dark:shadow-black/20 sm:p-6 lg:p-8"
           >
             <Suspense
               fallback={
@@ -228,6 +202,6 @@ export function Contact() {
           </motion.div>
         </motion.div>
       </motion.div>
-    </section>
+    </SectionShell>
   );
 }

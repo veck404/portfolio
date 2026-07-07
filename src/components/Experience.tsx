@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { SectionTitle } from "./ui/SectionTitle";
+import { SectionShell } from "./ui/SectionShell";
 import { ExperienceCard } from "./ui/ExperienceCard";
 
 const experiences = [
@@ -130,22 +131,25 @@ export function Experience() {
   const yGrid = scrollDirection === "down" ? -20 : 20;
 
   return (
-    <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-800">
-      {/* Background Elements */}
+    <SectionShell id="experience" tone="default">
       <motion.div
         initial={{ opacity: 0, y: yMain }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.0 }}
-        className="container mx-auto px-8"
       >
-        <SectionTitle>Experience</SectionTitle>
+        <SectionTitle
+          eyebrow="Work History"
+          description="A practical mix of software engineering, systems work, product ownership, and data-heavy operational support."
+        >
+          Experience
+        </SectionTitle>
         <motion.div
           initial={{ opacity: 0, y: yGrid }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.0 }}
-          className="relative border-l-2 border-blue-600 dark:border-blue-500 max-w-5xl mx-auto space-y-10"
+          className="relative mx-auto max-w-5xl space-y-6 border-l border-slate-200/80 pl-4 dark:border-white/10 sm:space-y-8 sm:pl-8"
         >
           {experiences.map((exp, index) => (
             <motion.div
@@ -164,6 +168,6 @@ export function Experience() {
           ))}
         </motion.div>
       </motion.div>
-    </section>
+    </SectionShell>
   );
 }

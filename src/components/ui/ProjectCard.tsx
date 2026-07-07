@@ -34,9 +34,9 @@ export const ProjectCard = React.memo(function ProjectCard({
 
   return (
     <div className="group relative h-full">
-      <div className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/70 shadow-none backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-brand-glow dark:border-slate-800/60 dark:bg-slate-900/70">
+      <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white/80 shadow-sm shadow-slate-950/5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-xl hover:shadow-primary/10 dark:border-white/10 dark:bg-slate-950/60 dark:shadow-black/20">
         {/* Image */}
-        <div className="relative overflow-hidden p-5 pb-0">
+        <div className="relative overflow-hidden p-4 pb-0 sm:p-5 sm:pb-0">
           <a
             href={link}
             target="_blank"
@@ -51,12 +51,12 @@ export const ProjectCard = React.memo(function ProjectCard({
               width={800}
               height={450}
               fetchPriority="low"
-              className="aspect-[16/10] w-full rounded-2xl border border-white/10 object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] dark:border-slate-800/80"
+              className="aspect-[16/10] w-full rounded-xl border border-slate-200/70 object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025] dark:border-white/10"
             />
             {impact?.length ? (
               // Hover overlay highlights measurable outcomes without leaving the page
-              <div className="pointer-events-none absolute inset-0 flex items-end justify-center p-5">
-                <div className="flex w-full translate-y-3 flex-col gap-3 rounded-2xl border border-white/20 bg-slate-900/85 px-5 py-4 opacity-0 backdrop-blur-sm transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+              <div className="pointer-events-none absolute inset-0 flex items-end justify-center p-3 sm:p-4">
+                <div className="flex w-full translate-y-3 flex-col gap-3 rounded-xl border border-white/20 bg-slate-900/90 px-4 py-3 opacity-0 backdrop-blur-sm transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 sm:px-5 sm:py-4">
                   <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-300">
                     Impact Snapshot
                   </p>
@@ -79,14 +79,14 @@ export const ProjectCard = React.memo(function ProjectCard({
         </div>
 
         {/* Content */}
-        <div className="flex flex-1 flex-col gap-6 p-6">
+        <div className="flex flex-1 flex-col gap-5 p-5 sm:p-6">
           {/* Title + Icons */}
           <div className="flex items-start justify-between gap-4">
             <div className="space-y-2">
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-primary/70">
                 Featured Build
               </p>
-              <h3 className="font-heading text-2xl font-semibold tracking-[-0.01em] text-slate-900 dark:text-slate-100">
+              <h3 className="font-heading text-xl font-semibold tracking-[-0.01em] text-slate-950 dark:text-slate-100 sm:text-2xl">
                 {title}
               </h3>
             </div>
@@ -97,7 +97,7 @@ export const ProjectCard = React.memo(function ProjectCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${title} source code`}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/80 text-slate-500 transition-colors duration-300 hover:border-primary/40 hover:bg-primary/10 hover:text-primary-500 dark:border-slate-700 dark:text-slate-300 dark:hover:border-primary/40 dark:hover:text-primary-300"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200/80 bg-white/70 text-slate-500 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-primary/10 hover:text-primary-500 dark:border-white/10 dark:bg-slate-900/70 dark:text-slate-300 dark:hover:border-primary/40 dark:hover:text-primary-300"
                 >
                   <Github className="h-5 w-5" />
                 </a>
@@ -108,7 +108,7 @@ export const ProjectCard = React.memo(function ProjectCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${title} live preview`}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/80 text-slate-500 transition-colors duration-300 hover:border-primary/40 hover:bg-primary/10 hover:text-primary-500 dark:border-slate-700 dark:text-slate-300 dark:hover:border-primary/40 dark:hover:text-primary-300"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200/80 bg-white/70 text-slate-500 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-primary/10 hover:text-primary-500 dark:border-white/10 dark:bg-slate-900/70 dark:text-slate-300 dark:hover:border-primary/40 dark:hover:text-primary-300"
                 >
                   <Globe className="h-5 w-5" />
                 </a>
@@ -117,7 +117,7 @@ export const ProjectCard = React.memo(function ProjectCard({
           </div>
 
           {/* Description */}
-          <p className="text-base leading-relaxed text-slate-600 dark:text-slate-300">
+          <p className="text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base">
             {description}
           </p>
 
@@ -133,7 +133,7 @@ export const ProjectCard = React.memo(function ProjectCard({
               return (
                 <span
                   key={`${label}-${index}`}
-                  className={`inline-flex items-center rounded-full px-3 py-1 text-[0.7rem] font-semibold tracking-[0.18em] uppercase transition-colors ${toneClass}`}
+                  className={`inline-flex items-center rounded-full px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] transition-colors ${toneClass}`}
                 >
                   {label}
                 </span>

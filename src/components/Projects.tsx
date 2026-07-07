@@ -1,4 +1,5 @@
 import { SectionTitle } from "./ui/SectionTitle";
+import { SectionShell } from "./ui/SectionShell";
 import { ProjectCard } from "./ui/ProjectCard";
 
 // Centralize tech stack badges so tone/labels stay consistent across cards
@@ -172,31 +173,24 @@ const projects = [
 export function Projects() {
   // Section wrapper feeds the grid with curated items and supporting copy
   return (
-    <section
-      id="projects"
-      className="relative overflow-hidden bg-background py-24 dark:bg-slate-950"
-    >
-      <div className="absolute inset-0 -z-10 bg-soft-radial opacity-70" />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-section-gradient" />
-
-      <div className="container relative">
-        <div className="mb-6 text-center">
-          <p className="tracking-widest text-xs font-semibold uppercase text-primary/70">
-            Featured Work
-          </p>
-          <SectionTitle>Projects</SectionTitle>
-          <p className="mx-auto max-w-2xl text-balance text-sm text-slate-500 dark:text-slate-400 md:text-base">
+    <SectionShell id="projects" tone="muted">
+      <SectionTitle
+        eyebrow="Featured Work"
+        description={
+          <>
             A curated mix of client engagements and personal experiments focused
             on performance, delightful interactions, and resilient engineering.
-          </p>
-        </div>
+          </>
+        }
+      >
+        Projects
+      </SectionTitle>
 
-        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2">
-          {projects.map((project) => (
-            <ProjectCard key={project.title} {...project} />
-          ))}
-        </div>
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,28rem),1fr))] gap-6 lg:gap-8">
+        {projects.map((project) => (
+          <ProjectCard key={project.title} {...project} />
+        ))}
       </div>
-    </section>
+    </SectionShell>
   );
 }

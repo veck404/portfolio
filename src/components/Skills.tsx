@@ -1,5 +1,6 @@
 // import React from "react";
 import { SectionTitle } from "./ui/SectionTitle";
+import { SectionShell } from "./ui/SectionShell";
 import { SkillCard } from "./ui/SkillCard";
 import {
   SiHtml5,
@@ -122,24 +123,26 @@ export function Skills() {
   const yGrid = scrollDirection === "down" ? -20 : 20;
 
   return (
-    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800">
-      {/* Background Elements */}
-
+    <SectionShell id="skills" tone="default">
       <motion.div
         initial={{ opacity: 0, y: yMain }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.0 }}
-        className="container mx-auto px-6"
       >
-        <SectionTitle>Skills</SectionTitle>
+        <SectionTitle
+          eyebrow="Capabilities"
+          description="A focused stack for building responsive interfaces, product workflows, and reliable web applications."
+        >
+          Skills
+        </SectionTitle>
 
         <motion.div
           initial={{ opacity: 0, y: yGrid }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.0 }}
-          className="max-w-6xl mx-auto grid grid-cols-3 md:grid-cols-6 lg:grid-cols-5 gap-4 sm:gap-6 mt-8"
+          className="grid grid-cols-[repeat(auto-fit,minmax(7.25rem,1fr))] gap-3 sm:gap-4 lg:gap-5"
         >
           {skills.map((tech, index) => (
             <motion.div
@@ -158,6 +161,6 @@ export function Skills() {
           ))}
         </motion.div>
       </motion.div>
-    </section>
+    </SectionShell>
   );
 }

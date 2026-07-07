@@ -15,25 +15,24 @@ export const SkillCard = React.memo(function SkillCard({
   color,
   url,
 }: SkillCardProps) {
+  const accentColor = color?.trim() && color.trim() !== "#" ? color : "#64748b";
+
   return (
     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative flex flex-col items-center p-2 bg-gray-200 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md transition-transform duration-300 transform hover:-translate-y-2 hover:shadow-2xl 
-        before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-br before:from-transparent before:to-[var(--glow-color,rgba(255,255,255,0))] before:opacity-0 before:blur-lg before:transition-all before:duration-500 hover:before:opacity-50"
-      style={{ "--glow-color": color } as React.CSSProperties}
+      className="group relative flex min-h-32 flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white/80 p-4 text-center shadow-sm shadow-slate-950/5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-xl hover:shadow-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/10 dark:bg-slate-950/60 dark:shadow-black/20 dark:focus-visible:ring-offset-slate-950"
+      style={{ "--glow-color": accentColor } as React.CSSProperties}
     >
-      {/* Icon with Background */}
+      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_50%_0%,var(--glow-color),transparent_46%)] opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-20" />
       <div
-        className="p-3 rounded-full transition-all duration-300 group-hover:scale-110"
-        style={{ backgroundColor: `${color}1A` }}
+        className="relative rounded-2xl p-3 transition-all duration-300 group-hover:scale-105"
+        style={{ backgroundColor: `${accentColor}1A` }}
       >
-        <Icon size={50} color={color} className="group-hover:brightness-100" />
+        <Icon size={36} color={accentColor} className="group-hover:brightness-100" />
       </div>
-
-      {/* Skill Name */}
-      <span className="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+      <span className="relative mt-3 text-sm font-semibold text-slate-900 dark:text-slate-100">
         {name}
       </span>
     </a>
