@@ -1,6 +1,6 @@
 export function ProfileImage() {
   return (
-    <div className="relative mx-auto w-full max-w-[min(72vw,17rem)] sm:max-w-xs md:max-w-sm lg:max-w-[400px]">
+    <div className="relative mx-auto w-full max-w-[min(60vw,15rem)] sm:max-w-xs md:max-w-sm lg:max-w-[400px]">
       <div className="pc-card relative group mx-auto aspect-[400/493] w-full animate-floating overflow-visible">
         <img
           src="/assets/prof-pic-800.webp"

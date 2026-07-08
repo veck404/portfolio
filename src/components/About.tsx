@@ -142,7 +142,7 @@ export function About() {
             viewport={{ once: false, amount: 0.0 }}
             className="group relative h-full"
           >
-            <div className="relative flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white/80 p-5 shadow-sm shadow-slate-950/5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-xl hover:shadow-primary/10 dark:border-white/10 dark:bg-slate-950/60 dark:shadow-black/20 sm:p-6">
+            <div className="relative flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white/80 p-5 shadow-sm shadow-slate-950/5 transition-all duration-300 hover:border-primary/25 hover:shadow-xl hover:shadow-primary/10 dark:border-white/10 dark:bg-slate-950/60 dark:shadow-black/20 sm:p-6">
               <div className="mb-4 flex items-center gap-4">
                 <div
                   className={`rounded-xl p-3 ${color} shadow-lg shadow-slate-950/10`}

@@ -40,8 +40,8 @@ export function Hero() {
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.035] dark:opacity-[0.045]" />
       </div>
 
-      <div className="container relative z-10 mx-auto max-w-6xl px-5 pb-16 pt-8 sm:px-6 sm:pb-20 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-[minmax(0,1.05fr)_minmax(18rem,0.95fr)] lg:gap-14">
+      <div className="container relative z-10 mx-auto max-w-6xl px-5 pb-10 pt-2 sm:px-6 sm:pb-20 sm:pt-8 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-[minmax(0,1.05fr)_minmax(18rem,0.95fr)] lg:gap-14">
           {/* ---- Left Content ---- */}
           <motion.div
             {...animationProps}
