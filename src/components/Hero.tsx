@@ -83,9 +83,9 @@ export function Hero() {
           <Link
             href="#about"
             aria-label="Scroll to About section"
-            className="rounded-full border border-slate-200/70 bg-white/70 p-2 shadow-sm shadow-slate-950/5 transition-colors hover:bg-white dark:border-white/10 dark:bg-slate-900/70 dark:hover:bg-slate-900"
+            // className="rounded-full border border-slate-200/70 bg-white/70 p-2 shadow-sm shadow-slate-950/5 transition-colors hover:bg-white dark:border-white/10 dark:bg-slate-900/70 dark:hover:bg-slate-900"
           >
-            <ArrowDown className="h-5 w-5 text-slate-400 dark:text-slate-300" />
+            <ArrowDown className="h-5 w-5 text-slate-600 dark:text-slate-300" />
           </Link>
         </div>
       </div>
