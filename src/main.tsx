@@ -12,6 +12,13 @@ if (isDark) {
   document.documentElement.classList.add("dark");
 }
 
+document
+  .getElementById("theme-favicon")
+  ?.setAttribute(
+    "href",
+    isDark ? "/assets/Vector-Logo-White.png" : "/assets/Vector-Logo-Black.png",
+  );
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <App />

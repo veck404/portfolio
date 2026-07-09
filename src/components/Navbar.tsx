@@ -5,7 +5,8 @@ import { Link } from "./Link";
 import { useTheme } from "../hooks/useTheme";
 import { ThemeToggle } from "./ui/ThemeToggle";
 import Magnet from "./reactbits/Magnet/Magnet";
-import favicon from "/assets/favicon.png";
+import vectorLogoBlack from "/assets/Vector-Logo-Black.png";
+import vectorLogoWhite from "/assets/Vector-Logo-White.png";
 
 const NAV_LINKS = [
   { href: "#home", label: "Home" },
@@ -51,25 +52,26 @@ function getFocusableElements(container: HTMLElement) {
 }
 
 type LogoProps = {
+  isDark: boolean;
   offset: number;
 };
 
-function Logo({ offset }: LogoProps) {
+function Logo({ isDark, offset }: LogoProps) {
   return (
     <Link
       href="#home"
       offset={offset}
       aria-label="Go to home section"
-      className="group relative inline-flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl border border-slate-200/80 bg-white/80 shadow-sm shadow-slate-950/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md hover:shadow-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/10 dark:bg-slate-950/70 dark:shadow-black/20 dark:hover:border-primary/40 dark:focus-visible:ring-offset-slate-950"
+      className="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl border border-slate-200/80 bg-white/75 shadow-[0_0_0_1px_rgba(255,255,255,0.75),0_10px_26px_-20px_rgba(15,23,42,0.75)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[0_0_0_1px_rgba(99,102,241,0.16),0_14px_34px_-22px_rgba(99,102,241,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/10 dark:bg-slate-950/70 dark:shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_12px_30px_-22px_rgba(255,255,255,0.38)] dark:hover:border-primary/40 dark:hover:shadow-[0_0_0_1px_rgba(165,180,252,0.16),0_14px_36px_-22px_rgba(165,180,252,0.58)] dark:focus-visible:ring-offset-slate-950"
     >
       <span className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <img
-        src={favicon}
+        src={isDark ? vectorLogoWhite : vectorLogoBlack}
         alt="Victor Umaru logo"
-        width={30}
-        height={30}
+        width={42}
+        height={42}
         loading="lazy"
-        className="relative h-[30px] w-[30px] rounded-lg ring-1 ring-slate-200/70 transition-transform duration-300 group-hover:scale-105 dark:ring-white/10"
+        className="relative h-12 w-12 object-contain transition-all duration-300 group-hover:scale-105"
       />
     </Link>
   );
@@ -336,7 +338,7 @@ export function Navbar() {
           className="grid min-h-16 grid-cols-[auto_1fr_auto] items-center gap-3 px-3 sm:px-4"
         >
           <div className="flex items-center">
-            <Logo offset={navOffset} />
+            <Logo isDark={isDark} offset={navOffset} />
           </div>
 
           <div className="hidden items-center justify-center lg:flex">
@@ -415,9 +417,17 @@ export function Navbar() {
               <AnimatePresence mode="wait" initial={false}>
                 <motion.span
                   key={isOpen ? "close" : "menu"}
-                  initial={prefersReducedMotion ? false : { opacity: 0, rotate: -12, scale: 0.9 }}
+                  initial={
+                    prefersReducedMotion
+                      ? false
+                      : { opacity: 0, rotate: -12, scale: 0.9 }
+                  }
                   animate={{ opacity: 1, rotate: 0, scale: 1 }}
-                  exit={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, rotate: 12, scale: 0.9 }}
+                  exit={
+                    prefersReducedMotion
+                      ? { opacity: 1 }
+                      : { opacity: 0, rotate: 12, scale: 0.9 }
+                  }
                   transition={sharedTransition}
                 >
                   {isOpen ? (

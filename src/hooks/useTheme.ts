@@ -1,5 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 
+const logoByTheme = {
+  dark: "/assets/Vector-Logo-White.png",
+  light: "/assets/Vector-Logo-Black.png",
+};
+
 export function useTheme() {
   const [isDark, setIsDark] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -15,6 +20,10 @@ export function useTheme() {
   const updateTheme = useCallback((dark: boolean) => {
     // Simply add or remove the dark class
     document.documentElement.classList[dark ? "add" : "remove"]("dark");
+
+    document
+      .getElementById("theme-favicon")
+      ?.setAttribute("href", dark ? logoByTheme.dark : logoByTheme.light);
   }, []);
 
   useEffect(() => {
