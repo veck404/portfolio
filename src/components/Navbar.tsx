@@ -341,7 +341,7 @@ export function Navbar() {
           </div>
 
           <div className="hidden items-center justify-center lg:flex">
-            <div className="inline-flex items-center gap-1 rounded-xl border border-slate-200/70 bg-slate-950/[0.025] p-1 shadow-inner shadow-white/60 dark:border-white/10 dark:bg-white/[0.04] dark:shadow-black/20">
+            <div className="inline-flex items-center gap-1">
               {NAV_LINKS.map((link) => {
                 const isActive = activeSection === link.href.slice(1);
 
@@ -481,7 +481,7 @@ export function Navbar() {
                     >
                       <span>{link.label}</span>
                       {isActive && (
-                        <span className="h-1.5 w-1.5 rounded-full bg-primary-300 dark:bg-primary-500" />
+                        <span className="h-2 w-2 rounded-sm bg-primary-00 dark:bg-primary-500" />
                       )}
                     </Link>
                   );
@@ -494,7 +494,7 @@ export function Navbar() {
                   className="group mt-2 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-slate-950 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-950/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-600 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:bg-white dark:text-slate-950 dark:hover:bg-primary-300 dark:hover:text-slate-950 dark:focus-visible:ring-offset-slate-950"
                 >
                   Let&apos;s Talk
-                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200" />
                 </Link>
               </div>
             </motion.div>
