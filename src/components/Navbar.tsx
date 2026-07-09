@@ -62,16 +62,15 @@ function Logo({ isDark, offset }: LogoProps) {
       href="#home"
       offset={offset}
       aria-label="Go to home section"
-      className="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl border border-slate-200/80 bg-white/75 shadow-[0_0_0_1px_rgba(255,255,255,0.75),0_10px_26px_-20px_rgba(15,23,42,0.75)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[0_0_0_1px_rgba(99,102,241,0.16),0_14px_34px_-22px_rgba(99,102,241,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/10 dark:bg-slate-950/70 dark:shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_12px_30px_-22px_rgba(255,255,255,0.38)] dark:hover:border-primary/40 dark:hover:shadow-[0_0_0_1px_rgba(165,180,252,0.16),0_14px_36px_-22px_rgba(165,180,252,0.58)] dark:focus-visible:ring-offset-slate-950"
+      className="group relative inline-flex h-14 w-14 items-center justify-center transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950"
     >
-      <span className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <img
-        src={isDark ? vectorLogoWhite : vectorLogoBlack}
+        src={isDark ? vectorLogoBlack : vectorLogoWhite}
         alt="Victor Umaru logo"
-        width={42}
-        height={42}
+        width={68}
+        height={68}
         loading="lazy"
-        className="relative h-12 w-12 object-contain transition-all duration-300 group-hover:scale-105"
+        className="relative h-16 w-16 object-contain transition-all duration-300 group-hover:scale-105"
       />
     </Link>
   );
