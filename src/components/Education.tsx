@@ -29,10 +29,10 @@ export function Education() {
   return (
     <SectionShell id="education" tone="muted">
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, type: "spring", bounce: 0.2 }}
-        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: false, amount: 0.16 }}
       >
         <SectionTitle
           // eyebrow="Credentials"
@@ -45,12 +45,13 @@ export function Education() {
         className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,22rem),1fr))] gap-5 sm:gap-6"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: false, amount: 0.2 }}
         variants={{
           hidden: {},
           visible: {
             transition: {
               staggerChildren: 0.18,
+              delayChildren: 0.05,
             },
           },
         }}
@@ -58,15 +59,14 @@ export function Education() {
         {education.map((edu, index) => (
           <motion.div
             key={edu.degree}
-            initial={{ opacity: 0, y: 40, scale: 0.96 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{
-              duration: 0.7,
-              type: "spring",
-              bounce: 0.25,
+              duration: 0.45,
+              ease: [0.22, 1, 0.36, 1],
               delay: index * 0.08,
             }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.16 }}
           >
             <EducationCard {...edu} isLast={index === education.length - 1} />
           </motion.div>

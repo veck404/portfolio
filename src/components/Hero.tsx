@@ -22,9 +22,9 @@ export function Hero() {
   const animationProps = prefersReducedMotion
     ? {}
     : {
-        initial: { x: "-50%", opacity: 0 },
-        animate: { x: 0, opacity: 1 },
-        transition: { duration: 1, ease: "easeOut" },
+        initial: { y: 18, opacity: 0 },
+        animate: { y: 0, opacity: 1 },
+        transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
       };
 
   return (
@@ -41,8 +41,8 @@ export function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.18),transparent_62%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.055),transparent_66%)]" />
       </div>
 
-      <div className="container relative z-10 mx-auto max-w-6xl px-5 pb-10 pt-2 sm:px-6 sm:pb-20 sm:pt-8 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-[minmax(0,1.05fr)_minmax(18rem,0.95fr)] lg:gap-14">
+      <div className="container relative z-10 mx-auto max-w-6xl px-5 pb-12 pt-0 sm:px-6 sm:pb-20 sm:pt-8 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-[minmax(0,1.05fr)_minmax(18rem,0.95fr)] lg:gap-14">
           {/* ---- Left Content ---- */}
           <motion.div
             {...animationProps}

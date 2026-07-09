@@ -27,7 +27,6 @@ import {
 import { FaNodeJs, FaPython } from "react-icons/fa";
 import { IoLogoFirebase } from "react-icons/io5";
 import { motion } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
 
 const skills = [
   {
@@ -97,38 +96,14 @@ const skills = [
   { name: "Vercel", icon: SiVercel, color: "#", url: "https://vercel.com/" },
 ];
 
-function useScrollDirection() {
-  const [direction, setDirection] = useState<"up" | "down">("down");
-  const lastScrollY = useRef(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY.current) {
-        setDirection("down");
-      } else if (currentScrollY < lastScrollY.current) {
-        setDirection("up");
-      }
-      lastScrollY.current = currentScrollY;
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-  return direction;
-}
-
 export function Skills() {
-  const scrollDirection = useScrollDirection();
-  const yMain = scrollDirection === "down" ? -40 : 40;
-  const yGrid = scrollDirection === "down" ? -20 : 20;
-
   return (
     <SectionShell id="skills" tone="default">
       <motion.div
-        initial={{ opacity: 0, y: yMain }}
+        initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
-        viewport={{ once: false, amount: 0.0 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: false, amount: 0.16 }}
       >
         <SectionTitle
           // eyebrow="Capabilities"
@@ -138,23 +113,23 @@ export function Skills() {
         </SectionTitle>
 
         <motion.div
-          initial={{ opacity: 0, y: yGrid }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
-          viewport={{ once: false, amount: 0.0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: false, amount: 0.16 }}
           className="mx-auto grid max-w-4xl grid-cols-3 gap-3 sm:gap-4 lg:gap-5"
         >
           {skills.map((tech, index) => (
             <motion.div
               key={tech.name}
-              initial={{ opacity: 0, y: yGrid }}
+              initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.45,
                 delay: index * 0.04,
-                ease: "easeOut",
+                ease: [0.22, 1, 0.36, 1],
               }}
-              viewport={{ once: false, amount: 0.0 }}
+              viewport={{ once: false, amount: 0.16 }}
             >
               <SkillCard {...tech} />
             </motion.div>

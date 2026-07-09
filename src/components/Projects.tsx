@@ -1,6 +1,9 @@
 import { SectionTitle } from "./ui/SectionTitle";
 import { SectionShell } from "./ui/SectionShell";
 import { ProjectCard } from "./ui/ProjectCard";
+import { motion } from "framer-motion";
+
+const softEase = [0.22, 1, 0.36, 1] as const;
 
 // Centralize tech stack badges so tone/labels stay consistent across cards
 const techStacks = {
@@ -24,6 +27,7 @@ const techStacks = {
 const projects = [
   {
     title: "BRI Capital",
+    category: "Corporate Site",
     description:
       "Corporate site for an investment firm showcasing service lines, performance highlights, and an optimized lead-intake flow for prospective clients.",
     image: "/assets/BRIcapital.png",
@@ -41,6 +45,7 @@ const projects = [
   },
   {
     title: "DigiQuiz",
+    category: "Marketing Tool",
     description:
       "A zero-party data quiz platform where marketers launch branded funnels, collect analytics, and sync leads without touching code.",
     image: "/assets/digiquiz.png",
@@ -59,6 +64,7 @@ const projects = [
   },
   {
     title: "Noorvale Studio",
+    category: "Studio Site",
     description:
       "A boutique creative studio site with immersive art direction, interactive case studies, and optimized messaging funnels for lead capture.",
     image: "/assets/noorvalestudio.png",
@@ -77,6 +83,7 @@ const projects = [
   },
   {
     title: "BlackCode",
+    category: "Learning Platform",
     description:
       "A coding platform with curated DSA sheets, roadmaps, CS articles, and a community forum for students to share resources and discuss challenges.",
     image: "/assets/blackcode.png",
@@ -98,6 +105,7 @@ const projects = [
 
   {
     title: "NBE Agro Allied Farms",
+    category: "Operations System",
     description:
       "A comprehensive farm management system for NBE Agro Allied Farms, enabling efficient management of farm operations, logistics, and data analytics.",
     image: "/assets/NBE.jpg",
@@ -117,6 +125,7 @@ const projects = [
   },
   {
     title: "GrainPlus Logistics",
+    category: "Logistics Platform",
     description:
       "A logistics platform for GrainPlus, providing real-time tracking, order management, and analytics for efficient supply chain operations.",
     image: "/assets/grainplus.jpg",
@@ -136,6 +145,7 @@ const projects = [
   },
   {
     title: "Graferd Farms",
+    category: "Customer Portal",
     description:
       "Corporate site and customer portal for an agro-allied cooperative, highlighting produce lines, training programs, and franchising opportunities.",
     image: "/assets/graferd.png",
@@ -153,6 +163,7 @@ const projects = [
   },
   {
     title: "Portfolio Webpage",
+    category: "Portfolio",
     description:
       "My personal portfolio webpage showcasing my projects, skills, and contact information. Built with modern web technologies for a responsive and engaging user experience.",
     image: "/assets/portfolio_dark.png",
@@ -174,23 +185,56 @@ export function Projects() {
   // Section wrapper feeds the grid with curated items and supporting copy
   return (
     <SectionShell id="projects" tone="muted">
-      <SectionTitle
-        // eyebrow="Featured Work"
-        description={
-          <>
-            A curated mix of client engagements and personal experiments focused
-            on performance, delightful interactions, and resilient engineering.
-          </>
-        }
+      <motion.div
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: softEase }}
+        viewport={{ once: false, amount: 0.16 }}
       >
-        Projects
-      </SectionTitle>
+        <SectionTitle
+          // eyebrow="Featured Work"
+          description={
+            <>
+              A curated mix of client engagements and personal experiments focused
+              on performance, delightful interactions, and resilient engineering.
+            </>
+          }
+        >
+          Projects
+        </SectionTitle>
+      </motion.div>
 
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,28rem),1fr))] gap-6 lg:gap-8">
-        {projects.map((project) => (
-          <ProjectCard key={project.title} {...project} />
+      <motion.div
+        className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,28rem),1fr))] gap-6 lg:gap-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.12 }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              delayChildren: 0.05,
+              staggerChildren: 0.06,
+            },
+          },
+        }}
+      >
+        {projects.map((project, index) => (
+          <motion.div
+            key={project.title}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.45,
+              delay: index * 0.03,
+              ease: softEase,
+            }}
+            viewport={{ once: false, amount: 0.12 }}
+          >
+            <ProjectCard {...project} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </SectionShell>
   );
 }

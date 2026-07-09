@@ -9,6 +9,7 @@ interface TechStackItem {
 
 interface ProjectCardProps {
   title: string;
+  category?: string;
   description: string;
   image: string;
   link?: string;
@@ -19,6 +20,7 @@ interface ProjectCardProps {
 
 export const ProjectCard = React.memo(function ProjectCard({
   title,
+  category,
   description,
   image,
   link,
@@ -34,7 +36,7 @@ export const ProjectCard = React.memo(function ProjectCard({
 
   return (
     <div className="group relative h-full">
-      <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white/80 shadow-sm shadow-slate-950/5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-xl hover:shadow-primary/10 dark:border-white/10 dark:bg-slate-950/60 dark:shadow-black/20">
+      <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white/80 shadow-sm shadow-slate-950/5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:bg-white hover:shadow-lg hover:shadow-primary/10 dark:border-white/10 dark:bg-slate-900/70 dark:shadow-black/20 dark:hover:bg-slate-900/90">
         {/* Image */}
         <div className="relative overflow-hidden p-4 pb-0 sm:p-5 sm:pb-0">
           <a
@@ -51,7 +53,7 @@ export const ProjectCard = React.memo(function ProjectCard({
               width={800}
               height={450}
               fetchPriority="low"
-              className="aspect-[16/10] w-full rounded-xl border border-slate-200/70 object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025] dark:border-white/10"
+              className="aspect-[16/10] w-full rounded-xl border border-slate-200/70 object-cover transition-transform duration-500 ease-out group-hover:scale-[1.015] dark:border-white/10"
             />
             {impact?.length ? (
               // Hover overlay highlights measurable outcomes without leaving the page
@@ -83,9 +85,16 @@ export const ProjectCard = React.memo(function ProjectCard({
           {/* Title + Icons */}
           <div className="flex items-start justify-between gap-4">
             <div className="space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-primary/70">
-                Featured Build
-              </p>
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-primary/70">
+                  Featured Build
+                </p>
+                {category ? (
+                  <span className="rounded-full border border-slate-200/80 bg-slate-50 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-300">
+                    {category}
+                  </span>
+                ) : null}
+              </div>
               <h3 className="font-heading text-xl font-semibold tracking-[-0.01em] text-slate-950 dark:text-slate-100 sm:text-2xl">
                 {title}
               </h3>

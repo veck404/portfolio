@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
 import { SectionTitle } from "./ui/SectionTitle";
 import { SectionShell } from "./ui/SectionShell";
 import { ExperienceCard } from "./ui/ExperienceCard";
@@ -105,38 +104,14 @@ Iterate on features through continuous learning, experimentation, and feedback t
   },
 ];
 
-function useScrollDirection() {
-  const [direction, setDirection] = useState<"up" | "down">("down");
-  const lastScrollY = useRef(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY.current) {
-        setDirection("down");
-      } else if (currentScrollY < lastScrollY.current) {
-        setDirection("up");
-      }
-      lastScrollY.current = currentScrollY;
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-  return direction;
-}
-
 export function Experience() {
-  const scrollDirection = useScrollDirection();
-  const yMain = scrollDirection === "down" ? -40 : 40;
-  const yGrid = scrollDirection === "down" ? -20 : 20;
-
   return (
     <SectionShell id="experience" tone="default">
       <motion.div
-        initial={{ opacity: 0, y: yMain }}
+        initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
-        viewport={{ once: false, amount: 0.0 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: false, amount: 0.16 }}
       >
         <SectionTitle
           // eyebrow="Work History"
@@ -145,23 +120,23 @@ export function Experience() {
           Experience
         </SectionTitle>
         <motion.div
-          initial={{ opacity: 0, y: yGrid }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
-          viewport={{ once: false, amount: 0.0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: false, amount: 0.16 }}
           className="relative mx-auto max-w-5xl space-y-6 border-l border-slate-200/80 pl-4 dark:border-white/10 sm:space-y-8 sm:pl-8"
         >
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: yGrid }}
+              initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.45,
                 delay: index * 0.04,
-                ease: "easeOut",
+                ease: [0.22, 1, 0.36, 1],
               }}
-              viewport={{ once: false, amount: 0.0 }}
+              viewport={{ once: false, amount: 0.16 }}
             >
               <ExperienceCard {...exp} />
             </motion.div>

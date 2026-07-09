@@ -84,7 +84,7 @@ export function Contact() {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.18 }}
+        viewport={{ once: false, amount: 0.18 }}
         variants={sectionVariants}
       >
         <motion.div variants={contentItemVariants}>
@@ -182,8 +182,14 @@ export function Contact() {
           >
             <Suspense
               fallback={
-                <div className="h-64 flex items-center justify-center">
-                  Loading form…
+                <div className="space-y-5" aria-label="Loading contact form">
+                  <div className="h-5 w-20 animate-pulse rounded-full bg-slate-200/80 dark:bg-white/10" />
+                  <div className="h-12 animate-pulse rounded-xl bg-slate-100 dark:bg-white/[0.06]" />
+                  <div className="h-5 w-20 animate-pulse rounded-full bg-slate-200/80 dark:bg-white/10" />
+                  <div className="h-12 animate-pulse rounded-xl bg-slate-100 dark:bg-white/[0.06]" />
+                  <div className="h-5 w-24 animate-pulse rounded-full bg-slate-200/80 dark:bg-white/10" />
+                  <div className="h-32 animate-pulse rounded-xl bg-slate-100 dark:bg-white/[0.06]" />
+                  <div className="h-12 animate-pulse rounded-xl bg-slate-200/80 dark:bg-white/10" />
                 </div>
               }
             >

@@ -162,6 +162,10 @@ export function ContactForm() {
             // Textarea for message with styling and icon padding
           />
         </div>
+        <p className="mt-2 text-xs leading-5 text-slate-500 dark:text-slate-400">
+          Submitting opens WhatsApp with a pre-filled draft. You can review it
+          before sending.
+        </p>
       </div>
 
       {/* Submit Button */}
@@ -190,40 +194,20 @@ export function ContactForm() {
       {/* Status Messages */}
       {status === "success" && (
         <motion.p
-          initial={{ scale: 0.7, rotate: -10, opacity: 0, y: 30 }}
-          animate={{
-            scale: [1.2, 0.95, 1.05, 1],
-            rotate: [0, 8, -8, 0],
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 300,
-            damping: 12,
-            duration: 0.9,
-          }}
-          className="mt-4 rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-center text-sm font-semibold text-emerald-700 dark:text-emerald-300"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-4 rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-center text-sm font-semibold text-emerald-700 shadow-sm shadow-emerald-500/5 dark:text-emerald-300"
         >
           WhatsApp opened with your message draft!
         </motion.p>
       )}
       {status === "error" && (
         <motion.p
-          initial={{ scale: 0.7, rotate: 10, opacity: 0, y: 30 }}
-          animate={{
-            scale: [1.2, 0.95, 1.05, 1],
-            rotate: [0, -8, 8, 0],
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 300,
-            damping: 12,
-            duration: 0.9,
-          }}
-          className="mt-4 rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-center text-sm font-semibold text-red-700 dark:text-red-300"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-4 rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-center text-sm font-semibold text-red-700 shadow-sm shadow-red-500/5 dark:text-red-300"
         >
           {errorMessage}
         </motion.p>

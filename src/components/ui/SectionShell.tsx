@@ -12,8 +12,8 @@ interface SectionShellProps {
 }
 
 const toneClasses: Record<SectionTone, string> = {
-  default: "bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100",
-  muted: "bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100",
+  default: "bg-white text-slate-900 dark:bg-[#0b1220] dark:text-slate-100",
+  muted: "bg-slate-50 text-slate-900 dark:bg-[#111827] dark:text-slate-100",
 };
 
 export function SectionShell({

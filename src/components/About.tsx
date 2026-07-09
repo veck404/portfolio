@@ -3,7 +3,6 @@ import { GoGoal } from "react-icons/go";
 import { SectionTitle } from "./ui/SectionTitle";
 import { SectionShell } from "./ui/SectionShell";
 import { motion } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
 
 const aboutSections = [
   {
@@ -63,38 +62,14 @@ const aboutSections = [
   },
 ];
 
-function useScrollDirection() {
-  const [direction, setDirection] = useState<"up" | "down">("down");
-  const lastScrollY = useRef(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY.current) {
-        setDirection("down");
-      } else if (currentScrollY < lastScrollY.current) {
-        setDirection("up");
-      }
-      lastScrollY.current = currentScrollY;
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-  return direction;
-}
-
 export function About() {
-  const scrollDirection = useScrollDirection();
-  const yMain = scrollDirection === "down" ? -40 : 40;
-  const yGrid = scrollDirection === "down" ? -20 : 20;
-
   return (
     <SectionShell id="about" tone="muted">
       <motion.div
-        initial={{ opacity: 0, y: yMain }}
+        initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
-        viewport={{ once: false, amount: 0.0 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: false, amount: 0.16 }}
       >
         <SectionTitle
           // eyebrow="Profile"
@@ -123,26 +98,26 @@ export function About() {
 
       {/* About Section Cards */}
       <motion.div
-        initial={{ opacity: 0, y: yGrid }}
+        initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.0, ease: "easeOut" }}
-        viewport={{ once: false, amount: 0.0 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: false, amount: 0.16 }}
         className="grid grid-cols-1 gap-5 sm:gap-6 lg:grid-cols-2"
       >
         {aboutSections.map(({ icon: Icon, title, description, color }, idx) => (
           <motion.div
             key={title}
-            initial={{ opacity: 0, y: yGrid }}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.45,
               delay: idx * 0.04,
-              ease: "easeOut",
+              ease: [0.22, 1, 0.36, 1],
             }}
-            viewport={{ once: false, amount: 0.0 }}
+            viewport={{ once: false, amount: 0.16 }}
             className="group relative h-full"
           >
-            <div className="relative flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white/80 p-5 shadow-sm shadow-slate-950/5 transition-all duration-300 hover:border-primary/25 hover:shadow-xl hover:shadow-primary/10 dark:border-white/10 dark:bg-slate-950/60 dark:shadow-black/20 sm:p-6">
+            <div className="relative flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white/80 p-5 shadow-sm shadow-slate-950/5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:bg-white hover:shadow-lg hover:shadow-primary/10 dark:border-white/10 dark:bg-slate-900/70 dark:shadow-black/20 dark:hover:bg-slate-900/90 sm:p-6">
               <div className="mb-4 flex items-center gap-4">
                 <div
                   className={`rounded-xl p-3 ${color} shadow-lg shadow-slate-950/10`}
