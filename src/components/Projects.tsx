@@ -175,7 +175,7 @@ export function Projects() {
   return (
     <SectionShell id="projects" tone="muted">
       <SectionTitle
-        eyebrow="Featured Work"
+        // eyebrow="Featured Work"
         description={
           <>
             A curated mix of client engagements and personal experiments focused
