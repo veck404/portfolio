@@ -1,10 +1,10 @@
 {
   "name": "vector-portfolio",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.2.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "schwifty": "vite",
     "build": "vite build",
     "images:build": "node ./tools/generate-image-variants.js",
     "lint": "eslint .",
