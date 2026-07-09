@@ -11,14 +11,17 @@ import { motion } from "framer-motion";
 
 // import Magnet from "./reactbits/Magnet/Magnet";
 
+const softEase = [0.22, 1, 0.36, 1] as const;
+
 const sectionVariants = {
-  hidden: { opacity: 0, y: 32 },
+  hidden: { opacity: 0, y: 14, filter: "blur(6px)" },
   visible: {
     opacity: 1,
     y: 0,
+    filter: "blur(0px)",
     transition: {
-      duration: 0.5,
-      ease: "easeOut",
+      duration: 0.65,
+      ease: softEase,
     },
   },
 };
@@ -27,43 +30,53 @@ const gridVariants = {
   hidden: {},
   visible: {
     transition: {
-      delayChildren: 0.05,
-      staggerChildren: 0.16,
+      delayChildren: 0.08,
+      staggerChildren: 0.08,
     },
   },
 };
 
 const leftColumnVariants = {
-  hidden: { opacity: 0, x: -36, y: 24, scale: 0.98 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
-    x: 0,
     y: 0,
-    scale: 1,
-    transition: { duration: 0.55, type: "spring", bounce: 0.18 },
+    transition: { duration: 0.55, ease: softEase },
   },
 };
 
 const rightColumnVariants = {
-  hidden: { opacity: 0, x: 36, y: 24, scale: 0.98 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
-    x: 0,
     y: 0,
-    scale: 1,
-    transition: { duration: 0.55, type: "spring", bounce: 0.18 },
+    transition: { duration: 0.55, ease: softEase },
   },
 };
 
 const iconVariants = {
-  hidden: { scale: 0.7, rotate: -20, opacity: 0 },
+  hidden: { opacity: 0, y: 8 },
   visible: {
-    scale: 1,
-    rotate: 0,
     opacity: 1,
-    transition: { type: "spring", stiffness: 400, damping: 18, duration: 0.5 },
+    y: 0,
+    transition: { duration: 0.38, ease: softEase },
   },
 };
+
+const contentItemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: softEase },
+  },
+};
+
+const contactLinkClass =
+  "group relative flex min-w-0 items-center gap-3 overflow-hidden rounded-xl border border-slate-200/70 bg-slate-50/80 px-4 py-3 text-sm text-slate-600 shadow-sm shadow-transparent transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-white hover:text-primary-600 hover:shadow-md hover:shadow-primary/10 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:border-primary/30 dark:hover:bg-white/[0.07] dark:hover:text-primary-300 dark:hover:shadow-black/20";
+
+const contactIconClass =
+  "relative h-5 w-5 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-primary-600 dark:group-hover:text-primary-300";
 
 export function Contact() {
   return (
@@ -71,24 +84,15 @@ export function Contact() {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.18 }}
         variants={sectionVariants}
       >
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, type: "spring", bounce: 0.3 }}
-        >
+        <motion.div variants={contentItemVariants}>
           <SectionTitle
             // eyebrow="Contact"
             description="Have a product idea, website, or workflow that needs sharper execution? Send a message and I'll respond through WhatsApp."
           >
-            <motion.span
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.7, type: "spring" }}
-              className="inline-block"
-            >
+            <motion.span variants={contentItemVariants} className="inline-block">
               Get In Touch
             </motion.span>
           </SectionTitle>
@@ -103,33 +107,19 @@ export function Contact() {
             className="relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white/80 p-5 shadow-sm shadow-slate-950/5 dark:border-white/10 dark:bg-slate-950/60 dark:shadow-black/20 sm:p-6 lg:p-8"
           >
             <h3 className="mb-4 font-heading text-2xl font-semibold tracking-[-0.01em] text-slate-950 dark:text-white">
-              <motion.span
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2, duration: 0.7, type: "spring" }}
-                className="inline-block"
-              >
+              <motion.span variants={contentItemVariants} className="inline-block">
                 Let's Connect...
               </motion.span>
             </h3>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.7, type: "spring" }}
+              variants={contentItemVariants}
               className="mb-6 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base"
             >
               Bring your product idea, website, or workflow challenge and let's
               shape it into something reliable, polished, and useful.
             </motion.p>
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                delay: 0.4,
-                duration: 0.7,
-                type: "spring",
-                bounce: 0.3,
-              }}
+              variants={contentItemVariants}
               className="mb-6 flex"
             >
               <span className="inline-flex rounded-xl border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary-700 shadow-sm shadow-primary/5 dark:border-primary/25 dark:bg-primary/20 dark:text-primary-200">
@@ -139,49 +129,49 @@ export function Contact() {
             <div className="space-y-3">
               <motion.a
                 href="mailto:veck404@gmail.com"
-                className="flex min-w-0 items-center gap-3 rounded-xl border border-slate-200/70 bg-slate-50/80 px-4 py-3 text-sm text-slate-600 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:text-primary-600 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:text-primary-300"
+                className={contactLinkClass}
                 variants={iconVariants}
-                whileHover={{ scale: 1.12, rotate: 4 }}
-                whileTap={{ scale: 0.95, rotate: 0 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <Mail className="h-5 w-5 shrink-0" />
-                <span className="truncate">veck404@gmail.com</span>
+                <span className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <Mail className={contactIconClass} />
+                <span className="relative truncate">veck404@gmail.com</span>
               </motion.a>
               <motion.a
                 href="https://www.linkedin.com/in/veck404/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex min-w-0 items-center gap-3 rounded-xl border border-slate-200/70 bg-slate-50/80 px-4 py-3 text-sm text-slate-600 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:text-primary-600 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:text-primary-300"
+                className={contactLinkClass}
                 variants={iconVariants}
-                whileHover={{ scale: 1.12, rotate: 4 }}
-                whileTap={{ scale: 0.95, rotate: 0 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <Linkedin className="h-5 w-5 shrink-0" />
-                <span className="truncate">linkedin.com/in/veck404</span>
+                <span className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <Linkedin className={contactIconClass} />
+                <span className="relative truncate">linkedin.com/in/veck404</span>
               </motion.a>
               <motion.a
                 href="https://x.com/veck404"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex min-w-0 items-center gap-3 rounded-xl border border-slate-200/70 bg-slate-50/80 px-4 py-3 text-sm text-slate-600 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:text-primary-600 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:text-primary-300"
+                className={contactLinkClass}
                 variants={iconVariants}
-                whileHover={{ scale: 1.12, rotate: 4 }}
-                whileTap={{ scale: 0.95, rotate: 0 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <Twitter className="h-5 w-5 shrink-0" />
-                <span className="truncate">x.com/veck404</span>
+                <span className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <Twitter className={contactIconClass} />
+                <span className="relative truncate">x.com/veck404</span>
               </motion.a>
               <motion.a
                 href="https://wa.me/2347066733522"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex min-w-0 items-center gap-3 rounded-xl border border-slate-200/70 bg-slate-50/80 px-4 py-3 text-sm text-slate-600 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:text-primary-600 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:text-primary-300"
+                className={contactLinkClass}
                 variants={iconVariants}
-                whileHover={{ scale: 1.12, rotate: 4 }}
-                whileTap={{ scale: 0.95, rotate: 0 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <FaWhatsapp className="h-5 w-5 shrink-0" />
-                <span className="truncate">+2347066733522</span>
+                <span className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <FaWhatsapp className={contactIconClass} />
+                <span className="relative truncate">+2347066733522</span>
               </motion.a>
             </div>
           </motion.div>
