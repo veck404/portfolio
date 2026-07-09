@@ -37,8 +37,26 @@
 }
 
 @layer utilities {
-  .bg-grid-pattern {
-    @apply [background-size:24px_24px] [background-image:linear-gradient(to_right,#6366f1_1px,transparent_1px),linear-gradient(to_bottom,#6366f1_1px,transparent_1px)];
+  .hero-gradient-blur {
+    --hero-glow-primary: rgba(99, 102, 241, 0.28);
+    --hero-glow-accent: rgba(34, 211, 238, 0.18);
+    --hero-glow-warm: rgba(244, 114, 182, 0.14);
+    --hero-glow-soft: rgba(255, 255, 255, 0.72);
+    background-image:
+      radial-gradient(circle at 18% 20%, var(--hero-glow-primary), transparent 34%),
+      radial-gradient(circle at 84% 18%, var(--hero-glow-accent), transparent 32%),
+      radial-gradient(circle at 62% 76%, var(--hero-glow-warm), transparent 38%),
+      linear-gradient(135deg, var(--hero-glow-soft), transparent 58%);
+    filter: blur(42px);
+    transform: scale(1.12) translate3d(0, 0, 0);
+    animation: hero-gradient-blur 16s ease-in-out infinite alternate;
+  }
+
+  .dark .hero-gradient-blur {
+    --hero-glow-primary: rgba(99, 102, 241, 0.22);
+    --hero-glow-accent: rgba(34, 211, 238, 0.14);
+    --hero-glow-warm: rgba(168, 85, 247, 0.12);
+    --hero-glow-soft: rgba(15, 23, 42, 0.84);
   }
 
   .animate-fade-in {
@@ -51,6 +69,21 @@
 
   .animate-wave {
     @apply motion-safe:animate-[wave_2s_ease-in-out_infinite];
+  }
+}
+
+@keyframes hero-gradient-blur {
+  0% {
+    filter: blur(34px);
+    transform: scale(1.08) translate3d(-2%, -1%, 0);
+  }
+  50% {
+    filter: blur(50px);
+    transform: scale(1.14) translate3d(1.5%, 2%, 0);
+  }
+  100% {
+    filter: blur(40px);
+    transform: scale(1.12) translate3d(2%, -1%, 0);
   }
 }
 

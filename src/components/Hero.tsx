@@ -37,7 +37,8 @@ export function Hero() {
       {/* Animated background */}
       <div className="absolute inset-0 opacity-90">
         <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(248,250,252,0.92),rgba(255,255,255,0.74)_45%,rgba(238,242,255,0.78))] dark:bg-[linear-gradient(120deg,rgba(2,6,23,0.98),rgba(15,23,42,0.92)_50%,rgba(30,41,59,0.74))]" />
-        <div className="absolute inset-0 bg-grid-pattern opacity-[0.035] dark:opacity-[0.045]" />
+        <div className="hero-gradient-blur absolute inset-[-18%] opacity-90 dark:opacity-100" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.18),transparent_62%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.055),transparent_66%)]" />
       </div>
 
       <div className="container relative z-10 mx-auto max-w-6xl px-5 pb-10 pt-2 sm:px-6 sm:pb-20 sm:pt-8 lg:px-8">
