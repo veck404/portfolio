@@ -36,5 +36,5 @@ cd portfolio
 npm install
 
 # Start development server
-npm run dev
+npm run schwifty
 ```
