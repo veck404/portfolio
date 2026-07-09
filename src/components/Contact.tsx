@@ -4,8 +4,9 @@ import React, { Suspense } from "react";
 const ContactForm = React.lazy(() =>
   import("./ui/ContactForm").then((m) => ({ default: m.ContactForm })),
 );
-import { Mail, Twitter, Linkedin } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
+import { Mail } from "lucide-react";
+import { FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { motion } from "framer-motion";
 // import { useRef, useEffect, useState } from "react";
 
@@ -146,7 +147,7 @@ export function Contact() {
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <Linkedin className={contactIconClass} />
+                <FaLinkedin className={contactIconClass} />
                 <span className="relative truncate">linkedin.com/in/veck404</span>
               </motion.a>
               <motion.a
@@ -158,7 +159,7 @@ export function Contact() {
                 whileTap={{ scale: 0.98 }}
               >
                 <span className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <Twitter className={contactIconClass} />
+                <FaXTwitter className={contactIconClass} />
                 <span className="relative truncate">x.com/veck404</span>
               </motion.a>
               <motion.a

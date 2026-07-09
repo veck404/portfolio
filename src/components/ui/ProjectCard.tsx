@@ -1,5 +1,6 @@
 import React from "react";
-import { Github, Globe } from "lucide-react";
+import { Globe } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 // Tone-aware tech stack badge descriptor used throughout the grid
 interface TechStackItem {
@@ -108,7 +109,7 @@ export const ProjectCard = React.memo(function ProjectCard({
                   aria-label={`${title} source code`}
                   className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200/80 bg-white/70 text-slate-500 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-primary/10 hover:text-primary-500 dark:border-white/10 dark:bg-slate-900/70 dark:text-slate-300 dark:hover:border-primary/40 dark:hover:text-primary-300"
                 >
-                  <Github className="h-5 w-5" />
+                  <FaGithub className="h-5 w-5" />
                 </a>
               )}
               {link && (
