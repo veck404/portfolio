@@ -102,16 +102,25 @@ Iterate on features through continuous learning, experimentation, and feedback t
       "Collaboration",
     ],
   },
+  {
+    title: "Front-End Developer",
+    company: "LightBox, Abuja",
+    period: "Mar 2020 - Sep 2020",
+    description: `Worked as a front-end developer on production projects for various company clients.
+Built responsive, user-facing interfaces using HTML, CSS, React, and Tailwind CSS.
+Collaborated on client requirements and delivered clean front-end implementations for live web projects.`,
+    skills: ["HTML/CSS", "React", "Tailwind CSS"],
+  },
 ];
 
 export function Experience() {
   return (
     <SectionShell id="experience" tone="default">
       <motion.div
-        initial={{ opacity: 0, y: 18 }}
+        initial={{ opacity: 0, y: 9 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        viewport={{ once: false, amount: 0.16 }}
+        viewport={{ once: false, amount: 0.08 }}
       >
         <SectionTitle
           // eyebrow="Work History"
@@ -120,23 +129,23 @@ export function Experience() {
           Experience
         </SectionTitle>
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 9 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          viewport={{ once: false, amount: 0.16 }}
+          viewport={{ once: false, amount: 0.08 }}
           className="relative mx-auto max-w-5xl space-y-6 border-l border-slate-200/80 pl-4 dark:border-white/10 sm:space-y-8 sm:pl-8"
         >
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 7 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.45,
                 delay: index * 0.04,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              viewport={{ once: false, amount: 0.16 }}
+              viewport={{ once: false, amount: 0.08 }}
             >
               <ExperienceCard {...exp} />
             </motion.div>
